@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkq5sixfyrbon"]
+
+[ext_resource type="Texture2D" uid="uid://nhorwn0tuuwk" path="res://Art/elpant.png" id="1_ftfxt"]
+[ext_resource type="Script" path="res://Levels/Elephant.cs" id="1_rbr7a"]
+
+[node name="Elephant" type="Node2D"]
+script = ExtResource("1_rbr7a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ftfxt")
