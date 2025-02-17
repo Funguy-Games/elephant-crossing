@@ -1,10 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkq5sixfyrbon"]
+[gd_scene load_steps=5 format=3 uid="uid://bkq5sixfyrbon"]
 
 [ext_resource type="Texture2D" uid="uid://nhorwn0tuuwk" path="res://Art/elpant.png" id="1_ftfxt"]
 [ext_resource type="Script" path="res://Levels/Elephant.cs" id="1_rbr7a"]
+[ext_resource type="Texture2D" uid="uid://cqqiy35t6jx3p" path="res://Art/peepeepoopoo.png" id="2_1f63p"]
+[ext_resource type="Script" path="res://Characters/ControlSlider.cs" id="4_64nxf"]
 
 [node name="Elephant" type="Node2D"]
 script = ExtResource("1_rbr7a")
 
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 3
+points = PackedVector2Array(0, 0, -285, 0)
+width = 100.0
+texture = ExtResource("2_1f63p")
+texture_mode = 1
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ftfxt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSlider" type="VSlider" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 16.0
+grow_vertical = 2
+scale = Vector2(5, 1)
+min_value = -100.0
+script = ExtResource("4_64nxf")
+
+[node name="VSlider2" type="VSlider" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_right = -68.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(5, 1)
+min_value = -100.0
+script = ExtResource("4_64nxf")
