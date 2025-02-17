@@ -7,6 +7,7 @@ public partial class SpawnChild : Node2D
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 
+	[Export] PackedScene scene = null;
 
 	public override void _Ready()
 	{
@@ -14,7 +15,6 @@ public partial class SpawnChild : Node2D
 	}
 	private void spawn()
 	{
-		PackedScene scene = GD.Load<PackedScene>("res://icon.tscn");
 		PathFollow2D s = scene.Instantiate<PathFollow2D>();
 		GetTree().Root.GetNode<Path2D>("Main/Path2D").AddChild(s);
 	}

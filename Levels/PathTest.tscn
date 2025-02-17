@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1rnks6dapapp"]
+[gd_scene load_steps=6 format=3 uid="uid://d1rnks6dapapp"]
 
-[ext_resource type="Texture2D" uid="uid://pjuker4dfa7p" path="res://saadan_vareja.png" id="1_18jbw"]
-[ext_resource type="Script" path="res://SpawnChild.cs" id="1_ec04e"]
+[ext_resource type="Texture2D" uid="uid://g8kcbj24i61" path="res://saadan_vareja.png" id="1_pgkfs"]
+[ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="1_rgbt2"]
+[ext_resource type="PackedScene" uid="uid://day1h4063mv8u" path="res://Levels/icon.tscn" id="2_lopy2"]
+[ext_resource type="PackedScene" uid="uid://8ikldjsi5s05" path="res://Levels/main.tscn" id="4_mt1e3"]
 
 [sub_resource type="Curve2D" id="Curve2D_vptup"]
 _data = {
@@ -14,7 +16,8 @@ point_count = 13
 [node name="Spawn" type="Node2D" parent="."]
 position = Vector2(3, -9)
 scale = Vector2(1, 0.675885)
-script = ExtResource("1_ec04e")
+script = ExtResource("1_rgbt2")
+scene = ExtResource("2_lopy2")
 
 [node name="Timer" type="Timer" parent="Spawn"]
 autostart = true
@@ -28,4 +31,7 @@ curve = SubResource("Curve2D_vptup")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 scale = Vector2(1, 0.675885)
-texture = ExtResource("1_18jbw")
+texture = ExtResource("1_pgkfs")
+
+[node name="Main" parent="." instance=ExtResource("4_mt1e3")]
+position = Vector2(24, -118)
