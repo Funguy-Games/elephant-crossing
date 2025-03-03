@@ -1,23 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://eq1hgurkc3sx"]
+[gd_scene load_steps=7 format=3 uid="uid://eq1hgurkc3sx"]
 
 [ext_resource type="Texture2D" uid="uid://g8kcbj24i61" path="res://saadan_vareja.png" id="1_pgkfs"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="1_rgbt2"]
-[ext_resource type="PackedScene" uid="uid://day1h4063mv8u" path="res://Levels/icon.tscn" id="2_lopy2"]
+[ext_resource type="PackedScene" uid="uid://day1h4063mv8u" path="res://Levels/Trash.tscn" id="2_r5uyy"]
+[ext_resource type="PackedScene" uid="uid://b3m8vak06itrg" path="res://Levels/Banana.tscn" id="3_bp8vo"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="4_13r8d"]
 
 [sub_resource type="Curve2D" id="Curve2D_vptup"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -391.443, 150, 0, 0, 0, 0, -191.014, 154, 0, 0, 0, 0, -143.677, 136, 0, 0, 0, 0, -127, 99, 0, 0, 0, 0, -148, 14, 0, 0, 0, 0, -147, -2, 0, 0, 0, 0, -107, -16, 0, 0, 0, 0, 133, -17, 0, 0, 0, 0, 164, -7, 0, 0, 0, 0, 181, 19, 0, 0, 0, 0, 178, 189, 0, 0, 0, 0, 183, 226, 0, 0, 0, 0, 372, 228)
+"points": PackedVector2Array(0, 0, 0, 0, -612.366, 158, 0, 0, 0, 0, -242.731, 155, -14.6968, 18.8012, 14.6968, -18.8012, -191.364, 146, 0, 0, 0, 0, -175.25, 118, 0, 0, 0, 0, -175.25, 100, 0, 0, 0, 0, -197.408, 39, -0.672972, 7.34991, 0.672972, -7.34991, -196.4, 2, 0, 0, 0, 0, -106.761, -13, 0, 0, 0, 0, 133, -17, 0, 0, 0, 0, 226.616, -15, 0, 0, 0, 0, 241.724, 25, 0, 0, 0, 0, 245.752, 178, 0, 0, 0, 0, 243.738, 245, 0, 0, 0, 0, 330.355, 252, 0, 0, 0, 0, 612.366, 242)
 }
-point_count = 13
+point_count = 15
 
 [node name="Main" type="Node2D"]
 
 [node name="Spawn" type="Node2D" parent="."]
-position = Vector2(3, -9)
+position = Vector2(2, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("1_rgbt2")
-scene = ExtResource("2_lopy2")
+trash1 = ExtResource("2_r5uyy")
+trash2 = ExtResource("3_bp8vo")
 
 [node name="Timer" type="Timer" parent="Spawn"]
 autostart = true
@@ -30,9 +32,10 @@ curve = SubResource("Curve2D_vptup")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-scale = Vector2(1, 0.675885)
+position = Vector2(-1.50001, 1.00002)
+scale = Vector2(1.36525, 0.719027)
 texture = ExtResource("1_pgkfs")
 
 [node name="Elephant" parent="." instance=ExtResource("4_13r8d")]
-position = Vector2(6, -146)
+position = Vector2(7, -143)
 scale = Vector2(0.27, 0.27)
