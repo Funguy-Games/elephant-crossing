@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://brf33xdwtqa0y"]
+
+[ext_resource type="Script" path="res://Characters/ControlSlider.cs" id="1_jf1l2"]
+
+[node name="ControlSlider" type="VSlider"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 16.0
+grow_vertical = 2
+scale = Vector2(5, 1)
+min_value = -100.0
+script = ExtResource("1_jf1l2")

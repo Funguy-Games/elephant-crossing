@@ -6,7 +6,7 @@ public partial class Elephant : Node2D
 	Vector2 pointPos = Vector2.Zero;
     public override void _Process(double delta)
     {
-		float rotation = (float) GetNode<VSlider>("CanvasLayer/Control/VSlider").Value;
+		float rotation = (float) GetNode<VSlider>("CanvasLayer/Control/LeftSliderArea/ControlSlider").Value;
 		Rotation += rotation * 0.1f * (float) delta;
 		float scale = (float) GetNode<VSlider>("CanvasLayer/Control/VSlider2").Value;
 		Line2D loin =  GetNode<Line2D>("Line2D");

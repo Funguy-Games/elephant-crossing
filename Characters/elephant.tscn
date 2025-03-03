@@ -1,9 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkq5sixfyrbon"]
+[gd_scene load_steps=11 format=3 uid="uid://bkq5sixfyrbon"]
 
 [ext_resource type="Texture2D" uid="uid://nhorwn0tuuwk" path="res://Art/elpant.png" id="1_ftfxt"]
-[ext_resource type="Script" path="res://Levels/Elephant.cs" id="1_rbr7a"]
+[ext_resource type="Script" path="res://Scripts/Elephant.cs" id="1_rbr7a"]
 [ext_resource type="Texture2D" uid="uid://cqqiy35t6jx3p" path="res://Art/peepeepoopoo.png" id="2_1f63p"]
 [ext_resource type="Script" path="res://Characters/ControlSlider.cs" id="4_64nxf"]
+[ext_resource type="PackedScene" uid="uid://brf33xdwtqa0y" path="res://Levels/control_slider.tscn" id="4_156ig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q74j5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhksx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnbq3"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.870588)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="Theme" id="Theme_rhxhl"]
+VSlider/styles/grabber_area = SubResource("StyleBoxEmpty_q74j5")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_dhksx")
+VSlider/styles/slider = SubResource("StyleBoxFlat_xnbq3")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ca4jk"]
+size = Vector2(40, 30)
 
 [node name="Elephant" type="Node2D"]
 script = ExtResource("1_rbr7a")
@@ -28,15 +51,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VSlider" type="VSlider" parent="CanvasLayer/Control"]
+[node name="LeftSliderArea" type="ColorRect" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 16.0
+offset_right = 185.0
 grow_vertical = 2
-scale = Vector2(5, 1)
-min_value = -100.0
-script = ExtResource("4_64nxf")
+color = Color(0, 0, 0, 1)
+
+[node name="ControlSlider" parent="CanvasLayer/Control/LeftSliderArea" instance=ExtResource("4_156ig")]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+scale = Vector2(1, 1)
+theme = SubResource("Theme_rhxhl")
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_ca4jk")
 
 [node name="VSlider2" type="VSlider" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -49,5 +84,7 @@ offset_right = -68.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(5, 1)
+focus_mode = 0
 min_value = -100.0
+scrollable = false
 script = ExtResource("4_64nxf")
