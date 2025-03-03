@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Icon.cs" id="1_omjbr"]
 [ext_resource type="Texture2D" uid="uid://b5hwqolqfoox8" path="res://Art/Garbage-PNG-Background-Image.png" id="2_jgbt2"]
 
-[node name="Icon" type="PathFollow2D"]
+[node name="Trash" type="PathFollow2D"]
 rotates = false
 loop = false
 script = ExtResource("1_omjbr")
