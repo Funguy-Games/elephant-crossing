@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://g8kcbj24i61" path="res://saadan_vareja.png" id="1_pgkfs"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="1_rgbt2"]
-[ext_resource type="PackedScene" uid="uid://day1h4063mv8u" path="res://Levels/Trash.tscn" id="2_r5uyy"]
-[ext_resource type="PackedScene" uid="uid://b3m8vak06itrg" path="res://Levels/Banana.tscn" id="3_bp8vo"]
+[ext_resource type="PackedScene" path="res://Levels/Trash.tscn" id="2_r5uyy"]
+[ext_resource type="PackedScene" path="res://Levels/Banana.tscn" id="3_bp8vo"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="4_13r8d"]
 
 [sub_resource type="Curve2D" id="Curve2D_vptup"]
@@ -22,6 +22,7 @@ trash1 = ExtResource("2_r5uyy")
 trash2 = ExtResource("3_bp8vo")
 
 [node name="Timer" type="Timer" parent="Spawn"]
+wait_time = 3.055
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -32,8 +33,8 @@ curve = SubResource("Curve2D_vptup")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-1.50001, 1.00002)
-scale = Vector2(1.36525, 0.719027)
+position = Vector2(0.500048, -0.999996)
+scale = Vector2(1.51182, 0.792035)
 texture = ExtResource("1_pgkfs")
 
 [node name="Elephant" parent="." instance=ExtResource("4_13r8d")]
