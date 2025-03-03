@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkq5sixfyrbon"]
+[gd_scene load_steps=12 format=3 uid="uid://bkq5sixfyrbon"]
 
-[ext_resource type="Texture2D" uid="uid://nhorwn0tuuwk" path="res://Art/elpant.png" id="1_ftfxt"]
 [ext_resource type="Script" path="res://Scripts/Elephant.cs" id="1_rbr7a"]
-[ext_resource type="Texture2D" uid="uid://cqqiy35t6jx3p" path="res://Art/peepeepoopoo.png" id="2_1f63p"]
+[ext_resource type="Texture2D" uid="uid://gd8jhmmj868r" path="res://Art/norsu/kärsänpää.png" id="2_754wv"]
+[ext_resource type="Texture2D" uid="uid://7u72c6c38t4c" path="res://Art/norsu/kärsänvarsi.png" id="2_hnwgo"]
+[ext_resource type="Texture2D" uid="uid://e33mwuneido" path="res://Art/norsu/norsunkeho.png" id="3_m42rm"]
 [ext_resource type="Script" path="res://Characters/ControlSlider.cs" id="4_64nxf"]
 [ext_resource type="PackedScene" uid="uid://brf33xdwtqa0y" path="res://Levels/control_slider.tscn" id="4_156ig"]
 
@@ -29,17 +30,25 @@ VSlider/styles/slider = SubResource("StyleBoxFlat_xnbq3")
 size = Vector2(40, 30)
 
 [node name="Elephant" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_rbr7a")
+
+[node name="TrunkHead" type="Sprite2D" parent="."]
+position = Vector2(-620.215, 0)
+rotation = -3.14159
+texture = ExtResource("2_754wv")
 
 [node name="Line2D" type="Line2D" parent="."]
 texture_repeat = 3
-points = PackedVector2Array(0, 0, -285, 0)
-width = 100.0
-texture = ExtResource("2_1f63p")
-texture_mode = 1
+position = Vector2(-500, 0)
+points = PackedVector2Array(0, 0, -100, 0)
+width = 86.0
+texture = ExtResource("2_hnwgo")
+texture_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ftfxt")
+rotation = 1.5708
+texture = ExtResource("3_m42rm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
