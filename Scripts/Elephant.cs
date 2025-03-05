@@ -33,9 +33,11 @@ public partial class Elephant : Node2D
 
 	public void On2DBodyEntered(Node2D body)
 	{
-		_carryable = body.GetParent<Icon>();
-		_carryable.isMoving = false;
-
+		if (_carryable == null)
+		{
+			_carryable = body.GetParent<Icon>();
+			_carryable.isMoving = false;
+		}
 	}
 
 }
