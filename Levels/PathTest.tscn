@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://eq1hgurkc3sx"]
+[gd_scene load_steps=8 format=3 uid="uid://eq1hgurkc3sx"]
 
 [ext_resource type="Texture2D" uid="uid://g8kcbj24i61" path="res://saadan_vareja.png" id="1_pgkfs"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="1_rgbt2"]
 [ext_resource type="PackedScene" path="res://Levels/Trash.tscn" id="2_r5uyy"]
 [ext_resource type="PackedScene" uid="uid://d2gw3v7qd1prg" path="res://Levels/Banana.tscn" id="3_bp8vo"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="4_13r8d"]
+[ext_resource type="PackedScene" uid="uid://cf67oakw60o4e" path="res://Levels/basket.tscn" id="6_s7wm6"]
 
 [sub_resource type="Curve2D" id="Curve2D_vptup"]
 _data = {
@@ -40,4 +41,7 @@ texture = ExtResource("1_pgkfs")
 
 [node name="Elephant" parent="." instance=ExtResource("4_13r8d")]
 position = Vector2(7, -143)
-scale = Vector2(0.09, 0.09)
+scale = Vector2(0.15, 0.15)
+
+[node name="Basket" parent="." instance=ExtResource("6_s7wm6")]
+position = Vector2(-25, 76)

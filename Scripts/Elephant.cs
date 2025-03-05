@@ -33,11 +33,32 @@ public partial class Elephant : Node2D
 
 	public void On2DBodyEntered(Node2D body)
 	{
+		if (body.IsInGroup("Pickupable"))
+		{
+			PickupItem(body);
+		}
+		else if (body.IsInGroup("Basket"))
+		{
+			PutDownItem();
+		}
+
+	}
+
+	private void PickupItem(Node2D item)
+	{
 		if (_carryable == null)
 		{
-			_carryable = body.GetParent<Icon>();
+			_carryable = item.GetParent<Icon>();
 			_carryable.isMoving = false;
 		}
+	}
+
+	private void PutDownItem()
+	{
+		if(_carryable == null)
+			return;
+		_carryable.QueueFree();
+		_carryable = null;
 	}
 
 }

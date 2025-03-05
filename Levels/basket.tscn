@@ -11,7 +11,7 @@ size = Vector2(50, 50)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_n4fac")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Basket"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["Basket"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_paisd")
