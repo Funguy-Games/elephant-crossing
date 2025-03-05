@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkq5sixfyrbon"]
+[gd_scene load_steps=13 format=3 uid="uid://bkq5sixfyrbon"]
 
 [ext_resource type="Script" path="res://Scripts/Elephant.cs" id="1_rbr7a"]
 [ext_resource type="Texture2D" uid="uid://gd8jhmmj868r" path="res://Art/norsu/kärsänpää.png" id="2_754wv"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://e33mwuneido" path="res://Art/norsu/norsunkeho.png" id="3_m42rm"]
 [ext_resource type="Script" path="res://Characters/ControlSlider.cs" id="4_64nxf"]
 [ext_resource type="PackedScene" uid="uid://brf33xdwtqa0y" path="res://Levels/control_slider.tscn" id="4_156ig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iemfp"]
+radius = 65.98
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q74j5"]
 
@@ -37,6 +40,11 @@ script = ExtResource("1_rbr7a")
 position = Vector2(-620.215, 0)
 rotation = -3.14159
 texture = ExtResource("2_754wv")
+
+[node name="Area2D" type="Area2D" parent="TrunkHead"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrunkHead/Area2D"]
+shape = SubResource("CircleShape2D_iemfp")
 
 [node name="Line2D" type="Line2D" parent="."]
 texture_repeat = 3
@@ -97,3 +105,5 @@ focus_mode = 0
 min_value = -100.0
 scrollable = false
 script = ExtResource("4_64nxf")
+
+[connection signal="body_entered" from="TrunkHead/Area2D" to="." method="On2DBodyEntered"]
