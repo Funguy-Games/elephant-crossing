@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://g8kcbj24i61" path="res://saadan_vareja.png" id="1_pgkfs"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="1_rgbt2"]
-[ext_resource type="PackedScene" path="res://Levels/Trash.tscn" id="2_r5uyy"]
+[ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="2_r5uyy"]
 [ext_resource type="PackedScene" uid="uid://d2gw3v7qd1prg" path="res://Levels/Banana.tscn" id="3_bp8vo"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="4_13r8d"]
 [ext_resource type="PackedScene" uid="uid://cf67oakw60o4e" path="res://Levels/basket.tscn" id="6_s7wm6"]
@@ -36,7 +36,8 @@ curve = SubResource("Curve2D_vptup")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-scale = Vector2(2.275, 1.225)
+position = Vector2(0, 3.99999)
+scale = Vector2(1.51064, 0.79646)
 texture = ExtResource("1_pgkfs")
 
 [node name="Elephant" parent="." instance=ExtResource("4_13r8d")]

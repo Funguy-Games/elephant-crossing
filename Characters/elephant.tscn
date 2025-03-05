@@ -10,11 +10,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_iemfp"]
 radius = 65.98
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q74j5"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_af5kk"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhksx"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyxfs"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnbq3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1lc3"]
 content_margin_left = 20.0
 content_margin_right = 20.0
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.870588)
@@ -25,9 +25,9 @@ corner_radius_bottom_left = 4
 corner_detail = 6
 
 [sub_resource type="Theme" id="Theme_rhxhl"]
-VSlider/styles/grabber_area = SubResource("StyleBoxEmpty_q74j5")
-VSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_dhksx")
-VSlider/styles/slider = SubResource("StyleBoxFlat_xnbq3")
+VSlider/styles/grabber_area = SubResource("StyleBoxEmpty_af5kk")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_gyxfs")
+VSlider/styles/slider = SubResource("StyleBoxFlat_e1lc3")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ca4jk"]
 size = Vector2(40, 30)
@@ -59,6 +59,7 @@ rotation = 1.5708
 texture = ExtResource("3_m42rm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 0.001
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3

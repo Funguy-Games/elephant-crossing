@@ -57,6 +57,9 @@ public partial class Elephant : Node2D
 	{
 		if(_carryable == null)
 			return;
+
+		// TODO: Check which basket it is
+		// TODO: add points to basket
 		_carryable.QueueFree();
 		_carryable = null;
 	}
