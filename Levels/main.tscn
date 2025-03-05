@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=9 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
+[ext_resource type="PackedScene" uid="uid://brf33xdwtqa0y" path="res://Levels/control_slider.tscn" id="2_jxt27"]
+[ext_resource type="Script" path="res://Characters/ControlSlider.cs" id="3_oykfs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q74j5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhksx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnbq3"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.870588)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="Theme" id="Theme_mfxkv"]
+VSlider/styles/grabber_area = SubResource("StyleBoxEmpty_q74j5")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_dhksx")
+VSlider/styles/slider = SubResource("StyleBoxFlat_xnbq3")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vkiar"]
+size = Vector2(40, 30)
 
 [node name="Main" type="Node2D"]
 
@@ -9,3 +33,48 @@
 [node name="Elephant" parent="." instance=ExtResource("1_sbqsv")]
 position = Vector2(-16.0001, -19)
 scale = Vector2(0.4, 0.4)
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="LeftSliderArea" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 185.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ControlSlider" parent="Control/LeftSliderArea" instance=ExtResource("2_jxt27")]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+scale = Vector2(1, 1)
+theme = SubResource("Theme_mfxkv")
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_vkiar")
+
+[node name="VSlider2" type="VSlider" parent="Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_right = -68.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(5, 1)
+focus_mode = 0
+min_value = -100.0
+scrollable = false
+script = ExtResource("3_oykfs")

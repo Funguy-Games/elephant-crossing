@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkq5sixfyrbon"]
+[gd_scene load_steps=13 format=3 uid="uid://bkq5sixfyrbon"]
 
 [ext_resource type="Script" path="res://Scripts/Elephant.cs" id="1_rbr7a"]
 [ext_resource type="Texture2D" uid="uid://gd8jhmmj868r" path="res://Art/norsu/kärsänpää.png" id="2_754wv"]
@@ -7,11 +7,14 @@
 [ext_resource type="Script" path="res://Characters/ControlSlider.cs" id="4_64nxf"]
 [ext_resource type="PackedScene" uid="uid://brf33xdwtqa0y" path="res://Levels/control_slider.tscn" id="4_156ig"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q74j5"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_iemfp"]
+radius = 65.98
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhksx"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_af5kk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnbq3"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyxfs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1lc3"]
 content_margin_left = 20.0
 content_margin_right = 20.0
 bg_color = Color(0.101961, 0.101961, 0.101961, 0.870588)
@@ -22,9 +25,9 @@ corner_radius_bottom_left = 4
 corner_detail = 6
 
 [sub_resource type="Theme" id="Theme_rhxhl"]
-VSlider/styles/grabber_area = SubResource("StyleBoxEmpty_q74j5")
-VSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_dhksx")
-VSlider/styles/slider = SubResource("StyleBoxFlat_xnbq3")
+VSlider/styles/grabber_area = SubResource("StyleBoxEmpty_af5kk")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_gyxfs")
+VSlider/styles/slider = SubResource("StyleBoxFlat_e1lc3")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ca4jk"]
 size = Vector2(40, 30)
@@ -37,6 +40,11 @@ script = ExtResource("1_rbr7a")
 position = Vector2(-620.215, 0)
 rotation = -3.14159
 texture = ExtResource("2_754wv")
+
+[node name="Area2D" type="Area2D" parent="TrunkHead"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrunkHead/Area2D"]
+shape = SubResource("CircleShape2D_iemfp")
 
 [node name="Line2D" type="Line2D" parent="."]
 texture_repeat = 3
@@ -51,6 +59,7 @@ rotation = 1.5708
 texture = ExtResource("3_m42rm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 0.001
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -97,3 +106,5 @@ focus_mode = 0
 min_value = -100.0
 scrollable = false
 script = ExtResource("4_64nxf")
+
+[connection signal="body_entered" from="TrunkHead/Area2D" to="." method="On2DBodyEntered"]
