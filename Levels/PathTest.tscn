@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="2_r5uyy"]
 [ext_resource type="PackedScene" uid="uid://d2gw3v7qd1prg" path="res://Levels/Banana.tscn" id="3_bp8vo"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="4_13r8d"]
-[ext_resource type="PackedScene" uid="uid://cf67oakw60o4e" path="res://Levels/basket.tscn" id="6_s7wm6"]
+[ext_resource type="PackedScene" uid="uid://cicek2ijquvvo" path="res://Levels/basket.tscn" id="6_s7wm6"]
 
 [sub_resource type="Curve2D" id="Curve2D_vptup"]
 _data = {
