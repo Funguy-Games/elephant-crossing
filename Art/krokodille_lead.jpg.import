@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://dqid34lqa5uer"
-=======
-uid="uid://gd8jhmmj868r"
->>>>>>> 91f7670afc7a25eedc5013ac590ba23192a85ef4
-path="res://.godot/imported/kärsänpää.png-33eb338b222a6357620875c43cb69dae.ctex"
+uid="uid://birv7rcoyhdai"
+path="res://.godot/imported/krokodille_lead.jpg-8735a89b21d9bce67706d562c6251fc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/norsu/kärsänpää.png"
-dest_files=["res://.godot/imported/kärsänpää.png-33eb338b222a6357620875c43cb69dae.ctex"]
+source_file="res://Art/krokodille_lead.jpg"
+dest_files=["res://.godot/imported/krokodille_lead.jpg-8735a89b21d9bce67706d562c6251fc7.ctex"]
 
 [params]
 

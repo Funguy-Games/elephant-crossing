@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3m8vak06itrg"]
+[gd_scene load_steps=4 format=3 uid="uid://d2gw3v7qd1prg"]
 
 [ext_resource type="Script" path="res://Scripts/Icon.cs" id="1_aqyfq"]
 [ext_resource type="Texture2D" uid="uid://dime10xtk2d4v" path="res://Art/Banana-eel.jpeg" id="1_ek7yl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_neiep"]
+size = Vector2(96, 66)
 
 [node name="Banana" type="PathFollow2D"]
 rotates = false
 loop = false
 script = ExtResource("1_aqyfq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Pickupable"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 scale = Vector2(0.0976563, 0.0950413)
 texture = ExtResource("1_ek7yl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_neiep")
