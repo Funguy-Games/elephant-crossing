@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Drawing;
 
-public partial class CustomSlider : TouchScreenButton
+public partial class CustomSlider : TextureRect
 {
 	private float _slideArea = 0;
 	private float _sliderPosition = 0;
@@ -23,7 +23,7 @@ public partial class CustomSlider : TouchScreenButton
 		_slideArea = GetParent<ColorRect>().Size.Y;
 		_sliderHeight = 50; // hard coded temporarily
 		SetSliderPosition(0);
-		Released += Reset;
+		// Released += Reset;
 	}
 
 	private void Reset()
@@ -43,17 +43,23 @@ public partial class CustomSlider : TouchScreenButton
 	int touchIndex = -1;
     public override void _Input(InputEvent @event)
     {
-		if(IsPressed())
+		// if(IsPressed())
 		switch (@event)
 		{
 			case InputEventScreenTouch screenTouch:
+					dragOffset = GlobalPosition - screenTouch.Position;
 					GD.Print("Touch: ", dragOffset);
+					touchIndex = -1;
+					isDragged = false;
+
 				break;
 			case InputEventScreenDrag screenDrag:
-					if (!isDragged && GetGlobalRect)
-					{
-						dragOffset = GlobalPosition - screenDrag.Position;
+
+					if(GetGlobalRect().HasPoint(screenDrag.Position)){
 						touchIndex = screenDrag.Index;
+					}
+					if (!isDragged)
+					{
 						isDragged = true;
 					}
 					GD.Print(touchIndex);
@@ -61,11 +67,12 @@ public partial class CustomSlider : TouchScreenButton
 					if(screenDrag.Index != touchIndex)
 						return;
 
+					GetViewport().SetInputAsHandled();
+
 					Vector2 newPosition = screenDrag.Position + dragOffset;
 					newPosition.Y = Mathf.Clamp(newPosition.Y, 0, _slideArea - _sliderHeight);
 					newPosition.X = _handleWidth;
 					Position = newPosition;
-					GetViewport().SetInputAsHandled();
 				break;
 		}
     }

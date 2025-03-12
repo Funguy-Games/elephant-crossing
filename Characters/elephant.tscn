@@ -148,11 +148,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.255659, 0.255659, 0.255659, 1)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/Control/ColorRect/ColorRect2/ColorRect"]
-position = Vector2(-118, 20)
+[node name="TouchScreenButton" type="TextureRect" parent="CanvasLayer/Control/ColorRect/ColorRect2/ColorRect"]
+layout_mode = 0
+offset_left = -118.0
+offset_top = 20.0
+offset_right = -118.0
+offset_bottom = 20.0
 scale = Vector2(0.50566, 0.50566)
-texture_normal = ExtResource("7_endij")
-texture_pressed = ExtResource("7_endij")
+texture = ExtResource("7_endij")
 script = ExtResource("7_icqum")
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control"]
@@ -176,11 +179,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.255659, 0.255659, 0.255659, 1)
 
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="CanvasLayer/Control/ColorRect2/ColorRect"]
-position = Vector2(-118, 20)
+[node name="TouchScreenButton2" type="TextureRect" parent="CanvasLayer/Control/ColorRect2/ColorRect"]
+layout_mode = 0
+offset_left = -118.0
+offset_top = 20.0
+offset_right = -118.0
+offset_bottom = 20.0
 scale = Vector2(0.50566, 0.50566)
-texture_normal = ExtResource("7_endij")
-texture_pressed = ExtResource("7_endij")
+texture = ExtResource("7_endij")
 script = ExtResource("7_icqum")
 
 [connection signal="body_entered" from="TrunkHead/Area2D" to="." method="On2DBodyEntered"]
