@@ -1,11 +1,14 @@
 using Godot;
 using System;
+using System.Drawing;
 
 public partial class CustomSlider : TouchScreenButton
 {
 	private float _slideArea = 0;
 	private float _sliderPosition = 0;
 	private float _sliderHeight = 0;
+	private float _handleHeight = 0;
+	private float _handleWidth = 0;
 	public float SliderPosition
 	{
 		get { return _sliderPosition; }
@@ -16,10 +19,17 @@ public partial class CustomSlider : TouchScreenButton
 	}
 	public override void _Ready()
 	{
+		_handleWidth = Position.X;
 		_slideArea = GetParent<ColorRect>().Size.Y;
 		_sliderHeight = 50; // hard coded temporarily
 		SetSliderPosition(0);
-		GD.Print(_slideArea, Position);
+		Released += Reset;
+	}
+
+	private void Reset()
+	{
+		isDragged = false;
+		touchIndex = -1;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,27 +38,40 @@ public partial class CustomSlider : TouchScreenButton
 
 	}
 
-
+	Vector2 dragOffset = Vector2.Zero;
+	bool isDragged = false;
+	int touchIndex = -1;
     public override void _Input(InputEvent @event)
     {
 		if(IsPressed())
 		switch (@event)
 		{
 			case InputEventScreenTouch screenTouch:
-					GD.Print(screenTouch.Index);
+					GD.Print("Touch: ", dragOffset);
 				break;
 			case InputEventScreenDrag screenDrag:
-					GD.Print(screenDrag.Index);
-					Vector2 newPosition = screenDrag.Position;
+					if (!isDragged && GetGlobalRect)
+					{
+						dragOffset = GlobalPosition - screenDrag.Position;
+						touchIndex = screenDrag.Index;
+						isDragged = true;
+					}
+					GD.Print(touchIndex);
+
+					if(screenDrag.Index != touchIndex)
+						return;
+
+					Vector2 newPosition = screenDrag.Position + dragOffset;
 					newPosition.Y = Mathf.Clamp(newPosition.Y, 0, _slideArea - _sliderHeight);
-					newPosition.X = 0;
+					newPosition.X = _handleWidth;
 					Position = newPosition;
+					GetViewport().SetInputAsHandled();
 				break;
 		}
     }
 	private void SetSliderPosition(float value)
 	{
 		float offset = _slideArea / 2 * value;
-		Position = new Vector2(0, _slideArea / 2 - offset);
+		Position = new Vector2(_handleWidth, _slideArea / 2 - offset);
 	}
 }
