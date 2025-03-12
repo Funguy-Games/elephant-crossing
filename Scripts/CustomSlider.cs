@@ -47,22 +47,29 @@ public partial class CustomSlider : TextureRect
 		switch (@event)
 		{
 			case InputEventScreenTouch screenTouch:
-					dragOffset = GlobalPosition - screenTouch.Position;
-					GD.Print("Touch: ", dragOffset);
-					touchIndex = -1;
-					isDragged = false;
+					if (GetGlobalRect().HasPoint(screenTouch.Position) && screenTouch.Pressed)
+					{
+						dragOffset = GlobalPosition - screenTouch.Position;
+						touchIndex = screenTouch.Index;
+					}
+					else if (touchIndex == screenTouch.Index)
+					{
+						GD.Print("Touch: ", screenTouch.Pressed, GetGlobalRect().HasPoint(screenTouch.Position));
+						touchIndex = -1;
+					}
+					// isDragged = false;
 
 				break;
 			case InputEventScreenDrag screenDrag:
 
-					if(GetGlobalRect().HasPoint(screenDrag.Position)){
-						touchIndex = screenDrag.Index;
-					}
-					if (!isDragged)
-					{
-						isDragged = true;
-					}
-					GD.Print(touchIndex);
+					// if(GetGlobalRect().HasPoint(screenDrag.Position)){
+					// 	touchIndex = screenDrag.Index;
+					// }
+					// if (!isDragged)
+					// {
+						// isDragged = true;
+					// }
+					// GD.Print(touchIndex);
 
 					if(screenDrag.Index != touchIndex)
 						return;
