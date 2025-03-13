@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxsv3kmdppesx"
-path="res://.godot/imported/kärsänvarsi.png-b24c0950dd19478cadcde31a7a161806.ctex"
+uid="uid://gv3iygutgkoy"
+path="res://.godot/imported/swisscheese pieni.png-d14a9fe722f0522e3004b6f43e3c47c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/norsu/kärsänvarsi.png"
-dest_files=["res://.godot/imported/kärsänvarsi.png-b24c0950dd19478cadcde31a7a161806.ctex"]
+source_file="res://Art/map/swisscheese pieni.png"
+dest_files=["res://.godot/imported/swisscheese pieni.png-d14a9fe722f0522e3004b6f43e3c47c9.ctex"]
 
 [params]
 
