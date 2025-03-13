@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://8yl1khk58hvl"
+=======
 uid="uid://7u72c6c38t4c"
+>>>>>>> 91f7670afc7a25eedc5013ac590ba23192a85ef4
 path="res://.godot/imported/kärsänvarsi.png-b24c0950dd19478cadcde31a7a161806.ctex"
 metadata={
 "vram_texture": false

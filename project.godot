@@ -30,6 +30,7 @@ project/assembly_name="elephant-crossing"
 
 Basket=""
 Pickupable=""
+Hazard=""
 
 [input_devices]
 
