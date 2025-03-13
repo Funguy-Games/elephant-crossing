@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class Elephant : Node2D
 {
@@ -19,11 +18,13 @@ public partial class Elephant : Node2D
     }
     public override void _Process(double delta)
     {
-		float rotation = (float) GetNode<VSlider>("CanvasLayer/Control/LeftSliderArea/ControlSlider").Value;
-		Rotation += rotation * 0.1f * (float) delta;
-		float scale = (float) GetNode<VSlider>("CanvasLayer/Control/VSlider2").Value;
+		float rotation = (float) GetNode<CustomSlider>("CanvasLayer/Control/ColorRect/ColorRect2/ColorRect/TouchScreenButton").SliderPosition;
+		float scale = (float) GetNode<CustomSlider>("CanvasLayer/Control/ColorRect2/ColorRect/TouchScreenButton2").SliderPosition;
+		Rotation += rotation * 1f * (float) delta;
+
 		_trunkEndPosition += new Vector2(30,0) * -scale * (float) delta;
 		_trunkEndPosition.X = Mathf.Clamp(_trunkEndPosition.X , -1500, -100);
+
 		_trunk.SetPointPosition(1, _trunkEndPosition);
 		_trunkHead.Position = new Vector2(_trunkEndPosition.X + -500, 0);
 

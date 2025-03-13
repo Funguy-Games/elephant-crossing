@@ -83,6 +83,7 @@ grow_vertical = 2
 color = Color(0.173651, 0.224793, 0.252332, 1)
 
 [node name="ControlSlider" parent="CanvasLayer/Control/LeftSliderArea" instance=ExtResource("4_156ig")]
+visible = false
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
