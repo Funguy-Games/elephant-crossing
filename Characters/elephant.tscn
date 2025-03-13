@@ -1,44 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkq5sixfyrbon"]
+[gd_scene load_steps=8 format=3 uid="uid://bkq5sixfyrbon"]
 
 [ext_resource type="Script" path="res://Scripts/Elephant.cs" id="1_rbr7a"]
 [ext_resource type="Texture2D" uid="uid://cwn4scewv0doq" path="res://Art/norsu/kärsänpää.png" id="2_754wv"]
 [ext_resource type="Texture2D" uid="uid://cxsv3kmdppesx" path="res://Art/norsu/kärsänvarsi.png" id="2_hnwgo"]
 [ext_resource type="Texture2D" uid="uid://dmx0ptsle0uu8" path="res://Art/norsu/norsunkeho.png" id="3_m42rm"]
-[ext_resource type="Script" path="res://Characters/ControlSlider.cs" id="4_64nxf"]
-[ext_resource type="PackedScene" uid="uid://brf33xdwtqa0y" path="res://Levels/control_slider.tscn" id="4_156ig"]
 [ext_resource type="Texture2D" uid="uid://cqc8umxbt0ech" path="res://Art/TEMP_sliderhandle.png" id="7_endij"]
 [ext_resource type="Script" path="res://Scripts/CustomSlider.cs" id="7_icqum"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iemfp"]
 radius = 65.98
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_af5kk"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyxfs"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1lc3"]
-content_margin_left = 20.0
-content_margin_right = 20.0
-bg_color = Color(0.101961, 0.101961, 0.101961, 0.870588)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 6
-
-[sub_resource type="Theme" id="Theme_rhxhl"]
-VSlider/styles/grabber_area = SubResource("StyleBoxEmpty_af5kk")
-VSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_gyxfs")
-VSlider/styles/slider = SubResource("StyleBoxFlat_e1lc3")
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ca4jk"]
-size = Vector2(40, 30)
-
 [node name="Elephant" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_rbr7a")
+_turnSpeed = 1.5
+_trunkSpeed = 4000.0
 
 [node name="TrunkHead" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(-620.215, 0)
 rotation = -3.14159
 texture = ExtResource("2_754wv")
@@ -49,6 +28,7 @@ texture = ExtResource("2_754wv")
 shape = SubResource("CircleShape2D_iemfp")
 
 [node name="Line2D" type="Line2D" parent="."]
+z_index = 1
 texture_repeat = 3
 position = Vector2(-500, 0)
 points = PackedVector2Array(0, 0, -100, 0)
@@ -57,6 +37,7 @@ texture = ExtResource("2_hnwgo")
 texture_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 rotation = 1.5708
 texture = ExtResource("3_m42rm")
 
@@ -71,57 +52,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LeftSliderArea" type="ColorRect" parent="CanvasLayer/Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_top = 120.0
-offset_right = 239.0
-offset_bottom = -72.0
-grow_vertical = 2
-color = Color(0.173651, 0.224793, 0.252332, 1)
-
-[node name="ControlSlider" parent="CanvasLayer/Control/LeftSliderArea" instance=ExtResource("4_156ig")]
-visible = false
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 10.0
-offset_right = 20.0
-offset_bottom = -10.0
-grow_horizontal = 2
-scale = Vector2(1, 1)
-mouse_filter = 1
-theme = SubResource("Theme_rhxhl")
-theme_override_icons/grabber = SubResource("PlaceholderTexture2D_ca4jk")
-
-[node name="VSlider2" type="VSlider" parent="CanvasLayer/Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -84.0
-offset_right = -68.0
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(5, 1)
-focus_mode = 0
-mouse_filter = 1
-min_value = -100.0
-scrollable = false
-script = ExtResource("4_64nxf")
-
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.215
-anchor_bottom = 1.0
-offset_right = -0.200012
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -360.0
+offset_right = -365.0
+offset_bottom = 360.0
+grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.505344, 0.505344, 0.505344, 1)
 
@@ -163,10 +103,13 @@ script = ExtResource("7_icqum")
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.785
+anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 0.199951
+anchor_bottom = 0.5
+offset_left = 365.0
+offset_top = -360.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.505344, 0.505344, 0.505344, 1)

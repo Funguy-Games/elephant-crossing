@@ -1,17 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://cicek2ijquvvo"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n4fac"]
-size = Vector2(50, 50)
+[ext_resource type="Texture2D" uid="uid://b022ks2xs7uab" path="res://Art/map/kori.png" id="1_gbid4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paisd"]
-size = Vector2(50, 50)
+size = Vector2(50, 38)
 
 [node name="Basket" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_n4fac")
+position = Vector2(0, 3)
+scale = Vector2(0.0772726, 0.0772726)
+texture = ExtResource("1_gbid4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Basket"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_paisd")

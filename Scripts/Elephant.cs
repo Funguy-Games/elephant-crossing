@@ -2,28 +2,39 @@ using Godot;
 
 public partial class Elephant : Node2D
 {
-	Vector2 _trunkEndPosition = Vector2.Zero;
+	[Export]
+	private float _turnSpeed = 1;
+	[Export]
+	private float _trunkSpeed = 1;
 
 	//Min and max values are reversed due to the trunk expanding left
 	private float _trunkLengthMin = -100;
 	private float _trunkLengthMax = -1500;
 
+	private Vector2 _trunkEndPosition = Vector2.Zero;
+
 	private Sprite2D _trunkHead = null;
 	private Line2D _trunk = null;
 	private Icon _carryable = null;
+
+	private CustomSlider _rotationSlider = null;
+	private CustomSlider _trunkSlider = null;
+
     public override void _Ready()
     {
 		_trunkHead = GetNode<Sprite2D>("TrunkHead");
 		_trunk = GetNode<Line2D>("Line2D");
+		_rotationSlider = GetNode<CustomSlider>("CanvasLayer/Control/ColorRect/ColorRect2/ColorRect/TouchScreenButton");
+		_trunkSlider = GetNode<CustomSlider>("CanvasLayer/Control/ColorRect2/ColorRect2/ColorRect/TouchScreenButton");
     }
     public override void _Process(double delta)
     {
-		float rotation = (float) GetNode<CustomSlider>("CanvasLayer/Control/ColorRect/ColorRect2/ColorRect/TouchScreenButton").SliderPosition;
-		float scale = (float) GetNode<CustomSlider>("CanvasLayer/Control/ColorRect2/ColorRect2/ColorRect/TouchScreenButton").SliderPosition;
-		Rotation += rotation * 1f * (float) delta;
+		float rotation = _rotationSlider.SliderPosition;
+		float scale = _trunkSlider.SliderPosition;
+		Rotation += rotation * _turnSpeed * (float) delta;
 
-		_trunkEndPosition += new Vector2(30,0) * -scale * (float) delta;
-		_trunkEndPosition.X = Mathf.Clamp(_trunkEndPosition.X , -1500, -100);
+		_trunkEndPosition += Vector2.Left * _trunkSpeed * scale * (float) delta;
+		_trunkEndPosition.X = Mathf.Clamp(_trunkEndPosition.X , _trunkLengthMax, _trunkLengthMin); // max and min reversed
 
 		_trunk.SetPointPosition(1, _trunkEndPosition);
 		_trunkHead.Position = new Vector2(_trunkEndPosition.X + -500, 0);

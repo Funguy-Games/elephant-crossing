@@ -1,0 +1,344 @@
+[gd_scene load_steps=9 format=3 uid="uid://mim372ubtcgt"]
+
+[ext_resource type="Texture2D" uid="uid://chvnb3rxksxxh" path="res://Art/map/saniainen1.png" id="1_q61nk"]
+[ext_resource type="Texture2D" uid="uid://btmfrvmh7rpw2" path="res://Art/map/highlight.png" id="1_vwtp7"]
+[ext_resource type="Texture2D" uid="uid://dqfx1arrslb3b" path="res://Art/map/swisscheese iso.png" id="2_pekpx"]
+[ext_resource type="Texture2D" uid="uid://gv3iygutgkoy" path="res://Art/map/swisscheese pieni.png" id="3_nfxed"]
+[ext_resource type="Texture2D" uid="uid://cys6hptgoyeei" path="res://Art/map/saniainen2.png" id="4_5gkm8"]
+[ext_resource type="Script" path="res://Levels/SceneManager.cs" id="6_5m3a2"]
+
+[sub_resource type="Gradient" id="Gradient_eln8r"]
+colors = PackedColorArray(0, 0, 0, 0, 0.267345, 0.137018, 0.105689, 0.607843)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5gekt"]
+gradient = SubResource("Gradient_eln8r")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247874, 0.231018, 0.165641, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_5gekt")
+
+[node name="EyeCandy" type="Control" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect8" type="TextureRect" parent="ColorRect/EyeCandy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -159.0
+offset_right = -527.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -6.25407
+texture = ExtResource("1_vwtp7")
+flip_h = true
+
+[node name="TextureRect9" type="TextureRect" parent="ColorRect/EyeCandy"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 524.0
+offset_top = -151.0
+offset_right = 195.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -6.25407
+texture = ExtResource("1_vwtp7")
+flip_h = true
+
+[node name="TextureRect10" type="TextureRect" parent="ColorRect/EyeCandy"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 474.0
+offset_top = -142.0
+offset_right = -335.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -6.25407
+texture = ExtResource("1_vwtp7")
+flip_h = true
+
+[node name="TextureRect11" type="TextureRect" parent="ColorRect/EyeCandy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.005
+offset_left = 1343.0
+offset_top = 200.0
+offset_right = 534.0
+offset_bottom = 608.4
+rotation = -3.44667
+texture = ExtResource("1_vwtp7")
+flip_h = true
+
+[node name="Bush" type="Control" parent="ColorRect/EyeCandy"]
+layout_mode = 1
+anchor_left = 0.960156
+anchor_top = -0.0125
+anchor_right = 0.991406
+anchor_bottom = 0.0430556
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/EyeCandy/Bush"]
+layout_mode = 0
+offset_left = -39.0
+offset_top = 47.0
+offset_right = 108.0
+offset_bottom = 180.0
+rotation = 0.10472
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/EyeCandy/Bush"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 107.0
+offset_right = 153.0
+offset_bottom = 240.0
+rotation = -1.11701
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect3" type="TextureRect" parent="ColorRect/EyeCandy/Bush"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = -37.0
+offset_right = 223.0
+offset_bottom = 96.0
+rotation = 1.88344
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect4" type="TextureRect" parent="ColorRect/EyeCandy/Bush"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -14.0
+offset_right = 128.0
+offset_bottom = 119.0
+rotation = 0.837758
+texture = ExtResource("1_q61nk")
+
+[node name="Bush2" type="Control" parent="ColorRect/EyeCandy"]
+layout_mode = 1
+anchor_left = 0.985156
+anchor_top = 0.888889
+anchor_right = 1.01641
+anchor_bottom = 0.944445
+rotation = 1.0821
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/EyeCandy/Bush2"]
+layout_mode = 0
+offset_left = -39.0
+offset_top = 47.0
+offset_right = 108.0
+offset_bottom = 180.0
+rotation = 0.10472
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/EyeCandy/Bush2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 107.0
+offset_right = 153.0
+offset_bottom = 240.0
+rotation = -1.11701
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect3" type="TextureRect" parent="ColorRect/EyeCandy/Bush2"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = -37.0
+offset_right = 223.0
+offset_bottom = 96.0
+rotation = 1.88344
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect4" type="TextureRect" parent="ColorRect/EyeCandy/Bush2"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -14.0
+offset_right = 128.0
+offset_bottom = 119.0
+rotation = 0.837758
+texture = ExtResource("1_q61nk")
+
+[node name="Bush3" type="Control" parent="ColorRect/EyeCandy"]
+layout_mode = 1
+anchor_left = 0.00586527
+anchor_top = 0.0765316
+anchor_right = 0.0371153
+anchor_bottom = 0.132087
+rotation = -1.8366
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/EyeCandy/Bush3"]
+layout_mode = 0
+offset_left = -39.0
+offset_top = 47.0
+offset_right = 108.0
+offset_bottom = 180.0
+rotation = 0.10472
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/EyeCandy/Bush3"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 107.0
+offset_right = 153.0
+offset_bottom = 240.0
+rotation = -1.11701
+texture = ExtResource("2_pekpx")
+
+[node name="TextureRect3" type="TextureRect" parent="ColorRect/EyeCandy/Bush3"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = -37.0
+offset_right = 223.0
+offset_bottom = 96.0
+rotation = 1.88344
+texture = ExtResource("3_nfxed")
+
+[node name="TextureRect4" type="TextureRect" parent="ColorRect/EyeCandy/Bush3"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -14.0
+offset_right = 128.0
+offset_bottom = 119.0
+rotation = 0.837758
+texture = ExtResource("1_q61nk")
+
+[node name="Bush4" type="Control" parent="ColorRect/EyeCandy"]
+layout_mode = 1
+anchor_left = 0.0742188
+anchor_top = 0.9625
+anchor_right = 0.105469
+anchor_bottom = 1.01806
+rotation = -3.30699
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/EyeCandy/Bush4"]
+layout_mode = 0
+offset_left = -39.0
+offset_top = 47.0
+offset_right = 108.0
+offset_bottom = 180.0
+rotation = 0.10472
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/EyeCandy/Bush4"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 107.0
+offset_right = 153.0
+offset_bottom = 240.0
+rotation = -1.11701
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect3" type="TextureRect" parent="ColorRect/EyeCandy/Bush4"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = -37.0
+offset_right = 223.0
+offset_bottom = 96.0
+rotation = 1.88344
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect4" type="TextureRect" parent="ColorRect/EyeCandy/Bush4"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -14.0
+offset_right = 128.0
+offset_bottom = 119.0
+rotation = 0.837758
+texture = ExtResource("1_q61nk")
+
+[node name="TextureRect5" type="TextureRect" parent="ColorRect/EyeCandy"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = -34.0
+offset_right = 1047.0
+offset_bottom = 99.0
+rotation = 0.174688
+texture = ExtResource("3_nfxed")
+
+[node name="TextureRect6" type="TextureRect" parent="ColorRect/EyeCandy"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = 372.0
+offset_right = 103.0
+offset_bottom = 505.0
+rotation = -1.30302
+texture = ExtResource("3_nfxed")
+
+[node name="TextureRect7" type="TextureRect" parent="ColorRect/EyeCandy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.005
+anchor_top = 0.582
+anchor_right = 1.005
+anchor_bottom = 0.582
+offset_left = -98.4
+offset_top = -87.04
+offset_right = 48.6
+offset_bottom = 81.96
+rotation = -6.25989
+texture = ExtResource("4_5gkm8")
+flip_h = true
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -45.0
+offset_right = 58.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("6_5m3a2")
+
+[connection signal="pressed" from="ColorRect/Button" to="Node" method="LoadLevel1"]
