@@ -118,9 +118,10 @@ script = ExtResource("4_64nxf")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = -1
+anchor_right = 0.215
 anchor_bottom = 1.0
-offset_right = 359.0
+offset_right = -0.200012
 grow_vertical = 2
 color = Color(0.505344, 0.505344, 0.505344, 1)
 
@@ -131,9 +132,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -9.5
-offset_top = 16.0
+offset_top = 189.0
 offset_right = 10.5
-offset_bottom = -16.0
+offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -162,10 +163,10 @@ script = ExtResource("7_icqum")
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0
+anchor_left = 0.785
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -359.0
+offset_left = 0.199951
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.505344, 0.505344, 0.505344, 1)
@@ -177,9 +178,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -9.5
-offset_top = 16.0
+offset_top = 205.0
 offset_right = 10.5
-offset_bottom = -16.0
+offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
 
