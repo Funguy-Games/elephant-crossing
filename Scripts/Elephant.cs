@@ -5,7 +5,7 @@ public partial class Elephant : Node2D
 	[Export]
 	private float _turnSpeed = 1;
 	[Export]
-	private float _trunkSpeed = 1;
+	private float _trunkSpeed = 4000;
 
 	//Min and max values are reversed due to the trunk expanding left
 	private float _trunkLengthMin = -100;

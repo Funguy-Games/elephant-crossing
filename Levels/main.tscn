@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="9_b46sv"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="10_ocf3v"]
 [ext_resource type="PackedScene" uid="uid://d2gw3v7qd1prg" path="res://Levels/Banana.tscn" id="11_k7iig"]
-[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
+[ext_resource type="PackedScene" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
 _data = {
