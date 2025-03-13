@@ -19,7 +19,7 @@ public partial class Elephant : Node2D
     public override void _Process(double delta)
     {
 		float rotation = (float) GetNode<CustomSlider>("CanvasLayer/Control/ColorRect/ColorRect2/ColorRect/TouchScreenButton").SliderPosition;
-		float scale = (float) GetNode<CustomSlider>("CanvasLayer/Control/ColorRect2/ColorRect/TouchScreenButton2").SliderPosition;
+		float scale = (float) GetNode<CustomSlider>("CanvasLayer/Control/ColorRect2/ColorRect2/ColorRect/TouchScreenButton").SliderPosition;
 		Rotation += rotation * 1f * (float) delta;
 
 		_trunkEndPosition += new Vector2(30,0) * -scale * (float) delta;

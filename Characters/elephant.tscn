@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://bkq5sixfyrbon"]
 
 [ext_resource type="Script" path="res://Scripts/Elephant.cs" id="1_rbr7a"]
-[ext_resource type="Texture2D" uid="uid://gd8jhmmj868r" path="res://Art/norsu/kärsänpää.png" id="2_754wv"]
-[ext_resource type="Texture2D" uid="uid://7u72c6c38t4c" path="res://Art/norsu/kärsänvarsi.png" id="2_hnwgo"]
-[ext_resource type="Texture2D" uid="uid://e33mwuneido" path="res://Art/norsu/norsunkeho.png" id="3_m42rm"]
+[ext_resource type="Texture2D" uid="uid://cwn4scewv0doq" path="res://Art/norsu/kärsänpää.png" id="2_754wv"]
+[ext_resource type="Texture2D" uid="uid://cxsv3kmdppesx" path="res://Art/norsu/kärsänvarsi.png" id="2_hnwgo"]
+[ext_resource type="Texture2D" uid="uid://dmx0ptsle0uu8" path="res://Art/norsu/norsunkeho.png" id="3_m42rm"]
 [ext_resource type="Script" path="res://Characters/ControlSlider.cs" id="4_64nxf"]
 [ext_resource type="PackedScene" uid="uid://brf33xdwtqa0y" path="res://Levels/control_slider.tscn" id="4_156ig"]
 [ext_resource type="Texture2D" uid="uid://cqc8umxbt0ech" path="res://Art/TEMP_sliderhandle.png" id="7_endij"]
@@ -170,17 +170,32 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.505344, 0.505344, 0.505344, 1)
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/ColorRect2"]
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control/ColorRect2"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -9.5
+offset_top = 16.0
+offset_right = 10.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/ColorRect2/ColorRect2"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_right = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.255659, 0.255659, 0.255659, 1)
 
-[node name="TouchScreenButton2" type="TextureRect" parent="CanvasLayer/Control/ColorRect2/ColorRect"]
+[node name="TouchScreenButton" type="TextureRect" parent="CanvasLayer/Control/ColorRect2/ColorRect2/ColorRect"]
 layout_mode = 0
 offset_left = -118.0
 offset_top = 20.0
