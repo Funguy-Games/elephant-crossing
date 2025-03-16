@@ -51,7 +51,8 @@ public partial class Elephant : Node2D
 		}
 		else if (body.IsInGroup("Basket"))
 		{
-			PutDownItem();
+			Basket basket = (Basket) body.Owner;
+			PutDownItem(basket);
 		}
 
 	}
@@ -65,15 +66,18 @@ public partial class Elephant : Node2D
 		}
 	}
 
-	private void PutDownItem()
+	private void PutDownItem(Basket basket)
 	{
 		if(_carryable == null)
 			return;
 
 		// TODO: Check which basket it is
 		// TODO: add points to basket
-		_carryable.QueueFree();
-		_carryable = null;
+		if (basket.AddToBasket(_carryable) )
+		{
+			_carryable.QueueFree();
+			_carryable = null;
+		}
 	}
 
 }

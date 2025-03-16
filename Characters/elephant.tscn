@@ -14,7 +14,6 @@ radius = 65.98
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_rbr7a")
 _turnSpeed = 1.5
-_trunkSpeed = 4000.0
 
 [node name="TrunkHead" type="Sprite2D" parent="."]
 z_index = 1

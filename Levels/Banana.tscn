@@ -10,6 +10,7 @@ size = Vector2(96, 66)
 rotates = false
 loop = false
 script = ExtResource("1_aqyfq")
+Type = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Pickupable"]]
 

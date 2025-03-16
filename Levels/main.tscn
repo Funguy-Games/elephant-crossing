@@ -1,15 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=14 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="1_v0q88"]
 [ext_resource type="Texture2D" uid="uid://btmfrvmh7rpw2" path="res://Art/map/highlight.png" id="2_8x547"]
 [ext_resource type="Texture2D" uid="uid://bxf1qapfi5l2r" path="res://Art/map/joki suora.png" id="3_5hctc"]
+[ext_resource type="Texture2D" uid="uid://b5hwqolqfoox8" path="res://Art/Garbage-PNG-Background-Image.png" id="7_82m45"]
+[ext_resource type="Texture2D" uid="uid://dime10xtk2d4v" path="res://Art/Banana-eel.jpeg" id="8_8eqkg"]
 [ext_resource type="PackedScene" uid="uid://cicek2ijquvvo" path="res://Levels/basket.tscn" id="8_fvk7u"]
 [ext_resource type="Texture2D" uid="uid://bj7hkqiwt7c4l" path="res://Art/map/joki U.png" id="8_isr8b"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="9_b46sv"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="10_ocf3v"]
 [ext_resource type="PackedScene" uid="uid://d2gw3v7qd1prg" path="res://Levels/Banana.tscn" id="11_k7iig"]
-[ext_resource type="PackedScene" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
+[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
 _data = {
@@ -72,12 +74,18 @@ scale = Vector2(0.135, 0.135)
 
 [node name="Basket" parent="." instance=ExtResource("8_fvk7u")]
 position = Vector2(95, 119)
+_displayTexture = ExtResource("7_82m45")
+_inputType = 0
 
 [node name="Basket2" parent="." instance=ExtResource("8_fvk7u")]
 position = Vector2(58, -168)
+_displayTexture = ExtResource("8_8eqkg")
+_inputType = 1
 
 [node name="Basket3" parent="." instance=ExtResource("8_fvk7u")]
 position = Vector2(-294, 169)
+_displayTexture = ExtResource("8_8eqkg")
+_inputType = 1
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-4, -11)
