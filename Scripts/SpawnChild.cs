@@ -8,7 +8,23 @@ public partial class SpawnChild : Node2D
 	[Export] PackedScene roar = null;
 	[Export] float minSpawnTime = 10.0f;
 	[Export] float maxSpawnTime = 30.0f;
+	[Export] private int _trash1Amount = 10;
+	[Export] private int _trash2Amount = 20;
+
 	private Random random = new Random();
+
+	public int trash1Amount
+	{
+		get { return _trash1Amount; }
+		set { _trash1Amount = value; }
+	}
+
+	public int trash2Amount
+	{
+		get { return _trash2Amount; }
+		set { _trash2Amount = value; }
+	}
+
 
 	public override void _Ready()
 	{
@@ -19,20 +35,36 @@ public partial class SpawnChild : Node2D
 	{
 		Path2D path = GetTree().Root.GetNode<Path2D>("Main/Path2D");
 
-		PackedScene scene = roar;
-		int randomScene = random.Next(0, 3);
+		PackedScene scene = null;
+		int randomScene = random.Next(0, 2);
 
 		switch (randomScene)
 		{
-			case 0: scene = trash1; break;
-			case 1: scene = trash2; break;
-			case 2: scene = roar; break;
+			case 0:
+				if (trash1Amount > 0)
+				{
+					scene = trash1;
+					trash1Amount--;
+				}
+				break;
+			case 1:
+				if (trash2Amount > 0)
+				{
+					scene = trash2;
+					trash2Amount--;
+				}
+				break;
+			case 2:
+				// Doesn't spawn right now
+				scene = roar;
+				break;
 		}
 
-		//PackedScene scene = (random.Next(2) == 0) ? trash1 : trash2;
-		PathFollow2D instance = scene.Instantiate<PathFollow2D>();
-
-		path.AddChild(instance);
+		if (scene != null)
+		{
+			PathFollow2D instance = scene.Instantiate<PathFollow2D>();
+			path.AddChild(instance);
+		}
 	}
 
 	private void SetRandomSpawnTime()
