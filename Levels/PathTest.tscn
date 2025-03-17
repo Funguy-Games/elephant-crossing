@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://eq1hgurkc3sx"]
 
-[ext_resource type="Texture2D" uid="uid://g8kcbj24i61" path="res://saadan_vareja.png" id="1_pgkfs"]
+[ext_resource type="Texture2D" uid="uid://g8kcbj24i61" path="res://Art/saadan_vareja.png" id="1_pgkfs"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="1_rgbt2"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="2_r5uyy"]
 [ext_resource type="PackedScene" uid="uid://d2gw3v7qd1prg" path="res://Levels/Banana.tscn" id="3_bp8vo"]

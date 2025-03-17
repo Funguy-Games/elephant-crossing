@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://g8kcbj24i61"
-path="res://.godot/imported/saadan_vareja.png-f7d6737ce71699d2f41b8baf7274cb91.ctex"
+path="res://.godot/imported/saadan_vareja.png-e911bf08dfb1348aff5284af26dcce4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://saadan_vareja.png"
-dest_files=["res://.godot/imported/saadan_vareja.png-f7d6737ce71699d2f41b8baf7274cb91.ctex"]
+source_file="res://Art/saadan_vareja.png"
+dest_files=["res://.godot/imported/saadan_vareja.png-e911bf08dfb1348aff5284af26dcce4c.ctex"]
 
 [params]
 

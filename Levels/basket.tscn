@@ -26,3 +26,14 @@ shape = SubResource("RectangleShape2D_paisd")
 position = Vector2(0, 34)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_hl2e5")
+
+[node name="Score" type="RichTextLabel" parent="."]
+offset_left = -25.0
+offset_top = -39.0
+offset_right = 25.0
+offset_bottom = -16.0
+text = "0 / 0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
