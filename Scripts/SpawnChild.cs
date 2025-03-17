@@ -25,6 +25,7 @@ public partial class SpawnChild : Node2D
 		set { _trash2Amount = value; }
 	}
 
+	public int crocodileDelay = 5;
 
 	public override void _Ready()
 	{
@@ -36,7 +37,8 @@ public partial class SpawnChild : Node2D
 		Path2D path = GetTree().Root.GetNode<Path2D>("Main/Path2D");
 
 		PackedScene scene = null;
-		int randomScene = random.Next(0, 2);
+		int randomScene = random.Next(0, 3);
+		//GD.Print("Delay: " +  crocodileDelay);
 
 		switch (randomScene)
 		{
@@ -45,6 +47,7 @@ public partial class SpawnChild : Node2D
 				{
 					scene = trash1;
 					trash1Amount--;
+					if (crocodileDelay > 0) crocodileDelay--;
 				}
 				break;
 			case 1:
@@ -52,13 +55,19 @@ public partial class SpawnChild : Node2D
 				{
 					scene = trash2;
 					trash2Amount--;
+					if (crocodileDelay > 0) crocodileDelay--;
 				}
 				break;
 			case 2:
-				// Doesn't spawn right now
-				scene = roar;
+				if (crocodileDelay == 0 && trash1Amount > 0 && trash2Amount > 0)
+				{
+					scene = roar;
+					crocodileDelay = 5;
+				}
 				break;
 		}
+
+		//GD.Print("Spawned: " + randomScene);
 
 		if (scene != null)
 		{
