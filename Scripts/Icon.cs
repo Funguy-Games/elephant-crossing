@@ -32,6 +32,7 @@ public partial class Icon : PathFollow2D
 		Progress += (float)delta * speed;
 		if (ProgressRatio == 1)
 		{
+			Level.Current.Score -= 1;
 			QueueFree();
 		}
 	}

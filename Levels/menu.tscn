@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://byt8qivr4wfbe"]
 
-[ext_resource type="Texture2D" uid="uid://7ao45ipegaea" path="res://Art/starting_screen.png" id="1_68cge"]
+[ext_resource type="Texture2D" uid="uid://7ao45ipegaea" path="res://Art/UI/starting_screen.png" id="1_68cge"]
 [ext_resource type="Texture2D" uid="uid://chvnb3rxksxxh" path="res://Art/map/saniainen1.png" id="1_q61nk"]
 [ext_resource type="Texture2D" uid="uid://btmfrvmh7rpw2" path="res://Art/map/highlight.png" id="1_vwtp7"]
 [ext_resource type="Texture2D" uid="uid://dqfx1arrslb3b" path="res://Art/map/swisscheese iso.png" id="2_pekpx"]

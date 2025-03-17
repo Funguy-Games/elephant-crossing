@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkq5sixfyrbon"]
+[gd_scene load_steps=10 format=3 uid="uid://bkq5sixfyrbon"]
 
 [ext_resource type="Script" path="res://Scripts/Elephant.cs" id="1_rbr7a"]
 [ext_resource type="Texture2D" uid="uid://cwn4scewv0doq" path="res://Art/norsu/kärsänpää.png" id="2_754wv"]
 [ext_resource type="Texture2D" uid="uid://cxsv3kmdppesx" path="res://Art/norsu/kärsänvarsi.png" id="2_hnwgo"]
 [ext_resource type="Texture2D" uid="uid://dmx0ptsle0uu8" path="res://Art/norsu/norsunkeho.png" id="3_m42rm"]
+[ext_resource type="Texture2D" uid="uid://6tgvu1de4lqn" path="res://Art/UI/leverbase.png" id="5_ngodr"]
+[ext_resource type="Texture2D" uid="uid://bcp78ddyths50" path="res://Art/UI/lever.png" id="6_dgiis"]
 [ext_resource type="Texture2D" uid="uid://cqc8umxbt0ech" path="res://Art/TEMP_sliderhandle.png" id="7_endij"]
 [ext_resource type="Script" path="res://Scripts/CustomSlider.cs" id="7_icqum"]
 
@@ -52,7 +54,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -63,7 +65,8 @@ offset_right = -365.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.505344, 0.505344, 0.505344, 1)
+texture = ExtResource("5_ngodr")
+expand_mode = 4
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control/ColorRect"]
 layout_mode = 1
@@ -97,7 +100,7 @@ offset_top = 20.0
 offset_right = -118.0
 offset_bottom = 20.0
 scale = Vector2(0.50566, 0.50566)
-texture = ExtResource("7_endij")
+texture = ExtResource("6_dgiis")
 script = ExtResource("7_icqum")
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control"]

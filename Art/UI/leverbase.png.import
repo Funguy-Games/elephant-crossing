@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ao45ipegaea"
-path="res://.godot/imported/starting_screen.png-d5d538a7d70cc9757e8362d4930b8704.ctex"
+uid="uid://6tgvu1de4lqn"
+path="res://.godot/imported/leverbase.png-bb19c236a15e47a318d7d70bb8a70934.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/starting_screen.png"
-dest_files=["res://.godot/imported/starting_screen.png-d5d538a7d70cc9757e8362d4930b8704.ctex"]
+source_file="res://Art/UI/leverbase.png"
+dest_files=["res://.godot/imported/leverbase.png-bb19c236a15e47a318d7d70bb8a70934.ctex"]
 
 [params]
 
