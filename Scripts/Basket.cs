@@ -20,7 +20,7 @@ public partial class Basket : Node2D
 
     private void UpdatePoints()
     {
-        GetNode<RichTextLabel>("Score").Text = $"{_points} / {_neededPoints}";
+        GetNode<RichTextLabel>("Score").Text = $"[center]{_points} / {_neededPoints}";
     }
 
 
