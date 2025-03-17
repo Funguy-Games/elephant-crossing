@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bpsdkgap8d22n" path="res://Art/RiverItems/IMG_2945.png" id="8_o1p53"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="9_b46sv"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="10_ocf3v"]
-[ext_resource type="PackedScene" uid="uid://bw7schx0xwksr" path="res://Levels/Bottle.tscn" id="11_deqru"]
+[ext_resource type="PackedScene" uid="uid://bw7schx0xwksr" path="res://Art/Bottle.tscn" id="11_deqru"]
 [ext_resource type="PackedScene" uid="uid://b0036ur8g3dtu" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
