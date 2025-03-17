@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g8kcbj24i61"
-path="res://.godot/imported/saadan_vareja.png-f7d6737ce71699d2f41b8baf7274cb91.ctex"
+uid="uid://bu6butcnn6qox"
+path="res://.godot/imported/IMG_2943.png-411c927e97c433eb7547f74ccb8993a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://saadan_vareja.png"
-dest_files=["res://.godot/imported/saadan_vareja.png-f7d6737ce71699d2f41b8baf7274cb91.ctex"]
+source_file="res://Art/RiverItems/IMG_2943.png"
+dest_files=["res://.godot/imported/IMG_2943.png-411c927e97c433eb7547f74ccb8993a9.ctex"]
 
 [params]
 

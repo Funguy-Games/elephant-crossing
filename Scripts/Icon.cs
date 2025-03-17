@@ -5,6 +5,7 @@ public enum RiverItem
 {
 	Trash,
 	Eel,
+	Bottle,
 	None
 }
 
