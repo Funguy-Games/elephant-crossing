@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="1_v0q88"]
 [ext_resource type="Texture2D" uid="uid://btmfrvmh7rpw2" path="res://Art/map/highlight.png" id="2_8x547"]
 [ext_resource type="Texture2D" uid="uid://bxf1qapfi5l2r" path="res://Art/map/joki suora.png" id="3_5hctc"]
-[ext_resource type="Texture2D" uid="uid://b5hwqolqfoox8" path="res://Art/Garbage-PNG-Background-Image.png" id="7_82m45"]
-[ext_resource type="Texture2D" uid="uid://dime10xtk2d4v" path="res://Art/Banana-eel.jpeg" id="8_8eqkg"]
+[ext_resource type="Texture2D" uid="uid://bu6butcnn6qox" path="res://Art/RiverItems/IMG_2943.png" id="7_yj7n6"]
 [ext_resource type="PackedScene" uid="uid://cicek2ijquvvo" path="res://Levels/basket.tscn" id="8_fvk7u"]
 [ext_resource type="Texture2D" uid="uid://bj7hkqiwt7c4l" path="res://Art/map/joki U.png" id="8_isr8b"]
+[ext_resource type="Texture2D" uid="uid://bpsdkgap8d22n" path="res://Art/RiverItems/IMG_2945.png" id="8_o1p53"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="9_b46sv"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="10_ocf3v"]
-[ext_resource type="PackedScene" uid="uid://d2gw3v7qd1prg" path="res://Levels/Banana.tscn" id="11_k7iig"]
+[ext_resource type="PackedScene" uid="uid://bw7schx0xwksr" path="res://Levels/Bottle.tscn" id="11_deqru"]
 [ext_resource type="PackedScene" uid="uid://b0036ur8g3dtu" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
@@ -74,18 +74,18 @@ scale = Vector2(0.135, 0.135)
 
 [node name="Basket" parent="." instance=ExtResource("8_fvk7u")]
 position = Vector2(95, 119)
-_displayTexture = ExtResource("7_82m45")
-_inputType = 0
+_displayTexture = ExtResource("7_yj7n6")
+_inputType = 2
 
 [node name="Basket2" parent="." instance=ExtResource("8_fvk7u")]
 position = Vector2(58, -168)
-_displayTexture = ExtResource("8_8eqkg")
-_inputType = 1
+_displayTexture = ExtResource("8_o1p53")
+_inputType = 0
 
 [node name="Basket3" parent="." instance=ExtResource("8_fvk7u")]
 position = Vector2(-294, 169)
-_displayTexture = ExtResource("8_8eqkg")
-_inputType = 1
+_displayTexture = ExtResource("7_yj7n6")
+_inputType = 2
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-4, -11)
@@ -97,7 +97,7 @@ position = Vector2(2, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("9_b46sv")
 trash1 = ExtResource("10_ocf3v")
-trash2 = ExtResource("11_k7iig")
+trash2 = ExtResource("11_deqru")
 roar = ExtResource("12_y25cj")
 minSpawnTime = 1.0
 maxSpawnTime = 3.0

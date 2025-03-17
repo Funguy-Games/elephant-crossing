@@ -15,6 +15,7 @@ Type = 1
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Pickupable"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+z_index = 1
 scale = Vector2(0.0976563, 0.0950413)
 texture = ExtResource("1_ek7yl")
 
