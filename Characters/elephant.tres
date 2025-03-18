@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bgxxuxh62wkem"]
+
+[ext_resource type="Shader" path="res://Art/Elephant.gdshader" id="1_a1aja"]
+
+[resource]
+shader = ExtResource("1_a1aja")
+shader_parameter/intensity = 0.315
+shader_parameter/blinkSpeed = 4.5
+shader_parameter/isBlinking = false

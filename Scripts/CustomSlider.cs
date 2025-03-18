@@ -33,7 +33,6 @@ public partial class CustomSlider : TextureRect
 		// to get the slide handles relative position on the slide area
 		// then dividing that by the slide area to get a range from -1 to 1
 		_sliderPosition = (_slideArea / 2 - Position.Y) / (_slideArea / 2);
-		GD.Print(_sliderPosition);
 	}
 
 
