@@ -6,7 +6,7 @@ uniform bool isBlinking = false;
 void vertex() {
 	// Called for every vertex the material is visible on.
 	vec3 rgb = COLOR.rgb + intensity * sin(TIME * blinkSpeed) * float(isBlinking);
-	COLOR.rgb = vec3(rgb.r,rgb.g,rgb.b);
+	COLOR.rgb = rgb;
 }
 
 void fragment() {

@@ -80,12 +80,13 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -9.5
+offset_left = -7.5
 offset_top = 189.0
-offset_right = 10.5
+offset_right = 9.5
 offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/ColorRect/ColorRect2"]
 layout_mode = 1
