@@ -7,4 +7,9 @@ public partial class SceneManager : Node
     {
         GetTree().ChangeSceneToFile("res://Levels/main.tscn");
     }
+
+    public void LoadMainMenu()
+    {
+        GetTree().ChangeSceneToFile("res://Levels/menu.tscn");
+    }
 }

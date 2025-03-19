@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=17 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Levels/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" path="res://Art/Bottle.tscn" id="11_deqru"]
 [ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="14_hnran"]
+[ext_resource type="Script" path="res://Levels/SceneManager.cs" id="15_06ttk"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
 _data = {
@@ -21,10 +22,12 @@ _data = {
 }
 point_count = 7
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("_scoreBroad")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_scoreBroad", "_endScreen")]
 position = Vector2(641, 360)
 script = ExtResource("1_rh0xu")
 _scoreBroad = NodePath("ColorRect/RichTextLabel")
+_endScreen = NodePath("CanvasLayer")
+_trashInPlay = 30
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -132,3 +135,56 @@ text = "[center]200"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.909804)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.5
+offset_top = -167.0
+offset_right = 241.5
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("14_hnran")
+theme_override_font_sizes/normal_font_size = 119
+bbcode_enabled = true
+text = "[center]You win"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42
+anchor_top = 0.5
+anchor_right = 0.58
+anchor_bottom = 0.608
+offset_left = 0.399963
+offset_top = -3.0
+offset_right = 0.599976
+offset_bottom = 0.23996
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_hnran")
+theme_override_font_sizes/font_size = 48
+text = "Next"
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("15_06ttk")
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="Node" method="LoadMainMenu"]

@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cicek2ijquvvo"]
+[gd_scene load_steps=7 format=3 uid="uid://cicek2ijquvvo"]
 
 [ext_resource type="Texture2D" uid="uid://b022ks2xs7uab" path="res://Art/map/kori.png" id="1_gbid4"]
 [ext_resource type="Script" path="res://Scripts/Basket.cs" id="1_qdsql"]
 [ext_resource type="Texture2D" uid="uid://dqm72ai2h65vp" path="res://Art/RiverItems/IMG_2946.png" id="3_hl2e5"]
+[ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="4_bhob3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paisd"]
 size = Vector2(50, 38)
 
 [sub_resource type="Theme" id="Theme_mt3ev"]
+default_font = ExtResource("4_bhob3")
 
 [node name="Basket" type="Node2D" node_paths=PackedStringArray("_displayIcon")]
 script = ExtResource("1_qdsql")
@@ -31,7 +33,7 @@ texture = ExtResource("3_hl2e5")
 
 [node name="Score" type="RichTextLabel" parent="."]
 offset_left = -25.0
-offset_top = -39.0
+offset_top = -35.0
 offset_right = 25.0
 offset_bottom = -16.0
 theme = SubResource("Theme_mt3ev")

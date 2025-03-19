@@ -32,6 +32,7 @@ public partial class Basket : Node2D
         }
 
         _points++;
+        Level.Current.TrashInPlay -= 1;
         UpdatePoints();
         return true;
 
