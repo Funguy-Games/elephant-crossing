@@ -10,22 +10,9 @@ public partial class SpawnChild : Node2D
 	[Export] float maxSpawnTime = 30.0f;
 	[Export] private int _trash1Amount = 10;
 	[Export] private int _trash2Amount = 20;
+	[Export] private int _crocodileDelay = 5;
 
 	private Random random = new Random();
-
-	public int trash1Amount
-	{
-		get { return _trash1Amount; }
-		set { _trash1Amount = value; }
-	}
-
-	public int trash2Amount
-	{
-		get { return _trash2Amount; }
-		set { _trash2Amount = value; }
-	}
-
-	public int crocodileDelay = 5;
 
 	public override void _Ready()
 	{
@@ -38,36 +25,36 @@ public partial class SpawnChild : Node2D
 
 		PackedScene scene = null;
 		int randomScene = random.Next(0, 3);
-		//GD.Print("Delay: " +  crocodileDelay);
+		GD.Print("Delay: " + _crocodileDelay);
 
 		switch (randomScene)
 		{
 			case 0:
-				if (trash1Amount > 0)
+				if (_trash1Amount > 0)
 				{
 					scene = trash1;
-					trash1Amount--;
-					if (crocodileDelay > 0) crocodileDelay--;
+					_trash1Amount--;
+					if (_crocodileDelay > 0) _crocodileDelay--;
 				}
 				break;
 			case 1:
-				if (trash2Amount > 0)
+				if (_trash2Amount > 0)
 				{
 					scene = trash2;
-					trash2Amount--;
-					if (crocodileDelay > 0) crocodileDelay--;
+					_trash2Amount--;
+					if (_crocodileDelay > 0) _crocodileDelay--;
 				}
 				break;
 			case 2:
-				if (crocodileDelay == 0 && trash1Amount > 0 && trash2Amount > 0)
+				if (_crocodileDelay == 0 && (_trash1Amount > 0 || _trash2Amount > 0))
 				{
 					scene = roar;
-					crocodileDelay = 5;
+					_crocodileDelay = 5;
 				}
 				break;
 		}
 
-		//GD.Print("Spawned: " + randomScene);
+		GD.Print("Spawned: " + randomScene);
 
 		if (scene != null)
 		{

@@ -107,7 +107,7 @@ trash1 = ExtResource("10_ocf3v")
 trash2 = ExtResource("11_deqru")
 roar = ExtResource("12_y25cj")
 minSpawnTime = 1.0
-maxSpawnTime = 3.0
+maxSpawnTime = 1.0
 
 [node name="Timer" type="Timer" parent="Spawn"]
 wait_time = 0.195
