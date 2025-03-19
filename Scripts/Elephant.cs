@@ -7,11 +7,13 @@ public partial class Elephant : Node2D
 	[Export]
 	private float _trunkSpeed = 4000;
 
+	[Export]
+	private ShaderMaterial _elephantMaterial = null;
 	//Min and max values are reversed due to the trunk expanding left
 	private float _trunkLengthMin = -100;
 	private float _trunkLengthMax = -1500;
 
-	private float _stunTime = 1f;
+	private float _stunTime = 10f;
 	private float _mercyTime = 3f;
 
 	private bool _inStun = false;
@@ -75,7 +77,10 @@ public partial class Elephant : Node2D
 
 	private void HitCrocodile()
 	{
+		GD.Print("Hit");
+
 		_inStun = true;
+		_elephantMaterial.SetShaderParameter("isBlinking", true);
 		Timer stuntimer = new Timer();
 		AddChild(stuntimer);
 		stuntimer.WaitTime = _stunTime;
@@ -100,6 +105,8 @@ public partial class Elephant : Node2D
 		{
 			_invincible = false;
 			mercytimer.QueueFree();
+			_elephantMaterial.SetShaderParameter("isBlinking", false);
+
 		};
 		mercytimer.Start();
 	}

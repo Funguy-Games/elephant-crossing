@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://byt8qivr4wfbe"]
+[gd_scene load_steps=13 format=3 uid="uid://byt8qivr4wfbe"]
 
 [ext_resource type="Texture2D" uid="uid://7ao45ipegaea" path="res://Art/UI/starting_screen.png" id="1_68cge"]
 [ext_resource type="Texture2D" uid="uid://chvnb3rxksxxh" path="res://Art/map/saniainen1.png" id="1_q61nk"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://gv3iygutgkoy" path="res://Art/map/swisscheese pieni.png" id="3_nfxed"]
 [ext_resource type="Texture2D" uid="uid://cys6hptgoyeei" path="res://Art/map/saniainen2.png" id="4_5gkm8"]
 [ext_resource type="Script" path="res://Levels/SceneManager.cs" id="6_5m3a2"]
+[ext_resource type="Texture2D" uid="uid://6yc47obug0ju" path="res://Art/UI/button1.png" id="7_pfqu7"]
+[ext_resource type="Texture2D" uid="uid://bqhjrbp1jgn6b" path="res://Art/UI/button1_pressed.png" id="8_5q2px"]
+[ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="8_24le5"]
 
 [sub_resource type="Gradient" id="Gradient_eln8r"]
 colors = PackedColorArray(0, 0, 0, 0, 0.267345, 0.137018, 0.105689, 0.607843)
@@ -332,21 +335,68 @@ rotation = -6.25989
 texture = ExtResource("4_5gkm8")
 flip_h = true
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="Button" type="TextureButton" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.542
-anchor_top = 0.536
-anchor_right = 0.542
-anchor_bottom = 0.536
-offset_left = -148.76
-offset_top = -37.92
-offset_right = 152.24
-offset_bottom = 52.08
+anchor_left = 0.402344
+anchor_top = 0.444444
+anchor_right = 0.673
+anchor_bottom = 0.646
+offset_right = -0.440002
+offset_bottom = -0.120056
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 58
-text = "Play"
+texture_normal = ExtResource("7_pfqu7")
+texture_pressed = ExtResource("8_5q2px")
+stretch_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0349066
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/Button/CenterContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("8_24le5")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]PLAY"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.173
+anchor_top = 0.224
+anchor_right = 0.48
+anchor_bottom = 0.392
+offset_left = -25.44
+offset_top = 34.72
+offset_right = -20.32
+offset_bottom = 67.76
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.165806
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("8_24le5")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]Elephant 
+crossing"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("6_5m3a2")
