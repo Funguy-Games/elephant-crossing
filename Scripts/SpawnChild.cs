@@ -6,8 +6,8 @@ public partial class SpawnChild : Node2D
 	[Export] PackedScene trash1 = null;
 	[Export] PackedScene trash2 = null;
 	[Export] PackedScene roar = null;
-	[Export] float minSpawnTime = 10.0f;
-	[Export] float maxSpawnTime = 30.0f;
+	[Export] float minSpawnTime = 1.0f;
+	[Export] float maxSpawnTime = 4.0f;
 	[Export] private int _trash1Amount = 10;
 	[Export] private int _trash2Amount = 20;
 	[Export] private int _crocodileDelay = 5;
