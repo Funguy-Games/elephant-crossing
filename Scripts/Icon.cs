@@ -33,7 +33,8 @@ public partial class Icon : PathFollow2D
 		if (ProgressRatio == 1)
 		{
 			Level.Current.Score -= 1;
-			Level.Current.TrashInPlay -= 1;
+			if (Type != RiverItem.None)
+				Level.Current.TrashInPlay -= 1;
 			QueueFree();
 		}
 	}
