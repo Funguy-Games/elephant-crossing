@@ -57,6 +57,10 @@ public partial class Level : Node2D
 		int stars = (int) (30 / pointsForStar);
 		GD.Print("for star: " + pointsForStar);
 		GD.Print("stars: " + stars);
+		_endScreen.Visible = true;
+
+		_endScreen.ShowStars(3);
+
     }
 
     private void UpdateScoreBoard()
