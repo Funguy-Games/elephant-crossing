@@ -31,7 +31,9 @@ public partial class Basket : Node2D
         }
 
         _points++;
+        Level.Current.Score++;
         Level.Current.TrashInPlay -= 1;
+
         Tween tween = GetTree().CreateTween();
         tween.TweenProperty(GetNode("Score"), "scale", new Vector2(1.5f,1.5f), 0.55f)
             .SetEase(Tween.EaseType.Out)
