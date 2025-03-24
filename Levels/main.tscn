@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=18 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Levels/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b0036ur8g3dtu" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="14_hnran"]
 [ext_resource type="Script" path="res://Levels/SceneManager.cs" id="15_06ttk"]
+[ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="16_sag2m"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
 _data = {
@@ -22,11 +23,12 @@ _data = {
 }
 point_count = 7
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("_scoreBroad", "_endScreen")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_scoreBroad", "_endScreen", "_fade")]
 position = Vector2(641, 360)
 script = ExtResource("1_rh0xu")
 _scoreBroad = NodePath("ColorRect/RichTextLabel")
 _endScreen = NodePath("CanvasLayer")
+_fade = NodePath("FadeCanvas")
 _trashInPlay = 30
 
 [node name="Map" type="Node2D" parent="."]
@@ -106,8 +108,6 @@ script = ExtResource("9_b46sv")
 trash1 = ExtResource("10_ocf3v")
 trash2 = ExtResource("11_deqru")
 roar = ExtResource("12_y25cj")
-minSpawnTime = 1.0
-maxSpawnTime = 1.0
 
 [node name="Timer" type="Timer" parent="Spawn"]
 wait_time = 0.195
@@ -187,5 +187,18 @@ text = "Next"
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("15_06ttk")
+
+[node name="FadeCanvas" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("16_sag2m")
+_fadeSpeed = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="Node" method="LoadMainMenu"]

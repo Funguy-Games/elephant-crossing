@@ -23,7 +23,6 @@ script = ExtResource("1_rgbt2")
 trash1 = ExtResource("2_r5uyy")
 trash2 = ExtResource("3_bp8vo")
 roar = ExtResource("4_b4koj")
-minSpawnTime = 1.0
 maxSpawnTime = 3.0
 
 [node name="Timer" type="Timer" parent="Spawn"]

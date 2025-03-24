@@ -54,6 +54,12 @@ public partial class CustomSlider : TextureRect
 				}
 				break;
 			case InputEventScreenDrag screenDrag:
+				if (touchIndex < 0 && GetGlobalRect().HasPoint(screenDrag.Position))
+				{
+					touchIndex = screenDrag.Index;
+					dragOffset = Position - screenDrag.Position;
+				}
+
 				if (screenDrag.Index != touchIndex)
 					return;
 

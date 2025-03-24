@@ -35,6 +35,7 @@ public partial class Icon : PathFollow2D
 			Level.Current.Score -= 1;
 			if (Type != RiverItem.None)
 				Level.Current.TrashInPlay -= 1;
+
 			QueueFree();
 		}
 	}

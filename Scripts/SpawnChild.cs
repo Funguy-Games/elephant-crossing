@@ -14,7 +14,7 @@ public partial class SpawnChild : Node2D
 
 	private Random random = new Random();
 
-	public override void _Ready()
+	public void Start()
 	{
 		SetRandomSpawnTime();
 	}

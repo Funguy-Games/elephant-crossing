@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="4_bhob3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paisd"]
-size = Vector2(50, 38)
+size = Vector2(63.7363, 50.1832)
 
 [sub_resource type="Theme" id="Theme_mt3ev"]
 default_font = ExtResource("4_bhob3")
@@ -17,28 +17,30 @@ _displayIcon = NodePath("Sprite2D2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 3)
-scale = Vector2(0.0772726, 0.0772726)
+scale = Vector2(0.111635, 0.111635)
 texture = ExtResource("1_gbid4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Basket"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 3)
+position = Vector2(0.366299, 1.64835)
 shape = SubResource("RectangleShape2D_paisd")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(0, 34)
-scale = Vector2(0.05, 0.05)
+position = Vector2(0, 41.0256)
+scale = Vector2(0.065, 0.065)
 texture = ExtResource("3_hl2e5")
 
 [node name="Score" type="RichTextLabel" parent="."]
-offset_left = -25.0
-offset_top = -35.0
-offset_right = 25.0
-offset_bottom = -16.0
+offset_left = -45.0
+offset_top = -56.0
+offset_right = 45.0
+offset_bottom = -23.0
+pivot_offset = Vector2(45, 16)
 theme = SubResource("Theme_mt3ev")
+theme_override_font_sizes/normal_font_size = 29
 bbcode_enabled = true
-text = "[center]0 / 0"
+text = "[center]10 / 10"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
