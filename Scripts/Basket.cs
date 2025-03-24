@@ -1,6 +1,5 @@
 using Godot;
 using System;
-
 public partial class Basket : Node2D
 {
     [Export]
@@ -33,6 +32,15 @@ public partial class Basket : Node2D
 
         _points++;
         Level.Current.TrashInPlay -= 1;
+        Tween tween = GetTree().CreateTween();
+        tween.TweenProperty(GetNode("Score"), "scale", new Vector2(1.5f,1.5f), 0.55f)
+            .SetEase(Tween.EaseType.Out)
+            .SetTrans(Tween.TransitionType.Quart);
+        tween.TweenProperty(GetNode("Score"), "scale", new Vector2(1,1), 1.60f)
+            .SetTrans(Tween.TransitionType.Elastic)
+            .SetEase(Tween.EaseType.Out);
+
+
         UpdatePoints();
         return true;
 

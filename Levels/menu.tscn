@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://byt8qivr4wfbe"]
+[gd_scene load_steps=14 format=3 uid="uid://byt8qivr4wfbe"]
 
 [ext_resource type="Texture2D" uid="uid://7ao45ipegaea" path="res://Art/UI/starting_screen.png" id="1_68cge"]
 [ext_resource type="Texture2D" uid="uid://chvnb3rxksxxh" path="res://Art/map/saniainen1.png" id="1_q61nk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://6yc47obug0ju" path="res://Art/UI/button1.png" id="7_pfqu7"]
 [ext_resource type="Texture2D" uid="uid://bqhjrbp1jgn6b" path="res://Art/UI/button1_pressed.png" id="8_5q2px"]
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="8_24le5"]
+[ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="11_p6mua"]
 
 [sub_resource type="Gradient" id="Gradient_eln8r"]
 colors = PackedColorArray(0, 0, 0, 0, 0.267345, 0.137018, 0.105689, 0.607843)
@@ -400,5 +401,18 @@ autowrap_mode = 0
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("6_5m3a2")
+
+[node name="FadeCanvas" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("11_p6mua")
+_fadeSpeed = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="ColorRect/Button" to="Node" method="LoadLevel1"]

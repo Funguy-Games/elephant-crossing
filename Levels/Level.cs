@@ -7,6 +7,7 @@ public partial class Level : Node2D
 	private RichTextLabel _scoreBroad = null;
 	[Export]
 	private CanvasLayer _endScreen = null;
+	[Export] private FadeCanvas _fade = null;
 
 	// this is used to see calculate when the game should end
 	// TODO: Get this value by couting the trash amount instead of placing value by hand
@@ -47,8 +48,15 @@ public partial class Level : Node2D
 		_scoreBroad.Text = $"[center]{_score}";
 	}
 
+	private void Start()
+	{
+		GetNode<SpawnChild>("Spawn").Start();
+	}
+
     public override void _Ready()
     {
+		_fade.FadeIn();
+		_fade.FadedIn += Start;
 		_endScreen.Visible = false;
         UpdateScoreBoard();
     }
