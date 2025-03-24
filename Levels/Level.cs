@@ -6,7 +6,7 @@ public partial class Level : Node2D
 	[Export]
 	private RichTextLabel _scoreBroad = null;
 	[Export]
-	private CanvasLayer _endScreen = null;
+	private EndScreen _endScreen = null;
 	[Export] private FadeCanvas _fade = null;
 
 	// this is used to see calculate when the game should end
@@ -21,10 +21,12 @@ public partial class Level : Node2D
 			_trashInPlay = value;
 			if (_trashInPlay <= 0)
 			{
-				_endScreen.Visible = true;
+				End();
 			}
 		}
 	}
+
+	private int _trashInTotal;
 
 	private int _score = 0;
 	public int Score
@@ -43,6 +45,20 @@ public partial class Level : Node2D
 		Current = this;
 	}
 
+	public override void _Ready()
+    {
+		_trashInTotal = _trashInPlay;
+		_fade.FadeIn();
+		_fade.FadedIn += Start;
+		_endScreen.Visible = false;
+        UpdateScoreBoard();
+
+		float pointsForStar = 30 / 3;
+		int stars = (int) (30 / pointsForStar);
+		GD.Print("for star: " + pointsForStar);
+		GD.Print("stars: " + stars);
+    }
+
     private void UpdateScoreBoard()
 	{
 		_scoreBroad.Text = $"[center]{_score}";
@@ -53,13 +69,16 @@ public partial class Level : Node2D
 		GetNode<SpawnChild>("Spawn").Start();
 	}
 
-    public override void _Ready()
-    {
-		_fade.FadeIn();
-		_fade.FadedIn += Start;
-		_endScreen.Visible = false;
-        UpdateScoreBoard();
-    }
+	private void End()
+	{
+		_endScreen.Visible = true;
+		int trashPoints = _trashInTotal - (_trashInTotal - _score);
+		float pointsForStar = _trashInTotal / 3;
+		int stars = (int) (trashPoints / pointsForStar);
+		GD.Print(stars);
+		_endScreen.ShowStars(stars);
+	}
+
 
 
 }

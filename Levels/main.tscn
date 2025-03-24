@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=21 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Levels/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://b0036ur8g3dtu" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="14_hnran"]
 [ext_resource type="Script" path="res://Levels/SceneManager.cs" id="15_06ttk"]
+[ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="15_xyg8j"]
+[ext_resource type="Texture2D" uid="uid://c02wkyk1njtks" path="res://Art/Star_empty.png" id="16_axdfk"]
+[ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="16_dpig0"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="16_sag2m"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
@@ -136,8 +139,10 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_stars")]
+script = ExtResource("15_xyg8j")
+_stars = [NodePath("ColorRect/StarContainer/Star"), NodePath("ColorRect/StarContainer/Star2"), NodePath("ColorRect/StarContainer/Star3")]
+_filledStar = ExtResource("16_dpig0")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -172,18 +177,47 @@ autowrap_mode = 0
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.42
-anchor_top = 0.5
+anchor_top = 0.686
 anchor_right = 0.58
-anchor_bottom = 0.608
+anchor_bottom = 0.799
 offset_left = 0.399963
-offset_top = -3.0
-offset_right = 0.599976
-offset_bottom = 0.23996
+offset_top = 0.0799561
+offset_right = 0.599915
+offset_bottom = -0.28009
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("14_hnran")
 theme_override_font_sizes/font_size = 48
 text = "Next"
+
+[node name="StarContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -454.0
+offset_top = -115.0
+offset_right = 454.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.605, 0.605)
+pivot_offset = Vector2(454, 150)
+alignment = 1
+
+[node name="Star" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
+layout_mode = 2
+texture = ExtResource("16_axdfk")
+
+[node name="Star2" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
+layout_mode = 2
+texture = ExtResource("16_axdfk")
+
+[node name="Star3" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
+layout_mode = 2
+texture = ExtResource("16_axdfk")
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("15_06ttk")
