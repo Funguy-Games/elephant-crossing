@@ -50,17 +50,8 @@ public partial class Level : Node2D
 		_trashInTotal = _trashInPlay;
 		_fade.FadeIn();
 		_fade.FadedIn += Start;
-		_endScreen.Visible = false;
         UpdateScoreBoard();
-
-		float pointsForStar = 30 / 3;
-		int stars = (int) (30 / pointsForStar);
-		GD.Print("for star: " + pointsForStar);
-		GD.Print("stars: " + stars);
-		_endScreen.Visible = true;
-
-		_endScreen.ShowStars(3);
-
+		// _endScreen.ShowStars(3);
     }
 
     private void UpdateScoreBoard()
@@ -75,11 +66,10 @@ public partial class Level : Node2D
 
 	private void End()
 	{
-		_endScreen.Visible = true;
 		int trashPoints = _trashInTotal - (_trashInTotal - _score);
 		float pointsForStar = _trashInTotal / 3;
-		int stars = (int) (trashPoints / pointsForStar);
-		GD.Print(stars);
+		float stars = trashPoints / pointsForStar;
+
 		_endScreen.ShowStars(stars);
 	}
 

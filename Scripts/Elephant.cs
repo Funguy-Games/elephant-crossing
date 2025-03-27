@@ -23,9 +23,12 @@ public partial class Elephant : Node2D
 	private Sprite2D _trunkHead = null;
 	private Line2D _trunk = null;
 	private Icon _carryable = null;
+	private int _frameCount = 15;
 
 	private CustomSlider _rotationSlider = null;
 	private CustomSlider _trunkSlider = null;
+	[Export]
+	private Sprite2D _elephantSprite = null;
 
 	public override void _Ready()
 	{
@@ -46,7 +49,19 @@ public partial class Elephant : Node2D
 			_trunkEndPosition.X = Mathf.Clamp(_trunkEndPosition.X, _trunkLengthMax, _trunkLengthMin); // max and min reversed
 
 			_trunk.SetPointPosition(1, _trunkEndPosition);
-			_trunkHead.Position = new Vector2(_trunkEndPosition.X + -500, 0);
+			_trunkHead.Position = new Vector2(_trunkEndPosition.X + _trunk.Position.X, 0);
+
+			float offset = (360 / _frameCount) * 12; // starting rotational offset.
+			//float [0,framecount] gives the correct rotation the sprite should be in
+			float spriteRotation = ((RotationDegrees + offset) % 360) / (360 / _frameCount);
+			// correct frame on the elephants rotation sheet
+			float tempRot = spriteRotation - 0.5f;
+			GD.Print($"Sprite rotation: {spriteRotation}, rotation: {tempRot}");
+			int currentFrame = (_frameCount - (int) (tempRot)) % _frameCount;
+
+			// We rotate the sprite backwards to counter the spritesheets rotation.
+			_elephantSprite.RotationDegrees = -((360 / _frameCount) * (int) (spriteRotation + 0.5f)) + offset;
+			_elephantSprite.Frame = currentFrame;
 
 			if (_carryable != null)
 				_carryable.GlobalPosition = _trunkHead.GlobalPosition;
