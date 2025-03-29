@@ -23,7 +23,7 @@ public partial class Elephant : Node2D
 	private Sprite2D _trunkHead = null;
 	private Line2D _trunk = null;
 	private Icon _carryable = null;
-	private int _frameCount = 15;
+	private int _frameCount = 8;
 
 	private CustomSlider _rotationSlider = null;
 	private CustomSlider _trunkSlider = null;
@@ -51,17 +51,7 @@ public partial class Elephant : Node2D
 			_trunk.SetPointPosition(1, _trunkEndPosition);
 			_trunkHead.Position = new Vector2(_trunkEndPosition.X + _trunk.Position.X, 0);
 
-			float offset = (360 / _frameCount) * 12; // starting rotational offset.
-			//float [0,framecount] gives the correct rotation the sprite should be in
-			float spriteRotation = ((RotationDegrees + offset) % 360) / (360 / _frameCount);
-			// correct frame on the elephants rotation sheet
-			float tempRot = spriteRotation - 0.5f;
-			GD.Print($"Sprite rotation: {spriteRotation}, rotation: {tempRot}");
-			int currentFrame = (_frameCount - (int) (tempRot)) % _frameCount;
-
-			// We rotate the sprite backwards to counter the spritesheets rotation.
-			_elephantSprite.RotationDegrees = -((360 / _frameCount) * (int) (spriteRotation + 0.5f)) + offset;
-			_elephantSprite.Frame = currentFrame;
+			RotateElephantBody();
 
 			if (_carryable != null)
 				_carryable.GlobalPosition = _trunkHead.GlobalPosition;
@@ -87,6 +77,41 @@ public partial class Elephant : Node2D
 			}
 
 		}
+
+	}
+
+	private void RotateElephantBody()
+	{
+
+
+		// Starting rotational offset.
+		float rotationOffset = (360 / _frameCount) * 0;
+		// Float [0,framecount] gives the correct rotation the sprite should be in
+		float spriteRotation = ((RotationDegrees + rotationOffset) % 360) / (360 / _frameCount);
+		float rotationShift = (spriteRotation < 0) ? spriteRotation - 0.5f : spriteRotation + 0.5f;
+
+		// GD.Print($"Sprite rotation: {spriteRotation}, rotation: {tempRot}");
+		// GD.Print($"Current Frame: {currentFrame}");
+		_elephantSprite.RotationDegrees = -((360 / _frameCount) * (int) (rotationShift)) + rotationOffset;
+		ChangeSprite((int) rotationShift);
+
+	}
+
+	private void RotateBody()
+	{
+
+		// We rotate the sprite backwards to counter the spritesheets rotation.
+
+	}
+
+	private void ChangeSprite(int frame)
+	{
+		// Starting frame offset.
+		int frameOffset = 1;
+		// Correct frame on the elephants rotation sheet
+		int currentFrame = _frameCount - (int) frame;
+
+		_elephantSprite.Frame = (currentFrame + frameOffset) % _frameCount;
 
 	}
 

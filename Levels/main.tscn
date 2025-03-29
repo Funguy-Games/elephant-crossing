@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=30 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Levels/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -11,10 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bpsdkgap8d22n" path="res://Art/RiverItems/IMG_2945.png" id="8_o1p53"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="9_b46sv"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="10_ocf3v"]
-[ext_resource type="PackedScene" uid="uid://bw7schx0xwksr" path="res://Art/Bottle.tscn" id="11_deqru"]
-[ext_resource type="PackedScene" uid="uid://b0036ur8g3dtu" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
+[ext_resource type="PackedScene" path="res://Art/Bottle.tscn" id="11_deqru"]
+[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="14_hnran"]
-[ext_resource type="Resource" path="res://trash.tres" id="14_jd8ak"]
 [ext_resource type="Script" path="res://Levels/SceneManager.cs" id="15_06ttk"]
 [ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="15_xyg8j"]
 [ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="16_dpig0"]
@@ -156,7 +155,6 @@ script = ExtResource("9_b46sv")
 trash1 = ExtResource("10_ocf3v")
 trash2 = ExtResource("11_deqru")
 roar = ExtResource("12_y25cj")
-trash = ExtResource("14_jd8ak")
 
 [node name="Timer" type="Timer" parent="Spawn"]
 wait_time = 0.195
