@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=30 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Levels/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -11,20 +11,65 @@
 [ext_resource type="Texture2D" uid="uid://bpsdkgap8d22n" path="res://Art/RiverItems/IMG_2945.png" id="8_o1p53"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="9_b46sv"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="10_ocf3v"]
-[ext_resource type="PackedScene" uid="uid://bw7schx0xwksr" path="res://Art/Bottle.tscn" id="11_deqru"]
-[ext_resource type="PackedScene" uid="uid://b0036ur8g3dtu" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
+[ext_resource type="PackedScene" path="res://Art/Bottle.tscn" id="11_deqru"]
+[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="14_hnran"]
 [ext_resource type="Script" path="res://Levels/SceneManager.cs" id="15_06ttk"]
 [ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="15_xyg8j"]
-[ext_resource type="Texture2D" uid="uid://c02wkyk1njtks" path="res://Art/Star_empty.png" id="16_axdfk"]
 [ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="16_dpig0"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="16_sag2m"]
+[ext_resource type="Shader" path="res://star.gdshader" id="18_d8oq5"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
 _data = {
 "points": PackedVector2Array(-121.428, 48.1251, 121.428, -48.1251, -430.066, -82.0001, -119.598, -12.5622, 119.598, 12.5622, -112.804, -126, -41.3411, -33.371, 41.3411, 33.371, 127.912, -8, 79.7657, -104.437, -79.7657, 104.437, 169.206, 200, 49.8384, 24.1565, -49.8384, -24.1565, -242.731, 137, 64.8899, 11.2373, -64.8899, -11.2373, -412.944, 91.0001, 0, 0, 0, 0, -546.899, 96.0001)
 }
 point_count = 7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk5gv"]
+shader = ExtResource("18_d8oq5")
+shader_parameter/fillAmount = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lgys"]
+shader = ExtResource("18_d8oq5")
+shader_parameter/fillAmount = null
+
+[sub_resource type="Gradient" id="Gradient_i01wk"]
+offsets = PackedFloat32Array(0, 0.554974, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_abyrl"]
+gradient = SubResource("Gradient_i01wk")
+
+[sub_resource type="Curve" id="Curve_uagjd"]
+_data = [Vector2(0, 0.032967), 0.0, 1.04903, 0, 0, Vector2(0.484018, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vvak2"]
+curve = SubResource("Curve_uagjd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hvm3u"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.9
+angle_min = -68.6
+angle_max = 41.8
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 133.33
+initial_velocity_max = 184.32
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_vvak2")
+color_ramp = SubResource("GradientTexture1D_abyrl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gu11c"]
+shader = ExtResource("18_d8oq5")
+shader_parameter/fillAmount = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uf8jn"]
+shader = ExtResource("18_d8oq5")
+shader_parameter/fillAmount = null
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("_scoreBroad", "_endScreen", "_fade")]
 position = Vector2(641, 360)
@@ -81,7 +126,6 @@ texture = ExtResource("8_isr8b")
 
 [node name="Elephant" parent="." instance=ExtResource("1_sbqsv")]
 position = Vector2(-82, 6)
-rotation = 0.418879
 scale = Vector2(0.135, 0.135)
 
 [node name="Basket" parent="." instance=ExtResource("8_fvk7u")]
@@ -208,16 +252,73 @@ pivot_offset = Vector2(454, 150)
 alignment = 1
 
 [node name="Star" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
+material = SubResource("ShaderMaterial_wk5gv")
 layout_mode = 2
-texture = ExtResource("16_axdfk")
+texture = ExtResource("16_dpig0")
+
+[node name="Control" type="Control" parent="CanvasLayer/ColorRect/StarContainer/Star"]
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -300.0
+offset_right = 300.0
+grow_vertical = 0
+pivot_offset = Vector2(150, 300)
+
+[node name="Star4" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer/Star/Control"]
+material = SubResource("ShaderMaterial_4lgys")
+layout_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -300.0
+offset_right = 300.0
+texture = ExtResource("16_dpig0")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star"]
+position = Vector2(144.909, 52.4793)
+emitting = false
+amount = 29
+process_material = SubResource("ParticleProcessMaterial_hvm3u")
+texture = ExtResource("16_dpig0")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.5
+collision_base_size = 0.5
 
 [node name="Star2" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
+material = SubResource("ShaderMaterial_gu11c")
 layout_mode = 2
-texture = ExtResource("16_axdfk")
+texture = ExtResource("16_dpig0")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star2"]
+position = Vector2(144.909, 52.4793)
+emitting = false
+amount = 29
+process_material = SubResource("ParticleProcessMaterial_hvm3u")
+texture = ExtResource("16_dpig0")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.5
+collision_base_size = 0.5
 
 [node name="Star3" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
+material = SubResource("ShaderMaterial_uf8jn")
 layout_mode = 2
-texture = ExtResource("16_axdfk")
+texture = ExtResource("16_dpig0")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star3"]
+position = Vector2(144.909, 52.4793)
+emitting = false
+amount = 29
+process_material = SubResource("ParticleProcessMaterial_hvm3u")
+texture = ExtResource("16_dpig0")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.5
+collision_base_size = 0.5
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("15_06ttk")
