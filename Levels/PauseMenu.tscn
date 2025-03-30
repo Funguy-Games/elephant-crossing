@@ -1,77 +1,140 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd1tx1h8cigpb"]
+[gd_scene load_steps=11 format=3 uid="uid://bd1tx1h8cigpb"]
 
-[ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="1_4ly55"]
-[ext_resource type="Texture2D" uid="uid://6yc47obug0ju" path="res://Art/UI/button1.png" id="1_dplgy"]
-[ext_resource type="Texture2D" uid="uid://bqhjrbp1jgn6b" path="res://Art/UI/button1_pressed.png" id="2_tjofj"]
-[ext_resource type="Script" path="res://Levels/SceneManager.cs" id="4_c8vd8"]
+[ext_resource type="Texture2D" uid="uid://c2gomdrk7r2vi" path="res://Art/UI/joki.png" id="1_g0an3"]
+[ext_resource type="Script" path="res://Levels/PauseMenu.cs" id="1_ip8se"]
+[ext_resource type="Texture2D" uid="uid://copv2c6ss3mia" path="res://Art/UI/nappi_1.png" id="2_a5xvf"]
+[ext_resource type="Script" path="res://Levels/MenuProgress.cs" id="2_ihtnt"]
+[ext_resource type="Texture2D" uid="uid://b8tgaxl0s2y1p" path="res://Art/UI/nappi_1pressed.png" id="4_wvj0h"]
+[ext_resource type="Texture2D" uid="uid://4ikbjc1jucmm" path="res://Art/UI/nappi_2.png" id="4_xtyar"]
+[ext_resource type="Texture2D" uid="uid://gjkihf2png0j" path="res://Art/UI/nappi_2pressed.png" id="6_lrbhj"]
+[ext_resource type="Texture2D" uid="uid://c0ft612rowctb" path="res://Art/UI/nappi_3.png" id="7_3w4ye"]
+[ext_resource type="Texture2D" uid="uid://dflitwpoj8acw" path="res://Art/UI/nappi_3pressed.png" id="7_ll212"]
 
-[node name="Control" type="Control"]
+[sub_resource type="Curve2D" id="Curve2D_hj7ll"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, -408, 37, -67.5824, -37, 67.5824, -12, -289.478, -2.11893, -60.8609, 2.11893, 60.8609, -79, -166.703, 0, 0, 0, 0, -27, -75.467, -53.3088, -108.532, 53.3088, 108.532, 70, 49.5604, 0, 0, 0, 0, 27, 205, 29, -83.3516, -29, 83.3516, -72, 326.648, 0, 0, 0, 0, -35, 488.846, 0, 0, 0, 0, -1, 562)
+}
+point_count = 9
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("button1", "button2", "button3")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ip8se")
+button1 = NodePath("Joki/Path2D/Resume")
+button2 = NodePath("Joki/Path2D/Options")
+button3 = NodePath("Joki/Path2D/Exit")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 440.0
-offset_bottom = 294.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("1_dplgy")
-texture_pressed = ExtResource("2_tjofj")
-
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/TextureButton"]
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -21
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -102.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 0.545098)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TextureButton/CenterContainer"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("1_4ly55")
-theme_override_font_sizes/bold_italics_font_size = 1
-theme_override_font_sizes/normal_font_size = 70
-bbcode_enabled = true
-text = "[center]Resume"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+[node name="Joki" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.887805)
+texture = ExtResource("1_g0an3")
 
-[node name="TextureButton2" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("1_dplgy")
-texture_pressed = ExtResource("2_tjofj")
+[node name="Path2D" type="Path2D" parent="Joki"]
+curve = SubResource("Curve2D_hj7ll")
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/TextureButton2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -102.0
+[node name="Resume" type="PathFollow2D" parent="Joki/Path2D"]
+position = Vector2(-24.8986, -268.306)
+rotation = 1.57392
+progress = 147.964
+rotates = false
+loop = false
+script = ExtResource("2_ihtnt")
+_startingRatio = 0.131
+
+[node name="TextureButton" type="TextureButton" parent="Joki/Path2D/Resume"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.3286
+offset_top = 215.28
+offset_right = 334.671
+offset_bottom = 422.28
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -1.5708
+texture_normal = ExtResource("2_a5xvf")
+texture_pressed = ExtResource("4_wvj0h")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TextureButton2/CenterContainer"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("1_4ly55")
-theme_override_font_sizes/bold_italics_font_size = 1
-theme_override_font_sizes/normal_font_size = 70
-bbcode_enabled = true
-text = "Quit"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+[node name="Options" type="PathFollow2D" parent="Joki/Path2D"]
+position = Vector2(42.4292, -0.40987)
+rotation = 1.56872
+progress = 479.398
+rotates = false
+loop = false
+script = ExtResource("2_ihtnt")
+_startingRatio = 0.424
 
-[node name="Node" type="Node" parent="."]
-script = ExtResource("4_c8vd8")
+[node name="TextureButton" type="TextureButton" parent="Joki/Path2D/Options"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.3286
+offset_top = 215.28
+offset_right = 334.671
+offset_bottom = 422.28
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+texture_normal = ExtResource("4_xtyar")
+texture_pressed = ExtResource("6_lrbhj")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/TextureButton2" to="Node" method="LoadMainMenu"]
+[node name="Exit" type="PathFollow2D" parent="Joki/Path2D"]
+position = Vector2(-4.32586, 227.925)
+rotation = 1.5708
+progress = 755.97
+rotates = false
+loop = false
+script = ExtResource("2_ihtnt")
+_startingRatio = 0.668
+
+[node name="TextureButton" type="TextureButton" parent="Joki/Path2D/Exit"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.3286
+offset_top = 215.28
+offset_right = 334.671
+offset_bottom = 422.28
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+texture_normal = ExtResource("7_3w4ye")
+texture_pressed = ExtResource("7_ll212")
+
+[connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="." method="Resume"]
+[connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="Joki/Path2D/Resume" method="StarProgress"]
+[connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="Joki/Path2D/Options" method="StarProgress"]
+[connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="Joki/Path2D/Exit" method="StarProgress"]
+[connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="Joki/Path2D/Resume" method="StarProgress"]
+[connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="Joki/Path2D/Options" method="StarProgress"]
+[connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="Joki/Path2D/Exit" method="StarProgress"]
+[connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Resume" method="StarProgress"]
+[connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Options" method="StarProgress"]
+[connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Exit" method="StarProgress"]
