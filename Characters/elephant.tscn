@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkq5sixfyrbon"]
+[gd_scene load_steps=13 format=3 uid="uid://bkq5sixfyrbon"]
 
 [ext_resource type="Material" uid="uid://bgxxuxh62wkem" path="res://Characters/elephant.tres" id="1_b7ftt"]
 [ext_resource type="Script" path="res://Scripts/Elephant.cs" id="1_rbr7a"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cxsv3kmdppesx" path="res://Art/norsu/kärsänvarsi.png" id="2_hnwgo"]
 [ext_resource type="Texture2D" uid="uid://ey05qmqnvbq5" path="res://Art/norsu/norsu_sprite_sheet_lite.png" id="5_e0vh7"]
 [ext_resource type="Texture2D" uid="uid://6tgvu1de4lqn" path="res://Art/UI/leverbase.png" id="5_ngodr"]
+[ext_resource type="Texture2D" uid="uid://qp7tq7q2rcqb" path="res://Art/control_background_L.png" id="6_am0jt"]
 [ext_resource type="Texture2D" uid="uid://bcp78ddyths50" path="res://Art/UI/lever.png" id="6_dgiis"]
-[ext_resource type="Texture2D" uid="uid://cqc8umxbt0ech" path="res://Art/TEMP_sliderhandle.png" id="7_endij"]
+[ext_resource type="Texture2D" uid="uid://bvg50x864rq31" path="res://Art/control_background.png" id="6_jarpj"]
 [ext_resource type="Script" path="res://Scripts/CustomSlider.cs" id="7_icqum"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iemfp"]
@@ -68,18 +69,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+[node name="ColorRect" type="NinePatchRect" parent="CanvasLayer/Control"]
+texture_repeat = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -1.0
 offset_top = -360.0
-offset_right = -390.0
+offset_right = -325.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.211448, 0.13001, 0.130041, 1)
+texture = ExtResource("6_am0jt")
+region_rect = Rect2(0, 0, 392, 350)
+patch_margin_right = 70
+axis_stretch_vertical = 1
 
 [node name="ColorRect2" type="TextureRect" parent="CanvasLayer/Control/ColorRect"]
 layout_mode = 1
@@ -87,9 +93,9 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -127.5
+offset_left = -154.0
 offset_top = 205.0
-offset_right = 128.5
+offset_right = 102.0
 offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -118,32 +124,36 @@ scale = Vector2(0.50566, 0.50566)
 texture = ExtResource("6_dgiis")
 script = ExtResource("7_icqum")
 
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control"]
+[node name="ColorRect2" type="NinePatchRect" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 390.0
+offset_left = 324.0
 offset_top = -360.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.505344, 0.505344, 0.505344, 1)
+texture = ExtResource("6_jarpj")
+patch_margin_left = 70
+axis_stretch_vertical = 1
 
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control/ColorRect2"]
+[node name="ColorRect2" type="TextureRect" parent="CanvasLayer/Control/ColorRect2"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -9.5
+offset_left = -108.0
 offset_top = 205.0
-offset_right = 10.5
+offset_right = 148.0
 offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("5_ngodr")
+expand_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/ColorRect2/ColorRect2"]
 layout_mode = 1
@@ -161,10 +171,10 @@ color = Color(0.255659, 0.255659, 0.255659, 1)
 layout_mode = 0
 offset_left = -118.0
 offset_top = 20.0
-offset_right = -118.0
-offset_bottom = 20.0
+offset_right = 384.0
+offset_bottom = 269.0
 scale = Vector2(0.50566, 0.50566)
-texture = ExtResource("7_endij")
+texture = ExtResource("6_dgiis")
 script = ExtResource("7_icqum")
 
 [connection signal="body_entered" from="TrunkHead/Area2D" to="." method="On2DBodyEntered"]
