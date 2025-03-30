@@ -13,9 +13,9 @@ default_font = ExtResource("4_bhob3")
 
 [node name="Basket" type="Node2D" node_paths=PackedStringArray("_displayIcon")]
 script = ExtResource("1_qdsql")
-_displayIcon = NodePath("Sprite2D2")
+_displayIcon = NodePath("ItemIcon")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BasketSprite" type="Sprite2D" parent="."]
 position = Vector2(0, 3)
 scale = Vector2(0.111635, 0.111635)
 texture = ExtResource("1_gbid4")
@@ -26,7 +26,7 @@ texture = ExtResource("1_gbid4")
 position = Vector2(0.366299, 1.64835)
 shape = SubResource("RectangleShape2D_paisd")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="ItemIcon" type="Sprite2D" parent="."]
 position = Vector2(0, 41.0256)
 scale = Vector2(0.065, 0.065)
 texture = ExtResource("3_hl2e5")
