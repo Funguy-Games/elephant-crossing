@@ -8,20 +8,19 @@ public partial class Basket : Node2D
     private Texture2D _displayTexture = null;
     [Export]
     private RiverItem _inputType = RiverItem.None;
+    [Export]
+    private Texture2D[] _basketStates = null;
 
     private int _points = 0;
     private int _neededPoints = 10;
+    private Sprite2D _basketSprite = null;
+
     public override void _Ready()
     {
+        _basketSprite = GetNode<Sprite2D>("BasketSprite");
         _displayIcon.Texture = _displayTexture;
         UpdatePoints();
     }
-
-    private void UpdatePoints()
-    {
-        GetNode<RichTextLabel>("Score").Text = $"[center]{_points} / {_neededPoints}";
-    }
-
 
     public bool AddToBasket(Icon item)
     {
@@ -44,7 +43,24 @@ public partial class Basket : Node2D
 
 
         UpdatePoints();
+        UpdateBasketSprite();
         return true;
+    }
 
+    private void UpdatePoints()
+    {
+        GetNode<RichTextLabel>("Score").Text = $"[center]{_points} / {_neededPoints}";
+    }
+
+    private void UpdateBasketSprite()
+    {
+        if(_basketStates.Length <= 0)
+        {
+            return;
+        }
+
+        float spriteIndex = (_basketStates.Length - 1f) / _neededPoints * _points;
+        GD.Print(spriteIndex);
+        _basketSprite.Texture = _basketStates[(int) spriteIndex];
     }
 }

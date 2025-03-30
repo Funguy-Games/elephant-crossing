@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bkq5sixfyrbon"]
 
-[ext_resource type="Material" path="res://Characters/elephant.tres" id="1_b7ftt"]
+[ext_resource type="Material" uid="uid://bgxxuxh62wkem" path="res://Characters/elephant.tres" id="1_b7ftt"]
 [ext_resource type="Script" path="res://Scripts/Elephant.cs" id="1_rbr7a"]
 [ext_resource type="Texture2D" uid="uid://cwn4scewv0doq" path="res://Art/norsu/kärsänpää.png" id="2_754wv"]
 [ext_resource type="Texture2D" uid="uid://cxsv3kmdppesx" path="res://Art/norsu/kärsänvarsi.png" id="2_hnwgo"]
