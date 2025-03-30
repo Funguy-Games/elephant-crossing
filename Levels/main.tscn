@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=37 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Levels/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -9,12 +9,19 @@
 [ext_resource type="PackedScene" uid="uid://cicek2ijquvvo" path="res://Levels/basket.tscn" id="8_fvk7u"]
 [ext_resource type="Texture2D" uid="uid://bj7hkqiwt7c4l" path="res://Art/map/joki U.png" id="8_isr8b"]
 [ext_resource type="Texture2D" uid="uid://bpsdkgap8d22n" path="res://Art/RiverItems/IMG_2945.png" id="8_o1p53"]
+[ext_resource type="Texture2D" uid="uid://1xwaw0ke5ydl" path="res://Art/Baskets/Basket_bottle1.png" id="9_174y2"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="9_b46sv"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="10_ocf3v"]
-[ext_resource type="PackedScene" path="res://Art/Bottle.tscn" id="11_deqru"]
+[ext_resource type="Texture2D" uid="uid://dv665jremewso" path="res://Art/Baskets/Basket_bottle2.png" id="10_w0npb"]
+[ext_resource type="PackedScene" uid="uid://bw7schx0xwksr" path="res://Art/Bottle.tscn" id="11_deqru"]
+[ext_resource type="Texture2D" uid="uid://lqbinqi4l77l" path="res://Art/Baskets/Basket_bottle3.png" id="11_qtmvd"]
 [ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
+[ext_resource type="Texture2D" uid="uid://erclelgj8jrd" path="res://Art/Baskets/Basket_plastic1.png" id="13_a4hvf"]
+[ext_resource type="Texture2D" uid="uid://coy61xk6nmtc1" path="res://Art/Baskets/Basket.png" id="13_r07do"]
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="14_hnran"]
+[ext_resource type="Texture2D" uid="uid://gpvssi332l8j" path="res://Art/Baskets/Basket_plastic2.png" id="14_o6ykp"]
 [ext_resource type="Script" path="res://Levels/SceneManager.cs" id="15_06ttk"]
+[ext_resource type="Texture2D" uid="uid://y6nqmljhvwq" path="res://Art/Baskets/Basket_plastic3.png" id="15_cfas4"]
 [ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="15_xyg8j"]
 [ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="16_dpig0"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="16_sag2m"]
@@ -132,16 +139,19 @@ scale = Vector2(0.135, 0.135)
 position = Vector2(95, 119)
 _displayTexture = ExtResource("7_yj7n6")
 _inputType = 2
+_basketStates = Array[Texture2D]([ExtResource("13_r07do"), ExtResource("9_174y2"), ExtResource("10_w0npb"), ExtResource("11_qtmvd")])
 
 [node name="Basket2" parent="." instance=ExtResource("8_fvk7u")]
 position = Vector2(58, -168)
 _displayTexture = ExtResource("8_o1p53")
 _inputType = 0
+_basketStates = Array[Texture2D]([ExtResource("13_r07do"), ExtResource("13_a4hvf"), ExtResource("14_o6ykp"), ExtResource("15_cfas4")])
 
 [node name="Basket3" parent="." instance=ExtResource("8_fvk7u")]
 position = Vector2(-294, 169)
 _displayTexture = ExtResource("7_yj7n6")
 _inputType = 2
+_basketStates = Array[Texture2D]([ExtResource("13_r07do"), ExtResource("9_174y2"), ExtResource("10_w0npb"), ExtResource("11_qtmvd")])
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-4, -11)
@@ -184,6 +194,7 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_stars")]
+visible = false
 script = ExtResource("15_xyg8j")
 _stars = [NodePath("ColorRect/StarContainer/Star"), NodePath("ColorRect/StarContainer/Star2"), NodePath("ColorRect/StarContainer/Star3")]
 _filledStar = ExtResource("16_dpig0")

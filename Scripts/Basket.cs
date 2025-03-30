@@ -59,7 +59,8 @@ public partial class Basket : Node2D
             return;
         }
 
-        int spriteIndex = _points % (_neededPoints / _basketStates.Length);
-        _basketSprite.Texture = _basketStates[spriteIndex];
+        float spriteIndex = (_basketStates.Length - 1f) / _neededPoints * _points;
+        GD.Print(spriteIndex);
+        _basketSprite.Texture = _basketStates[(int) spriteIndex];
     }
 }
