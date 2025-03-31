@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://byt8qivr4wfbe"]
+[gd_scene load_steps=17 format=3 uid="uid://byt8qivr4wfbe"]
 
 [ext_resource type="Texture2D" uid="uid://7ao45ipegaea" path="res://Art/UI/starting_screen.png" id="1_68cge"]
 [ext_resource type="Texture2D" uid="uid://chvnb3rxksxxh" path="res://Art/map/saniainen1.png" id="1_q61nk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Levels/SceneManager.cs" id="6_5m3a2"]
 [ext_resource type="Texture2D" uid="uid://6yc47obug0ju" path="res://Art/UI/button1.png" id="7_pfqu7"]
 [ext_resource type="Texture2D" uid="uid://bqhjrbp1jgn6b" path="res://Art/UI/button1_pressed.png" id="8_5q2px"]
+[ext_resource type="Script" path="res://Scripts/SceneButton.cs" id="9_an42g"]
 [ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="9_qfael"]
 [ext_resource type="Texture2D" uid="uid://bndd1e0xgahuo" path="res://Art/UI/button2.png" id="10_hwund"]
 [ext_resource type="Texture2D" uid="uid://c631twbr0xkwu" path="res://Art/button2_pressed.png" id="11_kiep1"]
@@ -353,6 +354,7 @@ grow_vertical = 2
 texture_normal = ExtResource("7_pfqu7")
 texture_pressed = ExtResource("8_5q2px")
 stretch_mode = 0
+script = ExtResource("9_an42g")
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect/Button"]
 layout_mode = 1
@@ -464,7 +466,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Node" type="Node" parent="."]
+[node name="SceneManager" type="Node" parent="."]
 script = ExtResource("6_5m3a2")
 
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
@@ -480,5 +482,5 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="ColorRect/Button" to="Node" method="LoadLevel1"]
-[connection signal="pressed" from="ColorRect/Button2" to="Node" method="LoadLevel1"]
+[connection signal="pressed" from="ColorRect/Button" to="SceneManager" method="LoadLevel1"]
+[connection signal="pressed" from="ColorRect/Button2" to="SceneManager" method="LoadLevel1"]

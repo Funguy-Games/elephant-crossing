@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0036ur8g3dtu"]
+[gd_scene load_steps=4 format=3 uid="uid://calekdr00m04y"]
 
 [ext_resource type="Texture2D" uid="uid://birv7rcoyhdai" path="res://Art/krokodille_lead.jpg" id="1_71yqq"]
 [ext_resource type="Script" path="res://Scripts/Icon.cs" id="1_dtvj6"]
