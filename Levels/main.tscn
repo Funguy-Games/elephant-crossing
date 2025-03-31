@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=40 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Levels/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -26,12 +26,23 @@
 [ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="16_dpig0"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="16_sag2m"]
 [ext_resource type="Shader" path="res://star.gdshader" id="18_d8oq5"]
+[ext_resource type="Script" path="res://Scripts/Trash.cs" id="21_mshf2"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
 _data = {
 "points": PackedVector2Array(-121.428, 48.1251, 121.428, -48.1251, -430.066, -82.0001, -119.598, -12.5622, 119.598, 12.5622, -112.804, -126, -41.3411, -33.371, 41.3411, 33.371, 127.912, -8, 79.7657, -104.437, -79.7657, 104.437, 169.206, 200, 49.8384, 24.1565, -49.8384, -24.1565, -242.731, 137, 64.8899, 11.2373, -64.8899, -11.2373, -412.944, 91.0001, 0, 0, 0, 0, -546.899, 96.0001)
 }
 point_count = 7
+
+[sub_resource type="Resource" id="Resource_rlo5i"]
+script = ExtResource("21_mshf2")
+trashType = ExtResource("11_deqru")
+TrashAmount = 20
+
+[sub_resource type="Resource" id="Resource_iomva"]
+script = ExtResource("21_mshf2")
+trashType = ExtResource("10_ocf3v")
+TrashAmount = 10
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wk5gv"]
 shader = ExtResource("18_d8oq5")
@@ -165,6 +176,7 @@ script = ExtResource("9_b46sv")
 trash1 = ExtResource("10_ocf3v")
 trash2 = ExtResource("11_deqru")
 roar = ExtResource("12_y25cj")
+trashArray = Array[Resource]([SubResource("Resource_rlo5i"), SubResource("Resource_iomva")])
 
 [node name="Timer" type="Timer" parent="Spawn"]
 wait_time = 0.195

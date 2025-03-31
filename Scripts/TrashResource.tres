@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Trash" load_steps=2 format=3 uid="uid://by17cm8pmflir"]
+
+[ext_resource type="Script" path="res://Scripts/Trash.cs" id="1_44q2p"]
+
+[resource]
+script = ExtResource("1_44q2p")
+TrashAmount = 0

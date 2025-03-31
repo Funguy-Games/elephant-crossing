@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class SpawnChild : Node2D
 {
@@ -8,14 +9,19 @@ public partial class SpawnChild : Node2D
 	[Export] PackedScene roar = null;
 	[Export] float minSpawnTime = 1.0f;
 	[Export] float maxSpawnTime = 4.0f;
-	[Export] private int _trash1Amount = 10;
-	[Export] private int _trash2Amount = 20;
 	[Export] private int _crocodileDelay = 5;
+	[Export] private Trash[] trashArray;
 
 	private Random random = new Random();
 
+	private List<Trash> trashList = new List<Trash>();
 	public void Start()
 	{
+		foreach (Trash trash in trashArray)
+		{
+			if (trash.TrashAmount > 0 && trash.trashType != null)
+				trashList.Add(trash);
+		}
 		SetRandomSpawnTime();
 	}
 
@@ -24,35 +30,18 @@ public partial class SpawnChild : Node2D
 		Path2D path = GetTree().Root.GetNode<Path2D>("Main/Path2D");
 
 		PackedScene scene = null;
-		int randomScene = random.Next(0, 3);
+		int randomScene = random.Next(0, trashList.Count);
 		GD.Print("Delay: " + _crocodileDelay);
 
-		switch (randomScene)
+		scene = trashList[randomScene].trashType;
+		trashList[randomScene].TrashAmount--;
+
+		if (trashList[randomScene].TrashAmount <= 0)
 		{
-			case 0:
-				if (_trash1Amount > 0)
-				{
-					scene = trash1;
-					_trash1Amount--;
-					if (_crocodileDelay > 0) _crocodileDelay--;
-				}
-				break;
-			case 1:
-				if (_trash2Amount > 0)
-				{
-					scene = trash2;
-					_trash2Amount--;
-					if (_crocodileDelay > 0) _crocodileDelay--;
-				}
-				break;
-			case 2:
-				if (_crocodileDelay == 0 && (_trash1Amount > 0 || _trash2Amount > 0))
-				{
-					scene = roar;
-					_crocodileDelay = 5;
-				}
-				break;
+			trashList.RemoveAt(randomScene);
 		}
+
+		if (_crocodileDelay > 0) _crocodileDelay--;
 
 		GD.Print("Spawned: " + randomScene);
 
@@ -65,6 +54,11 @@ public partial class SpawnChild : Node2D
 
 	private void SetRandomSpawnTime()
 	{
+		if (trashList.Count <= 0)
+		{
+			return;
+		}
+
 		float randomTime = (float)(random.NextDouble() * (maxSpawnTime - minSpawnTime) + minSpawnTime);
 		Timer timer = new Timer();
 		AddChild(timer);
