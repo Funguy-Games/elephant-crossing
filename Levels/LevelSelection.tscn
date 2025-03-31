@@ -1,0 +1,146 @@
+[gd_scene load_steps=4 format=3 uid="uid://xa7wnjuwcanb"]
+
+[ext_resource type="Texture2D" uid="uid://dm1s6mykp2a42" path="res://Art/UI/levelButton.png" id="1_no2qf"]
+[ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="2_iwphq"]
+[ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="3_j354n"]
+
+[node name="LevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.537255, 0.415686, 1)
+
+[node name="Container" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Level" type="TextureButton" parent="ColorRect/Container"]
+layout_mode = 2
+texture_normal = ExtResource("1_no2qf")
+
+[node name="Stars" type="HBoxContainer" parent="ColorRect/Container/Level"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -454.0
+offset_top = -163.845
+offset_right = 454.0
+offset_bottom = 136.155
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.395, 0.395)
+pivot_offset = Vector2(454, 150)
+
+[node name="Star" type="TextureRect" parent="ColorRect/Container/Level/Stars"]
+layout_mode = 2
+texture = ExtResource("2_iwphq")
+
+[node name="Star2" type="TextureRect" parent="ColorRect/Container/Level/Stars"]
+layout_mode = 2
+texture = ExtResource("2_iwphq")
+
+[node name="Star3" type="TextureRect" parent="ColorRect/Container/Level/Stars"]
+layout_mode = 2
+texture = ExtResource("2_iwphq")
+
+[node name="Label" type="Label" parent="ColorRect/Container/Level"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_j354n")
+theme_override_font_sizes/font_size = 180
+text = "1
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level2" type="TextureButton" parent="ColorRect/Container"]
+layout_mode = 2
+texture_normal = ExtResource("1_no2qf")
+
+[node name="Stars" type="HBoxContainer" parent="ColorRect/Container/Level2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -454.0
+offset_top = -163.845
+offset_right = 454.0
+offset_bottom = 136.155
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.395, 0.395)
+pivot_offset = Vector2(454, 150)
+
+[node name="Star" type="TextureRect" parent="ColorRect/Container/Level2/Stars"]
+layout_mode = 2
+texture = ExtResource("2_iwphq")
+
+[node name="Star2" type="TextureRect" parent="ColorRect/Container/Level2/Stars"]
+layout_mode = 2
+texture = ExtResource("2_iwphq")
+
+[node name="Star3" type="TextureRect" parent="ColorRect/Container/Level2/Stars"]
+layout_mode = 2
+texture = ExtResource("2_iwphq")
+
+[node name="Label" type="Label" parent="ColorRect/Container/Level2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_j354n")
+theme_override_font_sizes/font_size = 180
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_bottom = -0.200005
+grow_horizontal = 2
+color = Color(0.450352, 0.303796, 0.217483, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.450352, 0.303796, 0.217483, 1)
