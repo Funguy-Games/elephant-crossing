@@ -3,7 +3,7 @@ shader_type canvas_item;
 uniform float fillAmount;
 
 vec3 rgb_to_gray(vec3 rgb) {
-	return vec3(rgb.r * 0.299 + rgb.g * 0.587 + rgb.b * 0.114); 
+	return vec3(rgb.r * 0.299 + rgb.g * 0.587 + rgb.b * 0.114);
 }
 
 void fragment() {

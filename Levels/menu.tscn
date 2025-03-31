@@ -365,6 +365,12 @@ rotation = -0.0349066
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/Button/CenterContainer"]
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.919525, 0.824802, 0.794009, 1)
+theme_override_colors/font_outline_color = Color(0.683729, 0.422821, 0.300057, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_offset_x = 4
 theme_override_fonts/normal_font = ExtResource("8_24le5")
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
@@ -390,6 +396,12 @@ rotation = -0.165806
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/CenterContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.923933, 0.423662, 0.316926, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/normal_font = ExtResource("8_24le5")
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
