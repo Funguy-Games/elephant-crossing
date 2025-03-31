@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://byt8qivr4wfbe"]
+[gd_scene load_steps=16 format=3 uid="uid://byt8qivr4wfbe"]
 
 [ext_resource type="Texture2D" uid="uid://7ao45ipegaea" path="res://Art/UI/starting_screen.png" id="1_68cge"]
 [ext_resource type="Texture2D" uid="uid://chvnb3rxksxxh" path="res://Art/map/saniainen1.png" id="1_q61nk"]
@@ -9,7 +9,9 @@
 [ext_resource type="Script" path="res://Levels/SceneManager.cs" id="6_5m3a2"]
 [ext_resource type="Texture2D" uid="uid://6yc47obug0ju" path="res://Art/UI/button1.png" id="7_pfqu7"]
 [ext_resource type="Texture2D" uid="uid://bqhjrbp1jgn6b" path="res://Art/UI/button1_pressed.png" id="8_5q2px"]
-[ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="8_24le5"]
+[ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="9_qfael"]
+[ext_resource type="Texture2D" uid="uid://bndd1e0xgahuo" path="res://Art/UI/button2.png" id="10_hwund"]
+[ext_resource type="Texture2D" uid="uid://c631twbr0xkwu" path="res://Art/button2_pressed.png" id="11_kiep1"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="11_p6mua"]
 
 [sub_resource type="Gradient" id="Gradient_eln8r"]
@@ -21,6 +23,7 @@ fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 1)
 
 [node name="Menu" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -371,10 +374,10 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/shadow_offset_x = 4
-theme_override_fonts/normal_font = ExtResource("8_24le5")
-theme_override_font_sizes/normal_font_size = 70
+theme_override_fonts/normal_font = ExtResource("9_qfael")
+theme_override_font_sizes/normal_font_size = 84
 bbcode_enabled = true
-text = "[center]PLAY"
+text = "[center]Play"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -402,11 +405,61 @@ theme_override_constants/outline_size = 8
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_outline_size = 1
-theme_override_fonts/normal_font = ExtResource("8_24le5")
-theme_override_font_sizes/normal_font_size = 70
+theme_override_constants/line_separation = -18
+theme_override_fonts/normal_font = ExtResource("9_qfael")
+theme_override_font_sizes/normal_font_size = 85
 bbcode_enabled = true
 text = "[center]Elephant 
-crossing"
+Crossing"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button2" type="TextureButton" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.639
+anchor_top = 0.642
+anchor_right = 0.915
+anchor_bottom = 0.932
+offset_left = 0.0799561
+offset_top = -0.240021
+offset_right = -0.200073
+offset_bottom = -0.0400391
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_hwund")
+texture_pressed = ExtResource("11_kiep1")
+stretch_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.487
+anchor_top = 0.493
+anchor_right = 0.487
+anchor_bottom = 0.493
+offset_left = -131.911
+offset_top = -101.037
+offset_right = 179.089
+offset_bottom = 15.963
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.294961
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/Button2/CenterContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.919525, 0.824802, 0.794009, 1)
+theme_override_colors/font_outline_color = Color(0.683729, 0.422821, 0.300057, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_offset_x = 4
+theme_override_fonts/normal_font = ExtResource("9_qfael")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[center]Settings"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -428,3 +481,4 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="ColorRect/Button" to="Node" method="LoadLevel1"]
+[connection signal="pressed" from="ColorRect/Button2" to="Node" method="LoadLevel1"]
