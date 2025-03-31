@@ -173,8 +173,6 @@ curve = SubResource("Curve2D_sgxs6")
 position = Vector2(152, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("9_b46sv")
-trash1 = ExtResource("10_ocf3v")
-trash2 = ExtResource("11_deqru")
 roar = ExtResource("12_y25cj")
 trashArray = Array[Resource]([SubResource("Resource_rlo5i"), SubResource("Resource_iomva")])
 

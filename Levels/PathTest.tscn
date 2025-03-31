@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://eq1hgurkc3sx"]
+[gd_scene load_steps=7 format=3 uid="uid://eq1hgurkc3sx"]
 
 [ext_resource type="Texture2D" uid="uid://g8kcbj24i61" path="res://Art/saadan_vareja.png" id="1_pgkfs"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="1_rgbt2"]
-[ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="2_r5uyy"]
-[ext_resource type="PackedScene" uid="uid://d2gw3v7qd1prg" path="res://Levels/Banana.tscn" id="3_bp8vo"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="4_13r8d"]
 [ext_resource type="PackedScene" uid="uid://b0036ur8g3dtu" path="res://Levels/Krokotiili.tscn" id="4_b4koj"]
 [ext_resource type="PackedScene" uid="uid://cicek2ijquvvo" path="res://Levels/basket.tscn" id="6_s7wm6"]
@@ -20,8 +18,6 @@ point_count = 15
 position = Vector2(2, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("1_rgbt2")
-trash1 = ExtResource("2_r5uyy")
-trash2 = ExtResource("3_bp8vo")
 roar = ExtResource("4_b4koj")
 maxSpawnTime = 3.0
 
