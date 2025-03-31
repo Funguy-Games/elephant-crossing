@@ -18,11 +18,9 @@ point_count = 9
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("button1", "button2", "button3")]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ip8se")
@@ -33,24 +31,32 @@ button3 = NodePath("Joki/Path2D/Exit")
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -21
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 0.843137)
+
+[node name="Joki" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -640.0
-offset_top = -360.0
-offset_right = 640.0
-offset_bottom = 360.0
+offset_left = -340.5
+offset_top = -512.5
+offset_right = 340.5
+offset_bottom = 512.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0392157, 0.0392157, 0.0392157, 0.545098)
-
-[node name="Joki" type="Sprite2D" parent="."]
 scale = Vector2(1, 0.887805)
+pivot_offset = Vector2(340, 512)
 texture = ExtResource("1_g0an3")
 
 [node name="Path2D" type="Path2D" parent="Joki"]
+position = Vector2(338.5, 550.86)
 curve = SubResource("Curve2D_hj7ll")
 
 [node name="Resume" type="PathFollow2D" parent="Joki/Path2D"]
@@ -135,6 +141,7 @@ texture_pressed = ExtResource("7_ll212")
 [connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="Joki/Path2D/Resume" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="Joki/Path2D/Options" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="Joki/Path2D/Exit" method="StarProgress"]
+[connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="." method="Exit"]
 [connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Resume" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Options" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Exit" method="StarProgress"]
