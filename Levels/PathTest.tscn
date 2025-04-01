@@ -19,7 +19,6 @@ position = Vector2(2, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("1_rgbt2")
 roar = ExtResource("4_b4koj")
-maxSpawnTime = 3.0
 
 [node name="Timer" type="Timer" parent="Spawn"]
 wait_time = 0.195

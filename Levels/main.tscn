@@ -34,12 +34,12 @@ _data = {
 }
 point_count = 7
 
-[sub_resource type="Resource" id="Resource_rlo5i"]
+[sub_resource type="Resource" id="Resource_fdkcj"]
 script = ExtResource("21_mshf2")
 trashType = ExtResource("11_deqru")
 TrashAmount = 20
 
-[sub_resource type="Resource" id="Resource_iomva"]
+[sub_resource type="Resource" id="Resource_62g2x"]
 script = ExtResource("21_mshf2")
 trashType = ExtResource("10_ocf3v")
 TrashAmount = 10
@@ -145,6 +145,7 @@ texture = ExtResource("8_isr8b")
 [node name="Elephant" parent="." instance=ExtResource("1_sbqsv")]
 position = Vector2(-82, 6)
 scale = Vector2(0.135, 0.135)
+_stunTime = 3.5
 
 [node name="Basket" parent="." instance=ExtResource("8_fvk7u")]
 position = Vector2(95, 119)
@@ -169,12 +170,13 @@ position = Vector2(-4, -11)
 scale = Vector2(0.99287, 0.999999)
 curve = SubResource("Curve2D_sgxs6")
 
-[node name="Spawn" type="Node2D" parent="."]
+[node name="Spawn" type="Node2D" parent="." node_paths=PackedStringArray("path")]
 position = Vector2(152, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("9_b46sv")
+path = NodePath("../Path2D")
 roar = ExtResource("12_y25cj")
-trashArray = Array[Resource]([SubResource("Resource_rlo5i"), SubResource("Resource_iomva")])
+_trashArray = Array[Object]([SubResource("Resource_fdkcj"), SubResource("Resource_62g2x")])
 
 [node name="Timer" type="Timer" parent="Spawn"]
 wait_time = 0.195

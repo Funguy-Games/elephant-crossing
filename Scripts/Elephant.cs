@@ -13,7 +13,7 @@ public partial class Elephant : Node2D
 	private float _trunkLengthMin = -100;
 	private float _trunkLengthMax = -1500;
 
-	private float _stunTime = 2f;
+	[Export] private float _stunTime = 2f;
 	private float _mercyTime = 3f;
 
 	private bool _inStun = false;

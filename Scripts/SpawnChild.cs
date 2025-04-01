@@ -5,21 +5,23 @@ using System.IO;
 
 public partial class SpawnChild : Node2D
 {
+	[Export] private Path2D path = null;
 	[Export] PackedScene roar = null;
-	[Export] float minSpawnTime = 1.0f;
-	[Export] float maxSpawnTime = 4.0f;
+	[Export] float _minSpawnTime = 1.0f;
+	[Export] float _maxSpawnTime = 4.0f;
 	[Export] private int _crocodileDelay = 5;
-	[Export] private Trash[] trashArray;
+	[Export] private float _chanceIncrease = 0.5F;
+	[Export] private Trash[] _trashArray;
+
 	private float _crocoDileChance = 0;
 	private float _startChance = 0.3f;
-	[Export] private float _chanceIncrease = 0.5F;
 
 	private Random random = new Random();
 
 	private List<Trash> trashList = new List<Trash>();
 	public void Start()
 	{
-		foreach (Trash trash in trashArray)
+		foreach (Trash trash in _trashArray)
 		{
 			if (trash.TrashAmount > 0 && trash.trashType != null)
 				trashList.Add(trash);
@@ -37,8 +39,6 @@ public partial class SpawnChild : Node2D
 		{
 			return;
 		}
-
-		Path2D path = GetTree().Root.GetNode<Path2D>("Main/Path2D");
 
 		PackedScene scene = null;
 		int randomScene = random.Next(0, trashList.Count);
@@ -73,7 +73,6 @@ public partial class SpawnChild : Node2D
 			return false;
 		}
 
-		Path2D path = GetTree().Root.GetNode<Path2D>("Main/Path2D");
 		PathFollow2D instance = roar.Instantiate<PathFollow2D>();
 		path.AddChild(instance);
 		_crocoDileChance = _startChance;
@@ -87,7 +86,7 @@ public partial class SpawnChild : Node2D
 			return;
 		}
 
-		float randomTime = (float)(random.NextDouble() * (maxSpawnTime - minSpawnTime) + minSpawnTime);
+		float randomTime = (float)(random.NextDouble() * (_maxSpawnTime - _minSpawnTime) + _minSpawnTime);
 		Timer timer = new Timer();
 		AddChild(timer);
 		timer.WaitTime = randomTime;
