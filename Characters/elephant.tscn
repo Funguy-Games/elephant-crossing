@@ -56,7 +56,6 @@ rotation = -1.5708
 scale = Vector2(2.85, 2.85)
 texture = SubResource("AtlasTexture_7nbv6")
 hframes = 8
-frame = 7
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_scale = 0.001
