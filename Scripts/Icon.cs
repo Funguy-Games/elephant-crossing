@@ -20,6 +20,7 @@ public partial class Icon : PathFollow2D
 		get; private set;
 	}
 
+	private Vector2 position = Vector2.Zero;
 	public override void _Ready()
 	{
 
@@ -30,6 +31,17 @@ public partial class Icon : PathFollow2D
 			return;
 
 		Progress += (float)delta * speed;
+		if (Type == RiverItem.None)
+		{
+			if(GlobalPosition.X < position.X)
+			{
+				GetNode<Sprite2D>("StaticBody2D/Sprite2D").FlipV = true;
+			} else
+			{
+				GetNode<Sprite2D>("StaticBody2D/Sprite2D").FlipV = false;
+			}
+			position = GlobalPosition;
+		}
 		if (ProgressRatio == 1)
 		{
 			if (Type != RiverItem.None)
