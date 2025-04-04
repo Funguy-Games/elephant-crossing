@@ -5,7 +5,7 @@ public partial class Level : Node2D
 {
 	[Export] private ProgressBar _hitBar = null; // visualizes gotten points
 	[Export] private ProgressBar _missBar = null; // visualizes missed points
-	[Export] private RichTextLabel _scoreBroad = null;
+	[Export] private Label _scoreBroad = null;
 	[Export] private EndScreen _endScreen = null;
 	[Export] private FadeCanvas _fade = null;
 
@@ -63,7 +63,7 @@ public partial class Level : Node2D
 
     private void UpdateScoreBoard()
 	{
-		_scoreBroad.Text = $"[center]{_score}";
+		_scoreBroad.Text = $"{_score}";
 	}
 
 	private void UpdateProgressIndicators()
