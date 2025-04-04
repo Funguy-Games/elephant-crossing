@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx5r1yvxkj5wb"]
+[gd_scene load_steps=6 format=3 uid="uid://dx5r1yvxkj5wb"]
 
 [ext_resource type="Texture2D" uid="uid://dm1s6mykp2a42" path="res://Art/UI/levelButton.png" id="1_no2qf"]
 [ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="2_iwphq"]
 [ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="3_j354n"]
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="4_msp5t"]
+[ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="5_aqrmf"]
 
 [node name="LevelSelection" type="Control"]
 layout_mode = 3
@@ -144,3 +146,19 @@ offset_top = -66.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.450352, 0.303796, 0.217483, 1)
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("4_msp5t")
+
+[node name="FadeCanvas" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("5_aqrmf")
+_fadeSpeed = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dqfx1arrslb3b" path="res://Art/map/swisscheese iso.png" id="2_pekpx"]
 [ext_resource type="Texture2D" uid="uid://gv3iygutgkoy" path="res://Art/map/swisscheese pieni.png" id="3_nfxed"]
 [ext_resource type="Texture2D" uid="uid://cys6hptgoyeei" path="res://Art/map/saniainen2.png" id="4_5gkm8"]
-[ext_resource type="Script" path="res://Levels/SceneManager.cs" id="6_5m3a2"]
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="6_5m3a2"]
 [ext_resource type="Texture2D" uid="uid://6yc47obug0ju" path="res://Art/UI/button1.png" id="7_pfqu7"]
 [ext_resource type="Texture2D" uid="uid://bqhjrbp1jgn6b" path="res://Art/UI/button1_pressed.png" id="8_5q2px"]
 [ext_resource type="Script" path="res://Scripts/SceneButton.cs" id="9_an42g"]

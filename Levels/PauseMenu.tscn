@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="1_4ly55"]
 [ext_resource type="Texture2D" uid="uid://6yc47obug0ju" path="res://Art/UI/button1.png" id="1_dplgy"]
 [ext_resource type="Texture2D" uid="uid://bqhjrbp1jgn6b" path="res://Art/UI/button1_pressed.png" id="2_tjofj"]
-[ext_resource type="Script" path="res://Levels/SceneManager.cs" id="4_c8vd8"]
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="4_c8vd8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
