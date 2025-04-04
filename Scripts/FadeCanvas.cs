@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+namespace ElephantCrossing;
 public partial class FadeCanvas : CanvasLayer
 {
 	[Signal]
@@ -8,16 +9,25 @@ public partial class FadeCanvas : CanvasLayer
 
 	[Signal]
 	public delegate void FadedOutEventHandler();
+
 	[Export] private float _fadeSpeed = 1;
+	[Export] private bool _autoFadeIn = false;
+
 	private ColorRect _fadeRect = null;
 	private bool _fadeIn = false;
 	private bool _fadeOut = false;
 	private float _alpha = 0;
 	private Color _modulate = new Color();
+
 	public override void _Ready()
 	{
 		_fadeRect = GetNode<ColorRect>("ColorRect");
 		_modulate = _fadeRect.Modulate;
+
+		if(_autoFadeIn)
+		{
+			FadeIn();
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

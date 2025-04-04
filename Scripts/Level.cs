@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+namespace ElephantCrossing;
 public partial class Level : Node2D
 {
 	[Export] private ProgressBar _hitBar = null; // visualizes gotten points

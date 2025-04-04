@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+namespace ElephantCrossing;
 public partial class SceneManager : Node
 {
     private FadeCanvas _fade = null;
@@ -31,6 +32,7 @@ public partial class SceneManager : Node
         _fade.FadedOut += ChangeScene;
         _fade.FadeOut();
     }
+
     /// <summary>
     /// Changes the current scene based on a given scene name.
     /// Before the scene changes this method attempts to fade out the current scene.

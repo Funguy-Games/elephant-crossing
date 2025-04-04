@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+namespace ElephantCrossing;
 public enum RiverItem
 {
 	Trash,
