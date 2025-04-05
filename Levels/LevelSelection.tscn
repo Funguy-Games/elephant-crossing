@@ -40,8 +40,9 @@ layout_mode = 2
 _sceneName = "res://Levels/main.tscn"
 _sceneManager = NodePath("../../../SceneManager")
 
-[node name="Level2" parent="ColorRect/Container" instance=ExtResource("1_np35b")]
+[node name="Level2" parent="ColorRect/Container" node_paths=PackedStringArray("_sceneManager") instance=ExtResource("1_np35b")]
 layout_mode = 2
+_sceneManager = NodePath("../../../SceneManager")
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect"]
 layout_mode = 1
