@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/SceneButton.cs" id="9_an42g"]
 [ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="9_qfael"]
 [ext_resource type="Texture2D" uid="uid://bndd1e0xgahuo" path="res://Art/UI/button2.png" id="10_hwund"]
-[ext_resource type="Texture2D" uid="uid://c631twbr0xkwu" path="res://Art/button2_pressed.png" id="11_kiep1"]
+[ext_resource type="Texture2D" uid="uid://c631twbr0xkwu" path="res://Art/UI/button2_pressed.png" id="11_kiep1"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="11_p6mua"]
 
 [sub_resource type="Gradient" id="Gradient_eln8r"]
@@ -340,7 +340,7 @@ rotation = -6.25989
 texture = ExtResource("4_5gkm8")
 flip_h = true
 
-[node name="Button" type="TextureButton" parent="ColorRect"]
+[node name="Button" type="TextureButton" parent="ColorRect" node_paths=PackedStringArray("_sceneManager")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.402344
@@ -355,6 +355,8 @@ texture_normal = ExtResource("7_pfqu7")
 texture_pressed = ExtResource("8_5q2px")
 stretch_mode = 0
 script = ExtResource("9_an42g")
+_sceneName = "res://Levels/LevelSelection.tscn"
+_sceneManager = NodePath("../../SceneManager")
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect/Button"]
 layout_mode = 1
@@ -482,5 +484,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="ColorRect/Button" to="SceneManager" method="LoadLevel1"]
 [connection signal="pressed" from="ColorRect/Button2" to="SceneManager" method="LoadLevel1"]

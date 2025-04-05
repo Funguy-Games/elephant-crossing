@@ -1,5 +1,6 @@
 using Godot;
 
+namespace ElephantCrossing;
 public partial class Elephant : Node2D
 {
 	[Export]

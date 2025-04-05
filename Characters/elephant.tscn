@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cxsv3kmdppesx" path="res://Art/norsu/kärsänvarsi.png" id="2_hnwgo"]
 [ext_resource type="Texture2D" uid="uid://ey05qmqnvbq5" path="res://Art/norsu/norsu_sprite_sheet_lite.png" id="5_e0vh7"]
 [ext_resource type="Texture2D" uid="uid://6tgvu1de4lqn" path="res://Art/UI/leverbase.png" id="5_ngodr"]
-[ext_resource type="Texture2D" uid="uid://qp7tq7q2rcqb" path="res://Art/control_background_L.png" id="6_am0jt"]
+[ext_resource type="Texture2D" uid="uid://qp7tq7q2rcqb" path="res://Art/UI/control_background_L.png" id="6_am0jt"]
 [ext_resource type="Texture2D" uid="uid://bcp78ddyths50" path="res://Art/UI/lever.png" id="6_dgiis"]
-[ext_resource type="Texture2D" uid="uid://bvg50x864rq31" path="res://Art/control_background.png" id="6_jarpj"]
+[ext_resource type="Texture2D" uid="uid://bvg50x864rq31" path="res://Art/UI/control_background.png" id="6_jarpj"]
 [ext_resource type="Script" path="res://Scripts/CustomSlider.cs" id="7_icqum"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iemfp"]
