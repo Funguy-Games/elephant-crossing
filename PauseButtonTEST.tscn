@@ -15,5 +15,6 @@ texture_normal = ExtResource("1_vo0ws")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_7jnqp")]
+z_index = 10
 
 [connection signal="pressed" from="TextureButton" to="CanvasLayer/PauseMenu" method="OpenPauseMenu"]
