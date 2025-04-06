@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bd1tx1h8cigpb"]
+[gd_scene load_steps=12 format=3 uid="uid://bd1tx1h8cigpb"]
 
-[ext_resource type="Texture2D" uid="uid://c2gomdrk7r2vi" path="res://Art/UI/joki.png" id="1_g0an3"]
 [ext_resource type="Script" path="res://Levels/PauseMenu.cs" id="1_ip8se"]
 [ext_resource type="Texture2D" uid="uid://copv2c6ss3mia" path="res://Art/UI/nappi_1.png" id="2_a5xvf"]
 [ext_resource type="Script" path="res://Levels/MenuProgress.cs" id="2_ihtnt"]
+[ext_resource type="Texture2D" uid="uid://gq4b5wf3b3o7" path="res://Art/UI/joki2.png" id="2_o84yv"]
+[ext_resource type="Script" path="res://Levels/Joki.cs" id="3_n4k7q"]
 [ext_resource type="Texture2D" uid="uid://b8tgaxl0s2y1p" path="res://Art/UI/nappi_1pressed.png" id="4_wvj0h"]
 [ext_resource type="Texture2D" uid="uid://4ikbjc1jucmm" path="res://Art/UI/nappi_2.png" id="4_xtyar"]
 [ext_resource type="Texture2D" uid="uid://gjkihf2png0j" path="res://Art/UI/nappi_2pressed.png" id="6_lrbhj"]
@@ -12,11 +13,11 @@
 
 [sub_resource type="Curve2D" id="Curve2D_hj7ll"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, -408, 37, -67.5824, -37, 67.5824, -12, -289.478, -2.11893, -60.8609, 2.11893, 60.8609, -79, -166.703, 0, 0, 0, 0, -27, -75.467, -53.3088, -108.532, 53.3088, 108.532, 70, 49.5604, 0, 0, 0, 0, 27, 205, 29, -83.3516, -29, 83.3516, -72, 326.648, 0, 0, 0, 0, -35, 488.846, 0, 0, 0, 0, -1, 562)
+"points": PackedVector2Array(0, 0, 0, 0, 33, -1330.25, 37, -67.5824, -37, 67.5824, -12, -289.478, -2.11893, -60.8609, 2.11893, 60.8609, -79, -166.703, 0, 0, 0, 0, -27, -75.467, -53.3088, -108.532, 53.3088, 108.532, 70, 49.5604, 0, 0, 0, 0, 27, 205, 29, -83.3516, -29, 83.3516, -72, 326.648, 0, 0, 0, 0, -35, 488.846, 0, 0, 0, 0, -1, 562)
 }
 point_count = 9
 
-[node name="PauseMenu" type="Control" node_paths=PackedStringArray("button1", "button2", "button3")]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("button1", "button2", "button3", "joki")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,6 +30,7 @@ script = ExtResource("1_ip8se")
 button1 = NodePath("Joki/Path2D/Resume")
 button2 = NodePath("Joki/Path2D/Options")
 button3 = NodePath("Joki/Path2D/Exit")
+joki = NodePath("Joki")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -21
@@ -44,23 +46,26 @@ offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0392157, 0.0392157, 0.0392157, 0.545098)
+color = Color(0.0392157, 0.0392157, 0.0392157, 0.717647)
 
 [node name="Joki" type="Sprite2D" parent="."]
 scale = Vector2(1, 0.887805)
-texture = ExtResource("1_g0an3")
+texture = ExtResource("2_o84yv")
+script = ExtResource("3_n4k7q")
 
 [node name="Path2D" type="Path2D" parent="Joki"]
 curve = SubResource("Curve2D_hj7ll")
 
-[node name="Resume" type="PathFollow2D" parent="Joki/Path2D"]
-position = Vector2(-24.8986, -268.306)
+[node name="Resume" type="PathFollow2D" parent="Joki/Path2D" node_paths=PackedStringArray("button")]
+position = Vector2(-47.3671, -239.923)
 rotation = 1.57392
-progress = 147.964
+progress = 1104.01
 rotates = false
 loop = false
 script = ExtResource("2_ihtnt")
 _startingRatio = 0.131
+_stoppingPoint = 0.538
+button = NodePath("TextureButton")
 
 [node name="TextureButton" type="TextureButton" parent="Joki/Path2D/Resume"]
 anchors_preset = 8
@@ -78,14 +83,16 @@ rotation = -1.5708
 texture_normal = ExtResource("2_a5xvf")
 texture_pressed = ExtResource("4_wvj0h")
 
-[node name="Options" type="PathFollow2D" parent="Joki/Path2D"]
-position = Vector2(42.4292, -0.40987)
+[node name="Options" type="PathFollow2D" parent="Joki/Path2D" node_paths=PackedStringArray("button")]
+position = Vector2(43.4814, 1.28029)
 rotation = 1.56872
-progress = 479.398
+progress = 1401.19
 rotates = false
 loop = false
 script = ExtResource("2_ihtnt")
-_startingRatio = 0.424
+_startingRatio = 0.234
+_stoppingPoint = 0.683
+button = NodePath("TextureButton")
 
 [node name="TextureButton" type="TextureButton" parent="Joki/Path2D/Options"]
 anchors_preset = 8
@@ -103,14 +110,16 @@ rotation = -1.5708
 texture_normal = ExtResource("4_xtyar")
 texture_pressed = ExtResource("6_lrbhj")
 
-[node name="Exit" type="PathFollow2D" parent="Joki/Path2D"]
-position = Vector2(-4.32586, 227.925)
+[node name="Exit" type="PathFollow2D" parent="Joki/Path2D" node_paths=PackedStringArray("button")]
+position = Vector2(13.7851, 213.573)
 rotation = 1.5708
-progress = 755.97
+progress = 1652.84
 rotates = false
 loop = false
 script = ExtResource("2_ihtnt")
-_startingRatio = 0.668
+_startingRatio = 0.374
+_stoppingPoint = 0.806
+button = NodePath("TextureButton")
 
 [node name="TextureButton" type="TextureButton" parent="Joki/Path2D/Exit"]
 anchors_preset = 8
