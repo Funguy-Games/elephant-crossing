@@ -23,7 +23,6 @@ public partial class PauseMenu : Control
 			joki.MoveDown();
 		}
 	}
-
 	private void OpenPauseMenu()
 	{
 		isPaused = !isPaused;
@@ -38,7 +37,7 @@ public partial class PauseMenu : Control
 	{
 		_timer = new Timer();
 		AddChild(_timer);
-		_timer.WaitTime = 1f;
+		_timer.WaitTime = 1.1f;
 		_timer.OneShot = true;
 		_timer.Timeout += TimerTimeout;
 		_timer.Start();
@@ -55,5 +54,19 @@ public partial class PauseMenu : Control
 		joki.MoveToStartPosition();
 
 		_timer.QueueFree();
+	}
+
+	private void Exit()
+	{
+		_timer = new Timer();
+		AddChild(_timer);
+		_timer.WaitTime = 1.1f;
+		_timer.OneShot = true;
+		_timer.Timeout += () =>
+		{
+			GetTree().ChangeSceneToFile("res://Levels/menu.tscn");
+			_timer.QueueFree();
+		};
+		_timer.Start();
 	}
 }
