@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dx5r1yvxkj5wb"]
 
-[ext_resource type="PackedScene" path="res://Levels/UI/LevelButton.tscn" id="1_np35b"]
+[ext_resource type="PackedScene" uid="uid://gde61r7f4aln" path="res://Levels/UI/LevelButton.tscn" id="1_np35b"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="4_msp5t"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="5_aqrmf"]
 
