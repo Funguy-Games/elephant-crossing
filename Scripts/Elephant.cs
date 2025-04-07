@@ -4,32 +4,42 @@ namespace ElephantCrossing;
 public partial class Elephant : Node2D
 {
 	[Export]
+	private ShaderMaterial _elephantMaterial = null;
+
+	[Export] private float _stunTime = 2f;
+	private float _mercyTime = 3f;
+	private bool _inStun = false;
+	private bool _invincible = false;
+
+	private Vector2 _trunkEndPosition = Vector2.Zero;
+	private Sprite2D _trunkHead = null;
+	private Line2D _trunk = null;
+	private Icon _carryable = null;
+
+	#region Animation
+	[Export]
+	private Sprite2D _elephantSprite = null;
+	[Export]
+	private Sprite2D _headSprite = null;
+
+	// Total amount of frames
+	private int _frameCount = 12;
+	// Starting frame offset.
+	private	int frameOffset = 3;
+	#endregion
+
+	#region Controls
+	[Export]
 	private float _turnSpeed = 1;
 	[Export]
 	private float _trunkSpeed = 4000;
 
-	[Export]
-	private ShaderMaterial _elephantMaterial = null;
 	//Min and max values are reversed due to the trunk expanding left
-	private float _trunkLengthMin = -100;
+	private float _trunkLengthMin = -300;
 	private float _trunkLengthMax = -1500;
-
-	[Export] private float _stunTime = 2f;
-	private float _mercyTime = 3f;
-
-	private bool _inStun = false;
-	private bool _invincible = false;
-	private Vector2 _trunkEndPosition = Vector2.Zero;
-
-	private Sprite2D _trunkHead = null;
-	private Line2D _trunk = null;
-	private Icon _carryable = null;
-	private int _frameCount = 8;
-
 	private CustomSlider _rotationSlider = null;
 	private CustomSlider _trunkSlider = null;
-	[Export]
-	private Sprite2D _elephantSprite = null;
+	#endregion
 
 	public override void _Ready()
 	{
@@ -37,7 +47,11 @@ public partial class Elephant : Node2D
 		_trunk = GetNode<Line2D>("Line2D");
 		_rotationSlider = GetNode<CustomSlider>("CanvasLayer/Control/ColorRect/ColorRect2/ColorRect/TouchScreenButton");
 		_trunkSlider = GetNode<CustomSlider>("CanvasLayer/Control/ColorRect2/ColorRect2/ColorRect/TouchScreenButton");
+
+		// Automatically getting frame count
+		_frameCount = _elephantSprite.Hframes * _elephantSprite.Vframes;
 	}
+
 	public override void _Process(double delta)
 	{
 		if (!_inStun)
@@ -89,12 +103,15 @@ public partial class Elephant : Node2D
 		float rotationOffset = (360 / _frameCount) * 0;
 		// Float [0,framecount] gives the correct rotation the sprite should be in
 		float spriteRotation = ((RotationDegrees + rotationOffset) % 360) / (360 / _frameCount);
-		float rotationShift = (spriteRotation < 0) ? spriteRotation - 0.5f : spriteRotation + 0.5f;
+		float shiftedRotation = (spriteRotation < 0) ? spriteRotation - 0.5f : spriteRotation + 0.5f;
 
 		// GD.Print($"Sprite rotation: {spriteRotation}, rotation: {tempRot}");
 		// GD.Print($"Current Frame: {currentFrame}");
-		_elephantSprite.RotationDegrees = -((360 / _frameCount) * (int) (rotationShift)) + rotationOffset;
-		ChangeSprite((int) rotationShift);
+		// _elephantSprite.RotationDegrees = -((360 / _frameCount) * (int) (shiftedRotation)) + rotationOffset;
+		_elephantSprite.RotationDegrees = -RotationDegrees;
+		_headSprite.RotationDegrees = -((360 / _frameCount) * (int) (shiftedRotation)) + rotationOffset;
+
+		ChangeSprite((int) -shiftedRotation);
 
 	}
 
@@ -107,13 +124,12 @@ public partial class Elephant : Node2D
 
 	private void ChangeSprite(int frame)
 	{
-		// Starting frame offset.
-		int frameOffset = 1;
+
 		// Correct frame on the elephants rotation sheet
 		int currentFrame = _frameCount - (int) frame;
 
 		_elephantSprite.Frame = (currentFrame + frameOffset) % _frameCount;
-
+		_headSprite.Frame = (currentFrame + frameOffset) % _frameCount;
 	}
 
 	private void HitCrocodile()
