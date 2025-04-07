@@ -35,7 +35,7 @@ public partial class Elephant : Node2D
 	private float _trunkSpeed = 4000;
 
 	//Min and max values are reversed due to the trunk expanding left
-	private float _trunkLengthMin = -100;
+	private float _trunkLengthMin = -300;
 	private float _trunkLengthMax = -1500;
 	private CustomSlider _rotationSlider = null;
 	private CustomSlider _trunkSlider = null;
