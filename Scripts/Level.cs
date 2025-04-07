@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using ElephantCrossing.UI;
 
 namespace ElephantCrossing;
 public partial class Level : Node2D

@@ -10,7 +10,7 @@ void fragment() {
 	float fill = 1.0f - fillAmount;
 	if(UV.g < fill) {
 		COLOR.rgb = rgb_to_gray(COLOR.rgb);
-	} else if (UV.g < fill + 0.02) {
+	} else if (UV.g < fill + 0.01 && fill >= 0.00001f) {
 		COLOR.rgb = vec3(1, 0.69, 0.11);
 	}
 }
