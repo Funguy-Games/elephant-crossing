@@ -6,6 +6,7 @@ public partial class StarIndicator : Control
     [Export] private TextureRect _starSprite = null;
     [Export] private Texture2D _activeStar = null;
     [Export] private Texture2D _deactiveStar = null;
+    private Tween _tween;
 
     public override void _Ready()
     {
@@ -18,6 +19,21 @@ public partial class StarIndicator : Control
     public void Activate()
     {
         _starSprite.Texture = _activeStar;
+        Animate();
+    }
+
+    private void Animate()
+    {
+        if(_tween != null)
+            _tween.Kill();
+
+        _tween = CreateTween();
+        _tween.TweenProperty(_starSprite, "scale", new Vector2(1.5f,1.5f), 0.55f)
+            .SetEase(Tween.EaseType.Out)
+            .SetTrans(Tween.TransitionType.Quart);
+        _tween.TweenProperty(_starSprite, "scale", new Vector2(1,1), 1.10f)
+            .SetTrans(Tween.TransitionType.Elastic)
+            .SetEase(Tween.EaseType.Out);
     }
 
 }
