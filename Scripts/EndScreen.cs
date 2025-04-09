@@ -11,7 +11,7 @@ public partial class EndScreen : CanvasLayer
 	private Texture2D _filledStar;
 	private RichTextLabel _endText = null;
 	private int _maxStars = 3; // these could be gotten from level, for now we are assuming the value.
-	private String[] _endMessages =
+	private string[] _endMessages =
 	{
 		"You Lost",
 		"Close one",
