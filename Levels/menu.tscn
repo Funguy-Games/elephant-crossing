@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="6_5m3a2"]
 [ext_resource type="Texture2D" uid="uid://6yc47obug0ju" path="res://Art/UI/button1.png" id="7_pfqu7"]
 [ext_resource type="Texture2D" uid="uid://bqhjrbp1jgn6b" path="res://Art/UI/button1_pressed.png" id="8_5q2px"]
-[ext_resource type="Script" path="res://Scripts/SceneButton.cs" id="9_an42g"]
+[ext_resource type="Script" path="res://Scripts/UI/SceneButton.cs" id="9_an42g"]
 [ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="9_qfael"]
 [ext_resource type="Texture2D" uid="uid://bndd1e0xgahuo" path="res://Art/UI/button2.png" id="10_hwund"]
 [ext_resource type="Texture2D" uid="uid://c631twbr0xkwu" path="res://Art/UI/button2_pressed.png" id="11_kiep1"]

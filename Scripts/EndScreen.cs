@@ -34,7 +34,7 @@ public partial class EndScreen : CanvasLayer
 	/// <param name="amount">amount of stars to fill, amounts > 1 spill to the next star</param>
     public void ShowStars(float amount)
 	{
-		GD.Print("Showing Stars");
+		GD.Print($"Showing {amount} Stars");
 		Visible = true;
 		FillStar(amount, -1);
 		SetEndText(amount);

@@ -1,11 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx5r1yvxkj5wb"]
+[gd_scene load_steps=11 format=3 uid="uid://dx5r1yvxkj5wb"]
 
 [ext_resource type="Script" path="res://Scripts/UI/LevelSelection.cs" id="1_0u1dj"]
 [ext_resource type="PackedScene" uid="uid://gde61r7f4aln" path="res://Levels/UI/LevelButton.tscn" id="1_np35b"]
+[ext_resource type="Script" path="res://Scripts/UI/LevelSceneResource.cs" id="2_uaaac"]
+[ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="4_iw0js"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="4_msp5t"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="5_aqrmf"]
+[ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="5_v5s02"]
 
-[node name="LevelSelection" type="Control" node_paths=PackedStringArray("_buttonContainer")]
+[sub_resource type="Resource" id="Resource_g83wm"]
+script = ExtResource("2_uaaac")
+LevelID = 0
+LevelPath = ""
+LevelName = "T"
+
+[sub_resource type="Resource" id="Resource_16te8"]
+script = ExtResource("2_uaaac")
+LevelID = 1
+LevelPath = "res://Levels/main.tscn"
+LevelName = "1"
+
+[sub_resource type="Resource" id="Resource_hpqp7"]
+script = ExtResource("2_uaaac")
+LevelID = 2
+LevelPath = ""
+LevelName = "2"
+
+[node name="LevelSelection" type="Control" node_paths=PackedStringArray("_buttonContainer", "_sceneManager", "_saveSystem")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +35,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0u1dj")
 _buttonContainer = NodePath("ColorRect/Container")
+_sceneManager = NodePath("SceneManager")
+_levelButtonScene = ExtResource("1_np35b")
+_saveSystem = NodePath("SaveSystem")
+_levels = Array[Object]([SubResource("Resource_g83wm"), SubResource("Resource_16te8"), SubResource("Resource_hpqp7")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -38,15 +63,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 
-[node name="Level" parent="ColorRect/Container" node_paths=PackedStringArray("_sceneManager") instance=ExtResource("1_np35b")]
-layout_mode = 2
-_sceneName = "res://Levels/main.tscn"
-_sceneManager = NodePath("../../../SceneManager")
-
-[node name="Level2" parent="ColorRect/Container" node_paths=PackedStringArray("_sceneManager") instance=ExtResource("1_np35b")]
-layout_mode = 2
-_sceneManager = NodePath("../../../SceneManager")
-
 [node name="ColorRect" type="ColorRect" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = -1
@@ -68,6 +84,23 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.450352, 0.303796, 0.217483, 1)
 
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 84.0
+offset_right = 44.0
+offset_bottom = 107.0
+grow_horizontal = 2
+pivot_offset = Vector2(44, 11)
+theme_override_fonts/font = ExtResource("4_iw0js")
+theme_override_font_sizes/font_size = 58
+text = "LEVEL_SELECT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SceneManager" type="Node" parent="."]
 script = ExtResource("4_msp5t")
 
@@ -84,3 +117,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="SaveSystem" parent="." instance=ExtResource("5_v5s02")]

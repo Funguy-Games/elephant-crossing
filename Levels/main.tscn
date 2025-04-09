@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://cu2wo7bvcbjho" path="res://Art/map/RiverParts/joki_0.2.png" id="23_gt28g"]
 [ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="24_iub1x"]
 [ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="27_vubvh"]
-[ext_resource type="Script" path="res://Scripts/SaveSystem.cs" id="32_a2qwl"]
+[ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="32_4r8lk"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
 _data = {
@@ -99,8 +99,8 @@ _scoreBroad = NodePath("ColorRect/ScoreLabel")
 _endScreen = NodePath("CanvasLayer")
 _fade = NodePath("FadeCanvas")
 _saveSystem = NodePath("SaveSystem")
-_levelID = 2
-_trashInPlay = 30
+_levelID = 1
+_trashInPlay = 5
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -392,7 +392,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="SaveSystem" type="Node" parent="."]
-script = ExtResource("32_a2qwl")
+[node name="SaveSystem" parent="." instance=ExtResource("32_4r8lk")]
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="Node" method="LoadMainMenu"]

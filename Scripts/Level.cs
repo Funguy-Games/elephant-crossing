@@ -73,7 +73,7 @@ public partial class Level : Node2D
 		_fade.FadedIn += Start;
 
         UpdateScoreBoard();
-		_oldScore = _saveSystem.LoadLevelData("Tutorial");
+		_oldScore = _saveSystem.LoadLevelData(_levelID.ToString());
 		GD.Print(_oldScore);
     }
 
@@ -102,7 +102,7 @@ public partial class Level : Node2D
 	private void End()
 	{
 		float stars = CalculateFinalScore();
-
+		GD.Print(stars);
 		if (stars > _oldScore)
 			_saveSystem.Save((int) stars, _levelID.ToString());
 
@@ -119,8 +119,9 @@ public partial class Level : Node2D
 	private float CalculateFinalScore()
 	{
 		int trashPoints = _trashInTotal - (_trashInTotal - _score);
-		float pointsForStar = _trashInTotal / 3;
-
+		float pointsForStar = _trashInTotal / 3.0f;
+		GD.Print("Points for a star: " + pointsForStar);
+		GD.Print("trashPoints: " + trashPoints);
 		return trashPoints / pointsForStar;
 	}
 }
