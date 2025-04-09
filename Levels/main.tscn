@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=43 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -27,7 +27,9 @@
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="16_sag2m"]
 [ext_resource type="Shader" path="res://Art/Shaders/star.gdshader" id="18_d8oq5"]
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="21_mshf2"]
+[ext_resource type="Script" path="res://Scripts/UI/ProgressViewer.cs" id="23_gs7wm"]
 [ext_resource type="Texture2D" uid="uid://cu2wo7bvcbjho" path="res://Art/map/RiverParts/joki_0.2.png" id="23_gt28g"]
+[ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="24_iub1x"]
 [ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="27_vubvh"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
@@ -88,11 +90,10 @@ shader_parameter/fillAmount = null
 shader = ExtResource("18_d8oq5")
 shader_parameter/fillAmount = null
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("_hitBar", "_missBar", "_scoreBroad", "_endScreen", "_fade")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade")]
 position = Vector2(641, 360)
 script = ExtResource("1_rh0xu")
-_hitBar = NodePath("ColorRect/GameProgress/ProgressBar")
-_missBar = NodePath("ColorRect/GameProgress/FailiureBar")
+_progressViewer = NodePath("ColorRect/GameProgress")
 _scoreBroad = NodePath("ColorRect/ScoreLabel")
 _endScreen = NodePath("CanvasLayer")
 _fade = NodePath("FadeCanvas")
@@ -105,7 +106,6 @@ position = Vector2(-3, 0)
 texture = ExtResource("1_v0q88")
 
 [node name="Highlight" type="Sprite2D" parent="Map"]
-modulate = Color(1, 1, 1, 0.654902)
 position = Vector2(-88, 2)
 rotation = -2.37365
 scale = Vector2(0.622173, 0.622173)
@@ -195,7 +195,7 @@ offset_right = 254.0
 offset_bottom = -307.0
 color = Color(0.129558, 0.129558, 0.129558, 1)
 
-[node name="GameProgress" type="Control" parent="ColorRect"]
+[node name="GameProgress" type="Control" parent="ColorRect" node_paths=PackedStringArray("_hitBar", "_missBar")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -204,6 +204,10 @@ offset_left = 8.0
 offset_right = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("23_gs7wm")
+_hitBar = NodePath("ProgressBar")
+_missBar = NodePath("FailiureBar")
+_starIndicatorScene = ExtResource("24_iub1x")
 
 [node name="FailiureBar" type="ProgressBar" parent="ColorRect/GameProgress"]
 modulate = Color(0.996986, 0, 0.494143, 1)
@@ -234,6 +238,7 @@ value = 100.0
 show_percentage = false
 
 [node name="ScoreLabel" type="Label" parent="ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -249,6 +254,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_stars")]
+visible = false
 script = ExtResource("15_xyg8j")
 _stars = [NodePath("ColorRect/StarContainer/Star"), NodePath("ColorRect/StarContainer/Star2"), NodePath("ColorRect/StarContainer/Star3")]
 _filledStar = ExtResource("16_dpig0")
