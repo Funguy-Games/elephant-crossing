@@ -1,6 +1,8 @@
 using Godot;
 using System;
+using System.IO;
 using ElephantCrossing.UI;
+using Godot.Collections;
 
 namespace ElephantCrossing;
 public partial class Level : Node2D
@@ -9,6 +11,8 @@ public partial class Level : Node2D
 	[Export] private Label _scoreBroad = null;
 	[Export] private EndScreen _endScreen = null;
 	[Export] private FadeCanvas _fade = null;
+	[Export] private SaveSystem _saveSystem = null;
+	[Export] private LevelID _levelID = LevelID.Tutorial;
 
 	// this is used to see calculate when the game should end
 	// TODO: Get this value by couting the trash amount instead of placing value by hand
@@ -29,6 +33,7 @@ public partial class Level : Node2D
 	}
 
 	private int _trashInTotal;
+	private int _oldScore = 0;
 	private int _score = 0;
 	public int Score
 	{
@@ -54,7 +59,9 @@ public partial class Level : Node2D
 		{
 			_progressViewer.SetMax(_trashInPlay);
 			_progressViewer.Reset();
+
 			float pointsForStar = _trashInPlay / 3;
+
 			_progressViewer.SetStarIndicator((int) pointsForStar);
 			_progressViewer.SetStarIndicator((int) pointsForStar * 2);
 			_progressViewer.SetStarIndicator((int) pointsForStar * 3);
@@ -66,9 +73,14 @@ public partial class Level : Node2D
 		_fade.FadedIn += Start;
 
         UpdateScoreBoard();
-
+		_oldScore = _saveSystem.LoadLevelData("Tutorial");
+		GD.Print(_oldScore);
     }
 
+	#region FileHandling
+	#endregion
+
+	#region UI
     private void UpdateScoreBoard()
 	{
 		_scoreBroad.Text = $"{_score}";
@@ -79,7 +91,9 @@ public partial class Level : Node2D
 		_progressViewer.SetHits(_score);
 		_progressViewer.SetMisses(_trashInTotal - _trashInPlay);
 	}
+	#endregion
 
+	#region GameStates
 	private void Start()
 	{
 		GetNode<SpawnChild>("Spawn").Start();
@@ -87,9 +101,10 @@ public partial class Level : Node2D
 
 	private void End()
 	{
-		int trashPoints = _trashInTotal - (_trashInTotal - _score);
-		float pointsForStar = _trashInTotal / 3;
-		float stars = trashPoints / pointsForStar;
+		float stars = CalculateFinalScore();
+
+		if (stars > _oldScore)
+			_saveSystem.Save((int) stars, _levelID.ToString());
 
 		Timer timer = new Timer();
 		timer.OneShot = true;
@@ -99,7 +114,13 @@ public partial class Level : Node2D
 		AddChild(timer);
 		timer.Start(1.25f);
 	}
+	#endregion
 
+	private float CalculateFinalScore()
+	{
+		int trashPoints = _trashInTotal - (_trashInTotal - _score);
+		float pointsForStar = _trashInTotal / 3;
 
-
+		return trashPoints / pointsForStar;
+	}
 }

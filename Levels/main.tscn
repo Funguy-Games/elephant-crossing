@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=44 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://cu2wo7bvcbjho" path="res://Art/map/RiverParts/joki_0.2.png" id="23_gt28g"]
 [ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="24_iub1x"]
 [ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="27_vubvh"]
+[ext_resource type="Script" path="res://Scripts/SaveSystem.cs" id="32_a2qwl"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
 _data = {
@@ -90,13 +91,15 @@ shader_parameter/fillAmount = null
 shader = ExtResource("18_d8oq5")
 shader_parameter/fillAmount = null
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade", "_saveSystem")]
 position = Vector2(641, 360)
 script = ExtResource("1_rh0xu")
 _progressViewer = NodePath("ColorRect/GameProgress")
 _scoreBroad = NodePath("ColorRect/ScoreLabel")
 _endScreen = NodePath("CanvasLayer")
 _fade = NodePath("FadeCanvas")
+_saveSystem = NodePath("SaveSystem")
+_levelID = 2
 _trashInPlay = 30
 
 [node name="Map" type="Node2D" parent="."]
@@ -388,5 +391,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="SaveSystem" type="Node" parent="."]
+script = ExtResource("32_a2qwl")
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="Node" method="LoadMainMenu"]

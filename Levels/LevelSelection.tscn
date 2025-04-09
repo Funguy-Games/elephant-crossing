@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx5r1yvxkj5wb"]
+[gd_scene load_steps=5 format=3 uid="uid://dx5r1yvxkj5wb"]
 
+[ext_resource type="Script" path="res://Scripts/UI/LevelSelection.cs" id="1_0u1dj"]
 [ext_resource type="PackedScene" uid="uid://gde61r7f4aln" path="res://Levels/UI/LevelButton.tscn" id="1_np35b"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="4_msp5t"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="5_aqrmf"]
 
-[node name="LevelSelection" type="Control"]
+[node name="LevelSelection" type="Control" node_paths=PackedStringArray("_buttonContainer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0u1dj")
+_buttonContainer = NodePath("ColorRect/Container")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
