@@ -47,7 +47,7 @@ public partial class EndScreen : CanvasLayer
 			_endText = GetNode<RichTextLabel>("ColorRect/RichTextLabel");
 		}
 
-		int messageIndex = (int) (amount / (float) _maxStars * _endMessages.Count());
+		int messageIndex = (int) (amount / (float) _maxStars * _endMessages.Count() - 1);
 		string text = _endMessages[messageIndex];
 
 		_endText.Text = $"[center]{text}";
