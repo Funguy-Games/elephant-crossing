@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bd1tx1h8cigpb"]
+[gd_scene load_steps=13 format=3 uid="uid://bd1tx1h8cigpb"]
 
 [ext_resource type="Script" path="res://Levels/PauseMenu.cs" id="1_ip8se"]
 [ext_resource type="Texture2D" uid="uid://copv2c6ss3mia" path="res://Art/UI/nappi_1.png" id="2_a5xvf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://4ikbjc1jucmm" path="res://Art/UI/nappi_2.png" id="4_xtyar"]
 [ext_resource type="Texture2D" uid="uid://gjkihf2png0j" path="res://Art/UI/nappi_2pressed.png" id="6_lrbhj"]
 [ext_resource type="Texture2D" uid="uid://c0ft612rowctb" path="res://Art/UI/nappi_3.png" id="7_3w4ye"]
+[ext_resource type="FontFile" uid="uid://bn181hycopsuq" path="res://Fonts/Super Lobster.ttf" id="7_bhrid"]
 [ext_resource type="Texture2D" uid="uid://dflitwpoj8acw" path="res://Art/UI/nappi_3pressed.png" id="7_ll212"]
 
 [sub_resource type="Curve2D" id="Curve2D_hj7ll"]
@@ -83,6 +84,17 @@ rotation = -1.5708
 texture_normal = ExtResource("2_a5xvf")
 texture_pressed = ExtResource("4_wvj0h")
 
+[node name="Label" type="Label" parent="Joki/Path2D/Resume/TextureButton"]
+layout_mode = 0
+offset_left = 54.4719
+offset_top = 34.6484
+offset_right = 372.472
+offset_bottom = 148.648
+rotation = -0.0541643
+theme_override_fonts/font = ExtResource("7_bhrid")
+theme_override_font_sizes/font_size = 98
+text = "Resume"
+
 [node name="Options" type="PathFollow2D" parent="Joki/Path2D" node_paths=PackedStringArray("button")]
 position = Vector2(43.4792, 1.27661)
 rotation = 1.56872
@@ -110,6 +122,17 @@ rotation = -1.5708
 texture_normal = ExtResource("4_xtyar")
 texture_pressed = ExtResource("6_lrbhj")
 
+[node name="Label" type="Label" parent="Joki/Path2D/Options/TextureButton"]
+layout_mode = 0
+offset_left = 46.9511
+offset_top = 16.741
+offset_right = 409.951
+offset_bottom = 130.741
+rotation = 0.0484958
+theme_override_fonts/font = ExtResource("7_bhrid")
+theme_override_font_sizes/font_size = 89
+text = "Settings"
+
 [node name="Exit" type="PathFollow2D" parent="Joki/Path2D" node_paths=PackedStringArray("button")]
 position = Vector2(13.7873, 213.571)
 rotation = 1.5708
@@ -136,6 +159,17 @@ grow_vertical = 2
 rotation = -1.5708
 texture_normal = ExtResource("7_3w4ye")
 texture_pressed = ExtResource("7_ll212")
+
+[node name="Label" type="Label" parent="Joki/Path2D/Exit/TextureButton"]
+layout_mode = 0
+offset_left = 117.492
+offset_top = 16.5547
+offset_right = 285.492
+offset_bottom = 130.555
+rotation = 0.0190416
+theme_override_fonts/font = ExtResource("7_bhrid")
+theme_override_font_sizes/font_size = 98
+text = "Quit"
 
 [connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="." method="Resume"]
 [connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="Joki/Path2D/Resume" method="StarProgress"]
