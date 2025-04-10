@@ -11,7 +11,7 @@ public partial class EndScreen : CanvasLayer
 	private Texture2D _filledStar;
 	private RichTextLabel _endText = null;
 	private int _maxStars = 3; // these could be gotten from level, for now we are assuming the value.
-	private String[] _endMessages =
+	private string[] _endMessages =
 	{
 		"You Lost",
 		"Close one",
@@ -34,7 +34,7 @@ public partial class EndScreen : CanvasLayer
 	/// <param name="amount">amount of stars to fill, amounts > 1 spill to the next star</param>
     public void ShowStars(float amount)
 	{
-		GD.Print("Showing Stars");
+		GD.Print($"Showing {amount} Stars");
 		Visible = true;
 		FillStar(amount, -1);
 		SetEndText(amount);
@@ -47,7 +47,7 @@ public partial class EndScreen : CanvasLayer
 			_endText = GetNode<RichTextLabel>("ColorRect/RichTextLabel");
 		}
 
-		int messageIndex = (int) (amount / (float) _maxStars * _endMessages.Count());
+		int messageIndex = (int) (amount / (float) _maxStars * _endMessages.Count() - 1);
 		string text = _endMessages[messageIndex];
 
 		_endText.Text = $"[center]{text}";

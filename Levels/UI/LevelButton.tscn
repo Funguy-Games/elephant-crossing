@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://gde61r7f4aln"]
+[gd_scene load_steps=6 format=3 uid="uid://gde61r7f4aln"]
 
 [ext_resource type="Texture2D" uid="uid://dm1s6mykp2a42" path="res://Art/UI/levelButton.png" id="1_i7qwa"]
 [ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="2_iyo80"]
-[ext_resource type="Script" path="res://Scripts/SceneButton.cs" id="2_ve0bq"]
+[ext_resource type="Script" path="res://Scripts/UI/LevelButton.cs" id="2_rbgcu"]
 [ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="3_1ip25"]
+[ext_resource type="Texture2D" uid="uid://c02wkyk1njtks" path="res://Art/UI/Star_empty.png" id="3_vyo62"]
 
-[node name="Level" type="TextureButton"]
+[node name="Level" type="TextureButton" node_paths=PackedStringArray("_stars")]
+offset_right = 300.0
+offset_bottom = 300.0
 texture_normal = ExtResource("1_i7qwa")
-script = ExtResource("2_ve0bq")
+script = ExtResource("2_rbgcu")
+_filledStar = ExtResource("2_iyo80")
+_stars = [NodePath("Stars/Star"), NodePath("Stars/Star3"), NodePath("Stars/Star2")]
 
 [node name="Stars" type="Control" parent="."]
 layout_mode = 1
@@ -33,14 +38,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -497.5
-offset_top = -210.5
+offset_top = -215.661
 offset_right = -58.5
-offset_bottom = 210.5
+offset_bottom = 205.339
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.436332
 pivot_offset = Vector2(219, 210)
-texture = ExtResource("2_iyo80")
+texture = ExtResource("3_vyo62")
 
 [node name="Star2" type="TextureRect" parent="Stars"]
 z_index = 1
@@ -51,13 +56,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -219.5
-offset_top = -210.5
+offset_top = -235.115
 offset_right = 219.5
-offset_bottom = 210.5
+offset_bottom = 185.885
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.135, 1.135)
 pivot_offset = Vector2(219, 210)
-texture = ExtResource("2_iyo80")
+texture = ExtResource("3_vyo62")
 
 [node name="Star3" type="TextureRect" parent="Stars"]
 layout_mode = 1
@@ -67,20 +73,21 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 61.5
-offset_top = -210.5
+offset_top = -215.661
 offset_right = 500.5
-offset_bottom = 210.5
+offset_bottom = 205.339
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.436332
 pivot_offset = Vector2(219, 210)
-texture = ExtResource("2_iyo80")
+texture = ExtResource("3_vyo62")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_1ip25")
