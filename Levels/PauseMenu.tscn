@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd1tx1h8cigpb"]
+[gd_scene load_steps=14 format=3 uid="uid://bd1tx1h8cigpb"]
 
 [ext_resource type="Script" path="res://Levels/PauseMenu.cs" id="1_ip8se"]
 [ext_resource type="Texture2D" uid="uid://copv2c6ss3mia" path="res://Art/UI/nappi_1.png" id="2_a5xvf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ft612rowctb" path="res://Art/UI/nappi_3.png" id="7_3w4ye"]
 [ext_resource type="FontFile" uid="uid://bn181hycopsuq" path="res://Fonts/Super Lobster.ttf" id="7_bhrid"]
 [ext_resource type="Texture2D" uid="uid://dflitwpoj8acw" path="res://Art/UI/nappi_3pressed.png" id="7_ll212"]
+[ext_resource type="PackedScene" uid="uid://dn2tra41w7kx6" path="res://Levels/SettingsMenu.tscn" id="12_epovt"]
 
 [sub_resource type="Curve2D" id="Curve2D_hj7ll"]
 _data = {
@@ -171,13 +172,16 @@ theme_override_fonts/font = ExtResource("7_bhrid")
 theme_override_font_sizes/font_size = 98
 text = "Quit"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("12_epovt")]
+visible = false
+
 [connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="." method="Resume"]
 [connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="Joki/Path2D/Resume" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="Joki/Path2D/Options" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="Joki/Path2D/Exit" method="StarProgress"]
-[connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="Joki/Path2D/Resume" method="StarProgress"]
-[connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="Joki/Path2D/Options" method="StarProgress"]
-[connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="Joki/Path2D/Exit" method="StarProgress"]
+[connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="CanvasLayer/SettingsMenu" method="OpenSettingsMenu"]
 [connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Resume" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Options" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Exit" method="StarProgress"]
