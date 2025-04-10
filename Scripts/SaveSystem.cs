@@ -9,7 +9,19 @@ public partial class SaveSystem : Node
     public void Save(int score, string levelID)
 	{
 		Dictionary saveData = new Dictionary();
-		saveData.Add(levelID, score);
+        if(Load(out Dictionary data))
+        {
+            saveData = data;
+        }
+
+        if(saveData.ContainsKey(levelID))
+        {
+            saveData[levelID] = score;
+        }
+        else
+        {
+		    saveData.Add(levelID, score);
+        }
 
 		string json = Json.Stringify(saveData);
 

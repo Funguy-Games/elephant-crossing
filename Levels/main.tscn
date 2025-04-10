@@ -100,7 +100,7 @@ _endScreen = NodePath("CanvasLayer")
 _fade = NodePath("FadeCanvas")
 _saveSystem = NodePath("SaveSystem")
 _levelID = 1
-_trashInPlay = 5
+_trashInPlay = 30
 
 [node name="Map" type="Node2D" parent="."]
 
