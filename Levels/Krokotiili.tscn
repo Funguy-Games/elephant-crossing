@@ -10,13 +10,14 @@ size = Vector2(91, 49)
 loop = false
 script = ExtResource("1_dtvj6")
 Type = 3
+_trashState = ExtResource("2_0m1ch")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Hazard"]]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.09, 0.09)
 texture = ExtResource("2_0m1ch")
 flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Hazard"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0.5, -1.5)
