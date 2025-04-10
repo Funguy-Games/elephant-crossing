@@ -13,7 +13,7 @@ public enum RiverItem
 public partial class Icon : PathFollow2D
 {
 	[Export] private float speed = 100;
-	public bool isMoving = true;
+
 	// Called every frame. 'delta' is the elapsed time since the previous frame
 	[Export]
 	public RiverItem Type
@@ -21,25 +21,33 @@ public partial class Icon : PathFollow2D
 		get; private set;
 	}
 
+	public bool isMoving = true;
+	private Sprite2D _trashSprite = null;
+	[Export] private Texture2D _trashState = null;
 	private Vector2 position = Vector2.Zero;
+
 	public override void _Ready()
 	{
-
+		_trashSprite = GetNode<Sprite2D>("Sprite2D");
 	}
 	public override void _Process(double delta)
 	{
 		if (!isMoving)
+		{
+			_trashSprite.Texture = _trashState;
 			return;
+		}
 
 		Progress += (float)delta * speed;
 		if (Type == RiverItem.None)
 		{
-			if(GlobalPosition.X < position.X)
+			if (GlobalPosition.X < position.X)
 			{
-				GetNode<Sprite2D>("StaticBody2D/Sprite2D").FlipV = true;
-			} else
+				GetNode<Sprite2D>("Sprite2D").FlipV = true;
+			}
+			else
 			{
-				GetNode<Sprite2D>("StaticBody2D/Sprite2D").FlipV = false;
+				GetNode<Sprite2D>("Sprite2D").FlipV = false;
 			}
 			position = GlobalPosition;
 		}

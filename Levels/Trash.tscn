@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv3706qvydyt1"]
+[gd_scene load_steps=5 format=3 uid="uid://cv3706qvydyt1"]
 
 [ext_resource type="Script" path="res://Scripts/Icon.cs" id="1_omjbr"]
-[ext_resource type="Texture2D" uid="uid://bpsdkgap8d22n" path="res://Art/RiverItems/IMG_2945.png" id="2_6r7g6"]
+[ext_resource type="Texture2D" uid="uid://drx20gr4hvces" path="res://Art/RiverItems/IMG_2945Resize.png" id="2_mhps4"]
+[ext_resource type="Texture2D" uid="uid://bbcirnsxs1ug5" path="res://Art/RiverItems/IMG_3066.png" id="2_wy6jh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6n2jk"]
 size = Vector2(50, 24)
@@ -10,11 +11,12 @@ size = Vector2(50, 24)
 rotates = false
 loop = false
 script = ExtResource("1_omjbr")
+_trashState = ExtResource("2_mhps4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(0.065, 0.065)
-texture = ExtResource("2_6r7g6")
+scale = Vector2(0.13, 0.1025)
+texture = ExtResource("2_wy6jh")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Pickupable"]]
 
