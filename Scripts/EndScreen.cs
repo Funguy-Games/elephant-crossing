@@ -1,13 +1,23 @@
 using Godot;
 using System;
+using System.Linq;
 
+namespace ElephantCrossing.UI;
 public partial class EndScreen : CanvasLayer
 {
 	[Export]
 	private TextureRect[] _stars;
 	[Export]
 	private Texture2D _filledStar;
-
+	private RichTextLabel _endText = null;
+	private int _maxStars = 3; // these could be gotten from level, for now we are assuming the value.
+	private String[] _endMessages =
+	{
+		"You Lost",
+		"Close one",
+		"Nice job",
+		"Perfect",
+	};
 
     public override void _Ready()
     {
@@ -18,14 +28,34 @@ public partial class EndScreen : CanvasLayer
 			star.Material.Set("shader_parameter/fillAmount", 0);
 		}
     }
-
+	/// <summary>
+	/// Opens the games end screen and starts filling the end screens stars.
+	/// </summary>
+	/// <param name="amount">amount of stars to fill, amounts > 1 spill to the next star</param>
     public void ShowStars(float amount)
 	{
 		GD.Print("Showing Stars");
 		Visible = true;
 		FillStar(amount, -1);
+		SetEndText(amount);
 	}
 
+	private void SetEndText(float amount)
+	{
+		if(_endText == null)
+		{
+			_endText = GetNode<RichTextLabel>("ColorRect/RichTextLabel");
+		}
+
+		int messageIndex = (int) (amount / (float) _maxStars * _endMessages.Count());
+		string text = _endMessages[messageIndex];
+
+		_endText.Text = $"[center]{text}";
+
+	}
+
+	// Automatically goes through each star filling them one by one.
+	// After fully filling a star this triggers the stars animations and effects.
 	private void FillStar(float amount, int currentStar)
 	{
 		float fillAmount = 0;
@@ -56,6 +86,7 @@ public partial class EndScreen : CanvasLayer
 
 	}
 
+	// Fills a single star
 	private void SetFill(float amount, int star)
 	{
 		if(_stars[star] == null)

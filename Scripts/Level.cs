@@ -1,19 +1,19 @@
 using Godot;
 using System;
+using ElephantCrossing.UI;
 
 namespace ElephantCrossing;
 public partial class Level : Node2D
 {
-	[Export] private ProgressBar _hitBar = null; // visualizes gotten points
-	[Export] private ProgressBar _missBar = null; // visualizes missed points
+	[Export] private ProgressViewer _progressViewer = null; // visualizes gotten points
 	[Export] private Label _scoreBroad = null;
 	[Export] private EndScreen _endScreen = null;
 	[Export] private FadeCanvas _fade = null;
 
 	// this is used to see calculate when the game should end
 	// TODO: Get this value by couting the trash amount instead of placing value by hand
-	[Export]
-	private int _trashInPlay = 0;
+	[Export] private int _trashInPlay = 0;
+
 	public int TrashInPlay
 	{
 		get {return _trashInPlay;}
@@ -29,7 +29,6 @@ public partial class Level : Node2D
 	}
 
 	private int _trashInTotal;
-
 	private int _score = 0;
 	public int Score
 	{
@@ -41,6 +40,7 @@ public partial class Level : Node2D
 			UpdateProgressIndicators();
 		}
 	}
+
 	public static Level Current {get; private set;}
 
 	Level()
@@ -50,15 +50,22 @@ public partial class Level : Node2D
 
 	public override void _Ready()
     {
-		_hitBar.MaxValue = _trashInPlay;
-		_missBar.MaxValue = _trashInPlay;
+		if (_progressViewer != null)
+		{
+			_progressViewer.SetMax(_trashInPlay);
+			_progressViewer.Reset();
+			float pointsForStar = _trashInPlay / 3;
+			_progressViewer.SetStarIndicator((int) pointsForStar);
+			_progressViewer.SetStarIndicator((int) pointsForStar * 2);
+			_progressViewer.SetStarIndicator((int) pointsForStar * 3);
+		}
+
 		_trashInTotal = _trashInPlay;
 
 		_fade.FadeIn();
 		_fade.FadedIn += Start;
 
         UpdateScoreBoard();
-		UpdateProgressIndicators();
 
     }
 
@@ -69,8 +76,8 @@ public partial class Level : Node2D
 
 	private void UpdateProgressIndicators()
 	{
-		_hitBar.Value = _score;
-		_missBar.Value = _trashInTotal - _trashInPlay;
+		_progressViewer.SetHits(_score);
+		_progressViewer.SetMisses(_trashInTotal - _trashInPlay);
 	}
 
 	private void Start()

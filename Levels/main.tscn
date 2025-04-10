@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=43 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -27,7 +27,10 @@
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="16_sag2m"]
 [ext_resource type="Shader" path="res://Art/Shaders/star.gdshader" id="18_d8oq5"]
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="21_mshf2"]
+[ext_resource type="Script" path="res://Scripts/UI/ProgressViewer.cs" id="23_gs7wm"]
 [ext_resource type="Texture2D" uid="uid://cu2wo7bvcbjho" path="res://Art/map/RiverParts/joki_0.2.png" id="23_gt28g"]
+[ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="24_iub1x"]
+[ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="27_vubvh"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
 _data = {
@@ -49,13 +52,9 @@ TrashAmount = 10
 shader = ExtResource("18_d8oq5")
 shader_parameter/fillAmount = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lgys"]
-shader = ExtResource("18_d8oq5")
-shader_parameter/fillAmount = null
-
 [sub_resource type="Gradient" id="Gradient_i01wk"]
-offsets = PackedFloat32Array(0, 0.554974, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.244275, 0.78117, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_abyrl"]
 gradient = SubResource("Gradient_i01wk")
@@ -70,7 +69,7 @@ curve = SubResource("Curve_uagjd")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hvm3u"]
 particle_flag_disable_z = true
 emission_shape = 1
-emission_sphere_radius = 1.9
+emission_sphere_radius = 0.76
 angle_min = -68.6
 angle_max = 41.8
 direction = Vector3(0, -1, 0)
@@ -80,6 +79,7 @@ gravity = Vector3(0, 98, 0)
 scale_min = 0.1
 scale_max = 0.2
 scale_curve = SubResource("CurveTexture_vvak2")
+color = Color(0.88847, 0.772134, 0.556324, 1)
 color_ramp = SubResource("GradientTexture1D_abyrl")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gu11c"]
@@ -90,11 +90,10 @@ shader_parameter/fillAmount = null
 shader = ExtResource("18_d8oq5")
 shader_parameter/fillAmount = null
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("_hitBar", "_missBar", "_scoreBroad", "_endScreen", "_fade")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade")]
 position = Vector2(641, 360)
 script = ExtResource("1_rh0xu")
-_hitBar = NodePath("ColorRect/GameProgress/ProgressBar")
-_missBar = NodePath("ColorRect/GameProgress/FailiureBar")
+_progressViewer = NodePath("ColorRect/GameProgress")
 _scoreBroad = NodePath("ColorRect/ScoreLabel")
 _endScreen = NodePath("CanvasLayer")
 _fade = NodePath("FadeCanvas")
@@ -107,7 +106,6 @@ position = Vector2(-3, 0)
 texture = ExtResource("1_v0q88")
 
 [node name="Highlight" type="Sprite2D" parent="Map"]
-modulate = Color(1, 1, 1, 0.654902)
 position = Vector2(-88, 2)
 rotation = -2.37365
 scale = Vector2(0.622173, 0.622173)
@@ -151,8 +149,8 @@ texture = ExtResource("23_gt28g")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Elephant" parent="." instance=ExtResource("1_sbqsv")]
-position = Vector2(-82, 6)
-scale = Vector2(0.135, 0.135)
+position = Vector2(-77, 2)
+scale = Vector2(0.185, 0.185)
 _stunTime = 3.5
 
 [node name="Basket" parent="." instance=ExtResource("8_fvk7u")]
@@ -197,7 +195,7 @@ offset_right = 254.0
 offset_bottom = -307.0
 color = Color(0.129558, 0.129558, 0.129558, 1)
 
-[node name="GameProgress" type="Control" parent="ColorRect"]
+[node name="GameProgress" type="Control" parent="ColorRect" node_paths=PackedStringArray("_hitBar", "_missBar")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -206,6 +204,10 @@ offset_left = 8.0
 offset_right = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("23_gs7wm")
+_hitBar = NodePath("ProgressBar")
+_missBar = NodePath("FailiureBar")
+_starIndicatorScene = ExtResource("24_iub1x")
 
 [node name="FailiureBar" type="ProgressBar" parent="ColorRect/GameProgress"]
 modulate = Color(0.996986, 0, 0.494143, 1)
@@ -232,10 +234,11 @@ offset_top = -13.5
 offset_bottom = 13.5
 grow_horizontal = 2
 grow_vertical = 2
-value = 60.0
+value = 100.0
 show_percentage = false
 
 [node name="ScoreLabel" type="Label" parent="ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -309,48 +312,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -454.0
-offset_top = -115.0
-offset_right = 454.0
-offset_bottom = 185.0
+offset_left = -662.5
+offset_top = -175.5
+offset_right = 662.5
+offset_bottom = 245.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.605, 0.605)
-pivot_offset = Vector2(454, 150)
+scale = Vector2(0.37, 0.37)
+pivot_offset = Vector2(658, 210)
 alignment = 1
 
 [node name="Star" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
 material = SubResource("ShaderMaterial_wk5gv")
 layout_mode = 2
-texture = ExtResource("16_dpig0")
-
-[node name="Control" type="Control" parent="CanvasLayer/ColorRect/StarContainer/Star"]
-visible = false
-clip_contents = true
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -300.0
-offset_right = 300.0
-grow_vertical = 0
-pivot_offset = Vector2(150, 300)
-
-[node name="Star4" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer/Star/Control"]
-material = SubResource("ShaderMaterial_4lgys")
-layout_mode = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -300.0
-offset_right = 300.0
-texture = ExtResource("16_dpig0")
+texture = ExtResource("27_vubvh")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star"]
-position = Vector2(144.909, 52.4793)
+visible = false
+position = Vector2(221.514, 216.757)
 emitting = false
 amount = 29
 process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = ExtResource("16_dpig0")
+texture = ExtResource("27_vubvh")
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.5
@@ -359,10 +342,11 @@ collision_base_size = 0.5
 [node name="Star2" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
 material = SubResource("ShaderMaterial_gu11c")
 layout_mode = 2
-texture = ExtResource("16_dpig0")
+texture = ExtResource("27_vubvh")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star2"]
-position = Vector2(144.909, 52.4793)
+visible = false
+position = Vector2(221.514, 216.757)
 emitting = false
 amount = 29
 process_material = SubResource("ParticleProcessMaterial_hvm3u")
@@ -375,10 +359,11 @@ collision_base_size = 0.5
 [node name="Star3" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
 material = SubResource("ShaderMaterial_uf8jn")
 layout_mode = 2
-texture = ExtResource("16_dpig0")
+texture = ExtResource("27_vubvh")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star3"]
-position = Vector2(144.909, 52.4793)
+visible = false
+position = Vector2(221.514, 216.757)
 emitting = false
 amount = 29
 process_material = SubResource("ParticleProcessMaterial_hvm3u")
