@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://fbav4qn4ucgo"]
+
+[ext_resource type="Texture2D" uid="uid://dxj5bdv8rj4fr" path="res://Art/UI/pause_button.png" id="1_f05gu"]
+[ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="2_7jnqp"]
+[ext_resource type="Texture2D" uid="uid://cekivrcio3umi" path="res://Art/UI/pause_buttonPressed.png" id="2_20nw0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 972.0
+offset_top = 1.0
+offset_right = 1279.0
+offset_bottom = 347.0
+texture_normal = ExtResource("1_f05gu")
+texture_pressed = ExtResource("2_20nw0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_7jnqp")]
+visible = false
+z_index = 10
+
+[connection signal="pressed" from="TextureButton" to="CanvasLayer/PauseMenu" method="OpenPauseMenu"]
