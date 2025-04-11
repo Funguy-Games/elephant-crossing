@@ -93,7 +93,7 @@ offset_right = 372.472
 offset_bottom = 148.648
 rotation = -0.0541643
 theme_override_fonts/font = ExtResource("7_bhrid")
-theme_override_font_sizes/font_size = 98
+theme_override_font_sizes/font_size = 97
 text = "Resume"
 
 [node name="Options" type="PathFollow2D" parent="Joki/Path2D" node_paths=PackedStringArray("button")]
@@ -182,6 +182,7 @@ visible = false
 [connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="Joki/Path2D/Options" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Resume/TextureButton" to="Joki/Path2D/Exit" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Options/TextureButton" to="CanvasLayer/SettingsMenu" method="OpenSettingsMenu"]
+[connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="." method="Exit"]
 [connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Resume" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Options" method="StarProgress"]
 [connection signal="pressed" from="Joki/Path2D/Exit/TextureButton" to="Joki/Path2D/Exit" method="StarProgress"]
