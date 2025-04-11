@@ -54,7 +54,7 @@ public partial class Level : Node2D
 	}
 
 	public override void _Ready()
-    {
+	{
 		if (_progressViewer != null)
 		{
 			_progressViewer.SetMax(_trashInPlay);
@@ -62,9 +62,9 @@ public partial class Level : Node2D
 
 			float pointsForStar = _trashInPlay / 3;
 
-			_progressViewer.SetStarIndicator((int) pointsForStar);
-			_progressViewer.SetStarIndicator((int) pointsForStar * 2);
-			_progressViewer.SetStarIndicator((int) pointsForStar * 3);
+			_progressViewer.SetStarIndicator((int)pointsForStar);
+			_progressViewer.SetStarIndicator((int)pointsForStar * 2);
+			_progressViewer.SetStarIndicator((int)pointsForStar * 3);
 		}
 
 		_trashInTotal = _trashInPlay;
@@ -72,16 +72,16 @@ public partial class Level : Node2D
 		_fade.FadeIn();
 		_fade.FadedIn += Start;
 
-        UpdateScoreBoard();
+		UpdateScoreBoard();
 		_oldScore = _saveSystem.LoadLevelData(_levelID.ToString());
 		GD.Print(_oldScore);
-    }
+	}
 
 	#region FileHandling
 	#endregion
 
 	#region UI
-    private void UpdateScoreBoard()
+	private void UpdateScoreBoard()
 	{
 		_scoreBroad.Text = $"{_score}";
 	}
@@ -96,7 +96,11 @@ public partial class Level : Node2D
 	#region GameStates
 	private void Start()
 	{
-		GetNode<SpawnChild>("Spawn").Start();
+		if (HasNode("CrocodileSpawn"))
+		{
+			GetNode<SpawnChild>("CrocodileSpawn").Start();
+		}
+		GetNode<SpawnChild>("TrashSpawn").Start();
 	}
 
 	private void End()

@@ -1,59 +1,58 @@
-[gd_scene load_steps=47 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=41 format=3 uid="uid://cvey0jaigw7f8"]
 
-[ext_resource type="Script" path="res://Scripts/Level.cs" id="1_rh0xu"]
-[ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
-[ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="1_v0q88"]
-[ext_resource type="Texture2D" uid="uid://btmfrvmh7rpw2" path="res://Art/map/highlight.png" id="2_8x547"]
-[ext_resource type="Texture2D" uid="uid://bxf1qapfi5l2r" path="res://Art/map/joki suora.png" id="3_5hctc"]
-[ext_resource type="Texture2D" uid="uid://bu6butcnn6qox" path="res://Art/RiverItems/IMG_2943.png" id="7_yj7n6"]
-[ext_resource type="PackedScene" uid="uid://cicek2ijquvvo" path="res://Levels/basket.tscn" id="8_fvk7u"]
-[ext_resource type="Texture2D" uid="uid://bj7hkqiwt7c4l" path="res://Art/map/joki U.png" id="8_isr8b"]
-[ext_resource type="Texture2D" uid="uid://bpsdkgap8d22n" path="res://Art/RiverItems/IMG_2945.png" id="8_o1p53"]
-[ext_resource type="Texture2D" uid="uid://1xwaw0ke5ydl" path="res://Art/Baskets/Basket_bottle1.png" id="9_174y2"]
-[ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="9_b46sv"]
-[ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="10_ocf3v"]
-[ext_resource type="Texture2D" uid="uid://dv665jremewso" path="res://Art/Baskets/Basket_bottle2.png" id="10_w0npb"]
-[ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="11_deqru"]
-[ext_resource type="Texture2D" uid="uid://lqbinqi4l77l" path="res://Art/Baskets/Basket_bottle3.png" id="11_qtmvd"]
-[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
-[ext_resource type="Texture2D" uid="uid://erclelgj8jrd" path="res://Art/Baskets/Basket_plastic1.png" id="13_a4hvf"]
-[ext_resource type="Texture2D" uid="uid://coy61xk6nmtc1" path="res://Art/Baskets/Basket.png" id="13_r07do"]
-[ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="14_hnran"]
-[ext_resource type="Texture2D" uid="uid://gpvssi332l8j" path="res://Art/Baskets/Basket_plastic2.png" id="14_o6ykp"]
-[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="15_06ttk"]
-[ext_resource type="Texture2D" uid="uid://y6nqmljhvwq" path="res://Art/Baskets/Basket_plastic3.png" id="15_cfas4"]
-[ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="15_xyg8j"]
-[ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="16_dpig0"]
-[ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="16_sag2m"]
-[ext_resource type="Shader" path="res://Art/Shaders/star.gdshader" id="18_d8oq5"]
-[ext_resource type="Script" path="res://Scripts/Trash.cs" id="21_mshf2"]
-[ext_resource type="Script" path="res://Scripts/UI/ProgressViewer.cs" id="23_gs7wm"]
-[ext_resource type="Texture2D" uid="uid://cu2wo7bvcbjho" path="res://Art/map/RiverParts/joki_0.2.png" id="23_gt28g"]
-[ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="24_iub1x"]
-[ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="27_vubvh"]
-[ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="32_4r8lk"]
-[ext_resource type="Texture2D" uid="uid://dxj5bdv8rj4fr" path="res://Art/UI/pause_button.png" id="33_kdifq"]
-[ext_resource type="Texture2D" uid="uid://cekivrcio3umi" path="res://Art/UI/pause_buttonPressed.png" id="34_dh476"]
-[ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="35_npaq4"]
+[ext_resource type="Script" path="res://Scripts/Level.cs" id="1_ejxtn"]
+[ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_pjx2c"]
+[ext_resource type="Texture2D" uid="uid://btmfrvmh7rpw2" path="res://Art/map/highlight.png" id="3_g84dp"]
+[ext_resource type="PackedScene" uid="uid://l4djvkrm5ld5" path="res://Spawn.tscn" id="7_1fs6q"]
+[ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="7_2abx3"]
+[ext_resource type="Script" path="res://Scripts/Trash.cs" id="9_tf03o"]
+[ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="10_lrv35"]
+[ext_resource type="Texture2D" uid="uid://sdi45l6k0kke" path="res://Art/map/RiverParts/joki_1.2.png" id="20_vok7f"]
+[ext_resource type="Texture2D" uid="uid://gjqdifxiiwfw" path="res://Art/map/RiverParts/joki_2.2.png" id="21_jdc2p"]
+[ext_resource type="Script" path="res://Scripts/UI/ProgressViewer.cs" id="23_em0tc"]
+[ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="24_bftgq"]
+[ext_resource type="PackedScene" uid="uid://cicek2ijquvvo" path="res://Levels/basket.tscn" id="24_xksdl"]
+[ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="25_dthqi"]
+[ext_resource type="Texture2D" uid="uid://bu6butcnn6qox" path="res://Art/RiverItems/IMG_2943.png" id="25_lqf7r"]
+[ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="26_3otkt"]
+[ext_resource type="Texture2D" uid="uid://coy61xk6nmtc1" path="res://Art/Baskets/Basket.png" id="26_lgqci"]
+[ext_resource type="Texture2D" uid="uid://1xwaw0ke5ydl" path="res://Art/Baskets/Basket_bottle1.png" id="27_fjcgp"]
+[ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="27_nt7vo"]
+[ext_resource type="Shader" path="res://Art/Shaders/star.gdshader" id="28_62ayi"]
+[ext_resource type="Texture2D" uid="uid://dv665jremewso" path="res://Art/Baskets/Basket_bottle2.png" id="28_nwm0l"]
+[ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="29_kf1j5"]
+[ext_resource type="Texture2D" uid="uid://lqbinqi4l77l" path="res://Art/Baskets/Basket_bottle3.png" id="29_ykm8q"]
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="30_8yyqc"]
+[ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="31_eq64b"]
+[ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="32_bmr3i"]
+[ext_resource type="Texture2D" uid="uid://dxj5bdv8rj4fr" path="res://Art/UI/pause_button.png" id="33_81dmf"]
+[ext_resource type="Texture2D" uid="uid://cekivrcio3umi" path="res://Art/UI/pause_buttonPressed.png" id="34_77oxl"]
+[ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="35_3fjpv"]
 
-[sub_resource type="Curve2D" id="Curve2D_sgxs6"]
+[sub_resource type="Curve2D" id="Curve2D_p3ftw"]
 _data = {
-"points": PackedVector2Array(-121.428, 48.1251, 121.428, -48.1251, -430.066, -82.0001, -119.598, -12.5622, 119.598, 12.5622, -112.804, -126, -41.3411, -33.371, 41.3411, 33.371, 127.912, -8, 79.7657, -104.437, -79.7657, 104.437, 169.206, 200, 49.8384, 24.1565, -49.8384, -24.1565, -242.731, 137, 64.8899, 11.2373, -64.8899, -11.2373, -412.944, 91.0001, 0, 0, 0, 0, -546.899, 96.0001)
+"points": PackedVector2Array(0, 0, 0, 0, -437, 98, -44.5, -13.5, 44.5, 13.5, -229, 91, 0, 0, 0, 0, -128, 131, -73.5, -1, 73.5, 1, -10, 166, 0, 0, 0, 0, 136, 122, -58.5, 21.5, 58.5, -21.5, 248, 74, 0, 0, 0, 0, 441, 59)
 }
 point_count = 7
 
-[sub_resource type="Resource" id="Resource_fdkcj"]
-script = ExtResource("21_mshf2")
-trashType = ExtResource("11_deqru")
-TrashAmount = 20
+[sub_resource type="Curve2D" id="Curve2D_b0j0j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -431, -146, 0, 0, 0, 0, -282, -126, 0, 0, 0, 0, -154, -109, 0, 0, 0, 0, 6, -106, 0, 0, 0, 0, 134, -113, 0, 0, 0, 0, 234, -123, 0, 0, 0, 0, 340, -141, 0, 0, 0, 0, 427, -161)
+}
+point_count = 8
 
-[sub_resource type="Resource" id="Resource_62g2x"]
-script = ExtResource("21_mshf2")
-trashType = ExtResource("10_ocf3v")
+[sub_resource type="Resource" id="Resource_28tyq"]
+script = ExtResource("9_tf03o")
+trashType = ExtResource("10_lrv35")
+TrashAmount = 1
+
+[sub_resource type="Resource" id="Resource_is21r"]
+script = ExtResource("9_tf03o")
+trashType = ExtResource("10_lrv35")
 TrashAmount = 10
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wk5gv"]
-shader = ExtResource("18_d8oq5")
+shader = ExtResource("28_62ayi")
 shader_parameter/fillAmount = 1.0
 
 [sub_resource type="Gradient" id="Gradient_i01wk"]
@@ -87,113 +86,86 @@ color = Color(0.88847, 0.772134, 0.556324, 1)
 color_ramp = SubResource("GradientTexture1D_abyrl")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gu11c"]
-shader = ExtResource("18_d8oq5")
+shader = ExtResource("28_62ayi")
 shader_parameter/fillAmount = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uf8jn"]
-shader = ExtResource("18_d8oq5")
+shader = ExtResource("28_62ayi")
 shader_parameter/fillAmount = null
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade", "_saveSystem")]
 position = Vector2(641, 360)
-script = ExtResource("1_rh0xu")
+script = ExtResource("1_ejxtn")
 _progressViewer = NodePath("ColorRect/GameProgress")
 _scoreBroad = NodePath("ColorRect/ScoreLabel")
 _endScreen = NodePath("CanvasLayer")
 _fade = NodePath("FadeCanvas")
 _saveSystem = NodePath("SaveSystem")
-_levelID = 1
-_trashInPlay = 30
+_levelID = 2
+_trashInPlay = 10
 
 [node name="Map" type="Node2D" parent="."]
 
 [node name="ArrayOfLehdistö_kra" type="Sprite2D" parent="Map"]
 position = Vector2(-3, 0)
-texture = ExtResource("1_v0q88")
+texture = ExtResource("2_pjx2c")
 
 [node name="Highlight" type="Sprite2D" parent="Map"]
-position = Vector2(-88, 2)
+position = Vector2(1, 52)
 rotation = -2.37365
 scale = Vector2(0.622173, 0.622173)
-texture = ExtResource("2_8x547")
+texture = ExtResource("3_g84dp")
 
 [node name="Highlight" type="Sprite2D" parent="Map/Highlight"]
 modulate = Color(1, 1, 1, 0.415686)
 position = Vector2(-161.598, 10.8196)
 rotation = -2.37365
 scale = Vector2(0.622173, 0.622173)
-texture = ExtResource("2_8x547")
+texture = ExtResource("3_g84dp")
 
 [node name="Highlight2" type="Sprite2D" parent="Map/Highlight"]
 modulate = Color(1, 1, 1, 0.415686)
 position = Vector2(48.3949, -102.594)
 rotation = -2.37365
 scale = Vector2(0.622173, 0.622173)
-texture = ExtResource("2_8x547")
+texture = ExtResource("3_g84dp")
 
 [node name="River" type="Node2D" parent="Map"]
-visible = false
 
-[node name="JokiSuora" type="Sprite2D" parent="Map/River"]
-position = Vector2(-218, -122)
-texture = ExtResource("3_5hctc")
+[node name="Joki1_2" type="Sprite2D" parent="Map/River"]
+position = Vector2(-10, -167)
+texture = ExtResource("20_vok7f")
 
-[node name="JokiSuora2" type="Sprite2D" parent="Map/River"]
-position = Vector2(-363, 102)
-rotation = 0.226893
-texture = ExtResource("3_5hctc")
-
-[node name="JokiU" type="Sprite2D" parent="Map/River"]
-position = Vector2(52, 73)
-rotation = 0.314159
-texture = ExtResource("8_isr8b")
-
-[node name="Joki0_2" type="Sprite2D" parent="Map"]
-position = Vector2(-134, 44)
-texture = ExtResource("23_gt28g")
+[node name="Joki2_2" type="Sprite2D" parent="Map/River"]
+position = Vector2(-19, 117)
+texture = ExtResource("21_jdc2p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Elephant" parent="." instance=ExtResource("1_sbqsv")]
-position = Vector2(-77, 2)
+[node name="Elephant" parent="." instance=ExtResource("7_2abx3")]
+position = Vector2(2, 44)
 scale = Vector2(0.185, 0.185)
 _stunTime = 3.5
 
-[node name="Basket" parent="." instance=ExtResource("8_fvk7u")]
-position = Vector2(95, 119)
-_displayTexture = ExtResource("7_yj7n6")
-_inputType = 2
-_basketStates = Array[Texture2D]([ExtResource("13_r07do"), ExtResource("9_174y2"), ExtResource("10_w0npb"), ExtResource("11_qtmvd")])
+[node name="TrashPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_p3ftw")
 
-[node name="Basket2" parent="." instance=ExtResource("8_fvk7u")]
-position = Vector2(58, -168)
-_displayTexture = ExtResource("8_o1p53")
-_inputType = 0
-_basketStates = Array[Texture2D]([ExtResource("13_r07do"), ExtResource("13_a4hvf"), ExtResource("14_o6ykp"), ExtResource("15_cfas4")])
+[node name="RoarPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_b0j0j")
 
-[node name="Basket3" parent="." instance=ExtResource("8_fvk7u")]
-visible = false
-position = Vector2(-294, 169)
-_displayTexture = ExtResource("7_yj7n6")
-_inputType = 2
-_basketStates = Array[Texture2D]([ExtResource("13_r07do"), ExtResource("9_174y2"), ExtResource("10_w0npb"), ExtResource("11_qtmvd")])
+[node name="CrocodileSpawn" parent="." node_paths=PackedStringArray("path") instance=ExtResource("7_1fs6q")]
+path = NodePath("../RoarPath")
+_minSpawnTime = 2.0
+_trashArray = Array[Object]([SubResource("Resource_28tyq")])
+_startChance = 1.0
 
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2(-4, -11)
-scale = Vector2(0.99287, 0.999999)
-curve = SubResource("Curve2D_sgxs6")
-
-[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("path")]
-position = Vector2(152, -9)
-scale = Vector2(1, 0.675885)
-script = ExtResource("9_b46sv")
-path = NodePath("../Path2D")
-roar = ExtResource("12_y25cj")
-_trashArray = Array[Object]([SubResource("Resource_fdkcj"), SubResource("Resource_62g2x")])
-
-[node name="Timer" type="Timer" parent="TrashSpawn"]
-wait_time = 0.195
-autostart = true
+[node name="TrashSpawn" parent="." node_paths=PackedStringArray("path") instance=ExtResource("7_1fs6q")]
+path = NodePath("../TrashPath")
+_minSpawnTime = 4.0
+_maxSpawnTime = 6.0
+_chanceIncrease = 0.0
+_trashArray = Array[Object]([SubResource("Resource_is21r")])
+_startChance = 0.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -214.0
@@ -211,10 +183,10 @@ offset_left = 8.0
 offset_right = -8.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("23_gs7wm")
+script = ExtResource("23_em0tc")
 _hitBar = NodePath("ProgressBar")
 _missBar = NodePath("FailiureBar")
-_starIndicatorScene = ExtResource("24_iub1x")
+_starIndicatorScene = ExtResource("24_bftgq")
 
 [node name="FailiureBar" type="ProgressBar" parent="ColorRect/GameProgress"]
 modulate = Color(0.996986, 0, 0.494143, 1)
@@ -254,7 +226,7 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("14_hnran")
+theme_override_fonts/font = ExtResource("25_dthqi")
 theme_override_font_sizes/font_size = 35
 text = "200"
 horizontal_alignment = 1
@@ -262,9 +234,9 @@ vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_stars")]
 visible = false
-script = ExtResource("15_xyg8j")
+script = ExtResource("26_3otkt")
 _stars = [NodePath("ColorRect/StarContainer/Star"), NodePath("ColorRect/StarContainer/Star2"), NodePath("ColorRect/StarContainer/Star3")]
-_filledStar = ExtResource("16_dpig0")
+_filledStar = ExtResource("27_nt7vo")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -287,7 +259,7 @@ offset_right = 241.5
 offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("14_hnran")
+theme_override_fonts/normal_font = ExtResource("25_dthqi")
 theme_override_font_sizes/normal_font_size = 119
 bbcode_enabled = true
 text = "[center]You win"
@@ -308,7 +280,7 @@ offset_right = 0.599915
 offset_bottom = -0.28009
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("14_hnran")
+theme_override_fonts/font = ExtResource("25_dthqi")
 theme_override_font_sizes/font_size = 48
 text = "Next"
 
@@ -332,7 +304,7 @@ alignment = 1
 [node name="Star" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
 material = SubResource("ShaderMaterial_wk5gv")
 layout_mode = 2
-texture = ExtResource("27_vubvh")
+texture = ExtResource("29_kf1j5")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star"]
 visible = false
@@ -340,7 +312,7 @@ position = Vector2(221.514, 216.757)
 emitting = false
 amount = 29
 process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = ExtResource("27_vubvh")
+texture = ExtResource("29_kf1j5")
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.5
@@ -349,7 +321,7 @@ collision_base_size = 0.5
 [node name="Star2" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
 material = SubResource("ShaderMaterial_gu11c")
 layout_mode = 2
-texture = ExtResource("27_vubvh")
+texture = ExtResource("29_kf1j5")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star2"]
 visible = false
@@ -357,7 +329,7 @@ position = Vector2(221.514, 216.757)
 emitting = false
 amount = 29
 process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = ExtResource("16_dpig0")
+texture = ExtResource("27_nt7vo")
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.5
@@ -366,7 +338,7 @@ collision_base_size = 0.5
 [node name="Star3" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
 material = SubResource("ShaderMaterial_uf8jn")
 layout_mode = 2
-texture = ExtResource("27_vubvh")
+texture = ExtResource("29_kf1j5")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star3"]
 visible = false
@@ -374,18 +346,18 @@ position = Vector2(221.514, 216.757)
 emitting = false
 amount = 29
 process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = ExtResource("16_dpig0")
+texture = ExtResource("27_nt7vo")
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.5
 collision_base_size = 0.5
 
 [node name="Node" type="Node" parent="."]
-script = ExtResource("15_06ttk")
+script = ExtResource("30_8yyqc")
 
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
 visible = false
-script = ExtResource("16_sag2m")
+script = ExtResource("31_eq64b")
 _fadeSpeed = 2.0
 
 [node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
@@ -396,7 +368,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="SaveSystem" parent="." instance=ExtResource("32_4r8lk")]
+[node name="SaveSystem" parent="." instance=ExtResource("32_bmr3i")]
 
 [node name="PauseButtonLayer" type="CanvasLayer" parent="."]
 
@@ -406,15 +378,21 @@ offset_top = 6.0
 offset_right = 1445.0
 offset_bottom = 306.0
 scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("33_kdifq")
-texture_pressed = ExtResource("34_dh476")
+texture_normal = ExtResource("33_81dmf")
+texture_pressed = ExtResource("34_77oxl")
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("35_npaq4")]
+[node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("35_3fjpv")]
 visible = false
 offset_left = 1.0
 offset_right = 1.0
+
+[node name="Basket" parent="." instance=ExtResource("24_xksdl")]
+position = Vector2(-4, -216)
+_displayTexture = ExtResource("25_lqf7r")
+_inputType = 2
+_basketStates = Array[Texture2D]([ExtResource("26_lgqci"), ExtResource("27_fjcgp"), ExtResource("28_nwm0l"), ExtResource("29_ykm8q")])
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="Node" method="LoadMainMenu"]
 [connection signal="pressed" from="PauseButtonLayer/TextureButton" to="PauseMenuLayer/PauseMenu" method="OpenPauseMenu"]

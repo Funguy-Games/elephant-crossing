@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://l4djvkrm5ld5"]
+
+[ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="1_2fqv5"]
+[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="2_vjaha"]
+
+[node name="Spawn" type="Node2D"]
+position = Vector2(152, -9)
+scale = Vector2(1, 0.675885)
+script = ExtResource("1_2fqv5")
+roar = ExtResource("2_vjaha")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.195
+autostart = true

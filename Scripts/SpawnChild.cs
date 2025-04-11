@@ -14,7 +14,7 @@ public partial class SpawnChild : Node2D
 	[Export] private Trash[] _trashArray;
 
 	private float _crocoDileChance = 0;
-	private float _startChance = 0.3f;
+	[Export] private float _startChance = 0.3f;
 
 	private Random random = new Random();
 

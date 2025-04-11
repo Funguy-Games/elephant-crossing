@@ -23,7 +23,7 @@ LevelName = "1"
 [sub_resource type="Resource" id="Resource_hpqp7"]
 script = ExtResource("2_uaaac")
 LevelID = 2
-LevelPath = ""
+LevelPath = "res://Levels/main2.tscn"
 LevelName = "2"
 
 [node name="LevelSelection" type="Control" node_paths=PackedStringArray("_buttonContainer", "_sceneManager", "_saveSystem")]
