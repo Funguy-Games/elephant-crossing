@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://byt8qivr4wfbe"]
+[gd_scene load_steps=18 format=3 uid="uid://byt8qivr4wfbe"]
 
 [ext_resource type="Texture2D" uid="uid://7ao45ipegaea" path="res://Art/UI/starting_screen.png" id="1_68cge"]
 [ext_resource type="Texture2D" uid="uid://chvnb3rxksxxh" path="res://Art/map/saniainen1.png" id="1_q61nk"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bndd1e0xgahuo" path="res://Art/UI/button2.png" id="10_hwund"]
 [ext_resource type="Texture2D" uid="uid://c631twbr0xkwu" path="res://Art/UI/button2_pressed.png" id="11_kiep1"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="11_p6mua"]
+[ext_resource type="PackedScene" uid="uid://dn2tra41w7kx6" path="res://Levels/SettingsMenu.tscn" id="14_5axgn"]
 
 [sub_resource type="Gradient" id="Gradient_eln8r"]
 colors = PackedColorArray(0, 0, 0, 0, 0.267345, 0.137018, 0.105689, 0.607843)
@@ -471,6 +472,11 @@ autowrap_mode = 0
 [node name="SceneManager" type="Node" parent="."]
 script = ExtResource("6_5m3a2")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("14_5axgn")]
+visible = false
+
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("11_p6mua")
@@ -484,4 +490,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="ColorRect/Button2" to="SceneManager" method="LoadLevel1"]
+[connection signal="pressed" from="ColorRect/Button2" to="CanvasLayer/SettingsMenu" method="OpenSettingsMenu"]

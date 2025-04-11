@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=47 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="9_b46sv"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="10_ocf3v"]
 [ext_resource type="Texture2D" uid="uid://dv665jremewso" path="res://Art/Baskets/Basket_bottle2.png" id="10_w0npb"]
-[ext_resource type="PackedScene" uid="uid://bw7schx0xwksr" path="res://Levels/Bottle.tscn" id="11_deqru"]
+[ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="11_deqru"]
 [ext_resource type="Texture2D" uid="uid://lqbinqi4l77l" path="res://Art/Baskets/Basket_bottle3.png" id="11_qtmvd"]
 [ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="12_y25cj"]
 [ext_resource type="Texture2D" uid="uid://erclelgj8jrd" path="res://Art/Baskets/Basket_plastic1.png" id="13_a4hvf"]
@@ -32,6 +32,9 @@
 [ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="24_iub1x"]
 [ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="27_vubvh"]
 [ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="32_4r8lk"]
+[ext_resource type="Texture2D" uid="uid://dxj5bdv8rj4fr" path="res://Art/UI/pause_button.png" id="33_kdifq"]
+[ext_resource type="Texture2D" uid="uid://cekivrcio3umi" path="res://Art/UI/pause_buttonPressed.png" id="34_dh476"]
+[ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="35_npaq4"]
 
 [sub_resource type="Curve2D" id="Curve2D_sgxs6"]
 _data = {
@@ -394,4 +397,23 @@ color = Color(0, 0, 0, 1)
 
 [node name="SaveSystem" parent="." instance=ExtResource("32_4r8lk")]
 
+[node name="PauseButtonLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="PauseButtonLayer"]
+offset_left = 1145.0
+offset_top = 6.0
+offset_right = 1445.0
+offset_bottom = 306.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("33_kdifq")
+texture_pressed = ExtResource("34_dh476")
+
+[node name="PauseMenuLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("35_npaq4")]
+visible = false
+offset_left = 1.0
+offset_right = 1.0
+
 [connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="Node" method="LoadMainMenu"]
+[connection signal="pressed" from="PauseButtonLayer/TextureButton" to="PauseMenuLayer/PauseMenu" method="OpenPauseMenu"]

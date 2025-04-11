@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://4ikbjc1jucmm" path="res://Art/UI/nappi_2.png" id="4_xtyar"]
 [ext_resource type="Texture2D" uid="uid://gjkihf2png0j" path="res://Art/UI/nappi_2pressed.png" id="6_lrbhj"]
 [ext_resource type="Texture2D" uid="uid://c0ft612rowctb" path="res://Art/UI/nappi_3.png" id="7_3w4ye"]
-[ext_resource type="FontFile" uid="uid://bn181hycopsuq" path="res://Fonts/Super Lobster.ttf" id="7_bhrid"]
+[ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="7_bhrid"]
 [ext_resource type="Texture2D" uid="uid://dflitwpoj8acw" path="res://Art/UI/nappi_3pressed.png" id="7_ll212"]
 [ext_resource type="PackedScene" uid="uid://dn2tra41w7kx6" path="res://Levels/SettingsMenu.tscn" id="12_epovt"]
 
@@ -173,6 +173,7 @@ theme_override_font_sizes/font_size = 98
 text = "Quit"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("12_epovt")]
 visible = false
