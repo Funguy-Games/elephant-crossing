@@ -31,6 +31,7 @@ public partial class Basket : Node2D
             return false;
         }
 
+        GetNode<AudioStreamPlayer>("sfx").Playing = true;
         _points++;
         Level.Current.Score++;
         Level.Current.TrashInPlay -= 1;
