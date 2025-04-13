@@ -23,7 +23,6 @@
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="15_06ttk"]
 [ext_resource type="Texture2D" uid="uid://y6nqmljhvwq" path="res://Art/Baskets/Basket_plastic3.png" id="15_cfas4"]
 [ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="15_xyg8j"]
-[ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="16_dpig0"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="16_sag2m"]
 [ext_resource type="Shader" path="res://Art/Shaders/star.gdshader" id="18_d8oq5"]
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="21_mshf2"]
@@ -89,6 +88,8 @@ color_ramp = SubResource("GradientTexture1D_abyrl")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gu11c"]
 shader = ExtResource("18_d8oq5")
 shader_parameter/fillAmount = null
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_utymu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uf8jn"]
 shader = ExtResource("18_d8oq5")
@@ -264,7 +265,6 @@ vertical_alignment = 1
 visible = false
 script = ExtResource("15_xyg8j")
 _stars = [NodePath("ColorRect/StarContainer/Star"), NodePath("ColorRect/StarContainer/Star2"), NodePath("ColorRect/StarContainer/Star3")]
-_filledStar = ExtResource("16_dpig0")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -357,7 +357,7 @@ position = Vector2(221.514, 216.757)
 emitting = false
 amount = 29
 process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = ExtResource("16_dpig0")
+texture = SubResource("CompressedTexture2D_utymu")
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.5
@@ -374,7 +374,7 @@ position = Vector2(221.514, 216.757)
 emitting = false
 amount = 29
 process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = ExtResource("16_dpig0")
+texture = SubResource("CompressedTexture2D_utymu")
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.5

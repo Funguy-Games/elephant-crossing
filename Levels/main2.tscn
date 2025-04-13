@@ -1,9 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://cvey0jaigw7f8"]
+[gd_scene load_steps=41 format=3 uid="uid://dcykdiacynblq"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_ejxtn"]
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_pjx2c"]
 [ext_resource type="Texture2D" uid="uid://btmfrvmh7rpw2" path="res://Art/map/highlight.png" id="3_g84dp"]
-[ext_resource type="PackedScene" uid="uid://l4djvkrm5ld5" path="res://Spawn.tscn" id="7_1fs6q"]
+[ext_resource type="PackedScene" path="res://Spawn.tscn" id="7_1fs6q"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="7_2abx3"]
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="9_tf03o"]
 [ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="10_lrv35"]
@@ -17,7 +17,6 @@
 [ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="26_3otkt"]
 [ext_resource type="Texture2D" uid="uid://coy61xk6nmtc1" path="res://Art/Baskets/Basket.png" id="26_lgqci"]
 [ext_resource type="Texture2D" uid="uid://1xwaw0ke5ydl" path="res://Art/Baskets/Basket_bottle1.png" id="27_fjcgp"]
-[ext_resource type="Texture2D" uid="uid://bmucy15vv8pfw" path="res://Art/Star_filled.png" id="27_nt7vo"]
 [ext_resource type="Shader" path="res://Art/Shaders/star.gdshader" id="28_62ayi"]
 [ext_resource type="Texture2D" uid="uid://dv665jremewso" path="res://Art/Baskets/Basket_bottle2.png" id="28_nwm0l"]
 [ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="29_kf1j5"]
@@ -88,6 +87,8 @@ color_ramp = SubResource("GradientTexture1D_abyrl")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gu11c"]
 shader = ExtResource("28_62ayi")
 shader_parameter/fillAmount = null
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_utymu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uf8jn"]
 shader = ExtResource("28_62ayi")
@@ -236,7 +237,6 @@ vertical_alignment = 1
 visible = false
 script = ExtResource("26_3otkt")
 _stars = [NodePath("ColorRect/StarContainer/Star"), NodePath("ColorRect/StarContainer/Star2"), NodePath("ColorRect/StarContainer/Star3")]
-_filledStar = ExtResource("27_nt7vo")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -329,7 +329,7 @@ position = Vector2(221.514, 216.757)
 emitting = false
 amount = 29
 process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = ExtResource("27_nt7vo")
+texture = SubResource("CompressedTexture2D_utymu")
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.5
@@ -346,7 +346,7 @@ position = Vector2(221.514, 216.757)
 emitting = false
 amount = 29
 process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = ExtResource("27_nt7vo")
+texture = SubResource("CompressedTexture2D_utymu")
 lifetime = 3.0
 one_shot = true
 explosiveness = 0.5

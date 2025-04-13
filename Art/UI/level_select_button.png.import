@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmucy15vv8pfw"
-path="res://.godot/imported/Star_filled.png-b02f97b216d08e9bff1f23da34fd7ab7.ctex"
+uid="uid://1deg3d5cobbl"
+path="res://.godot/imported/level_select_button.png-07829c4985a976f212f6b9cc207fe6f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Star_filled.png"
-dest_files=["res://.godot/imported/Star_filled.png-b02f97b216d08e9bff1f23da34fd7ab7.ctex"]
+source_file="res://Art/UI/level_select_button.png"
+dest_files=["res://.godot/imported/level_select_button.png-07829c4985a976f212f6b9cc207fe6f3.ctex"]
 
 [params]
 
