@@ -3,7 +3,7 @@ using System;
 
 public partial class MenuProgress : PathFollow2D
 {
-	[Export] private float _progressSpeed = 200f;
+	[Export] private float _progressSpeed = 1000f;
 	[Export] public float _startingRatio = 0f;
 	[Export] public float _stoppingPoint = 0f;
 	[Export] TextureButton button;
@@ -22,21 +22,21 @@ public partial class MenuProgress : PathFollow2D
 		button.Disabled = true;
 
 		Progress += (float)delta * _progressSpeed;
-		_progressSpeed += 10f;
+		_progressSpeed += (float)delta * 100f;
 
 		if (ProgressRatio >= _stoppingPoint && !_hasStopped)
 		{
 			_isMoving = false;
 			_hasStopped = true;
 			button.Disabled = false;
-			_progressSpeed = 200f;
+			_progressSpeed = 1000f;
 		}
 
-		if (ProgressRatio == 1)
+		if (ProgressRatio >= 1f)
 		{
 			_isMoving = !_isMoving;
 			_hasStopped = !_hasStopped;
-			_progressSpeed = 200f;
+			_progressSpeed = 1000f;
 		}
 	}
 

@@ -12,9 +12,10 @@ public partial class Basket : Node2D
     private RiverItem _inputType = RiverItem.None;
     [Export]
     private Texture2D[] _basketStates = null;
+    [Export]
+    private int _neededPoints = 10;
 
     private int _points = 0;
-    private int _neededPoints = 10;
     private Sprite2D _basketSprite = null;
 
     public override void _Ready()
@@ -31,6 +32,7 @@ public partial class Basket : Node2D
             return false;
         }
 
+        GetNode<AudioStreamPlayer>("sfx").Playing = true;
         _points++;
         Level.Current.Score++;
         Level.Current.TrashInPlay -= 1;

@@ -21,10 +21,12 @@ public partial class SpawnChild : Node2D
 	private List<Trash> trashList = new List<Trash>();
 	public void Start()
 	{
+
 		foreach (Trash trash in _trashArray)
 		{
+			GD.Print(trash.TrashAmount);
 			if (trash.TrashAmount > 0 && trash.trashType != null)
-				trashList.Add(trash);
+				trashList.Add((Trash) trash.Duplicate());
 		}
 
 		_crocoDileChance = _startChance;

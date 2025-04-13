@@ -1,0 +1,16 @@
+[gd_scene load_steps=7 format=3 uid="uid://btto7he2e26a2"]
+
+[ext_resource type="PackedScene" uid="uid://cicek2ijquvvo" path="res://Levels/basket.tscn" id="1_acr3u"]
+[ext_resource type="Texture2D" uid="uid://bu6butcnn6qox" path="res://Art/RiverItems/IMG_2943.png" id="2_72lca"]
+[ext_resource type="Texture2D" uid="uid://coy61xk6nmtc1" path="res://Art/Baskets/Basket.png" id="3_7le64"]
+[ext_resource type="Texture2D" uid="uid://1xwaw0ke5ydl" path="res://Art/Baskets/Basket_bottle1.png" id="4_la0yl"]
+[ext_resource type="Texture2D" uid="uid://dv665jremewso" path="res://Art/Baskets/Basket_bottle2.png" id="5_5ftmv"]
+[ext_resource type="Texture2D" uid="uid://lqbinqi4l77l" path="res://Art/Baskets/Basket_bottle3.png" id="6_yqdi1"]
+
+[node name="Basket" instance=ExtResource("1_acr3u")]
+_displayTexture = ExtResource("2_72lca")
+_inputType = 2
+_basketStates = Array[Texture2D]([ExtResource("3_7le64"), ExtResource("4_la0yl"), ExtResource("5_5ftmv"), ExtResource("6_yqdi1")])
+
+[node name="ItemIcon" parent="." index="2"]
+texture = ExtResource("2_72lca")
