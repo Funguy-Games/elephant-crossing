@@ -400,11 +400,13 @@ color = Color(0, 0, 0, 1)
 [node name="PauseButtonLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureButton" type="TextureButton" parent="PauseButtonLayer"]
-offset_left = 1145.0
-offset_top = 6.0
-offset_right = 1445.0
-offset_bottom = 306.0
-scale = Vector2(0.4, 0.4)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_bottom = 300.0
+grow_horizontal = 0
+scale = Vector2(0.55, 0.55)
 texture_normal = ExtResource("33_kdifq")
 texture_pressed = ExtResource("34_dh476")
 
