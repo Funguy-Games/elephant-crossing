@@ -25,7 +25,7 @@ public partial class CustomSlider : TextureRect
 
 	public float SliderPosition
 	{
-		get { return _sliderPosition; }
+		get => _sliderPosition;
 		set
 		{
 			_sliderPosition = value;
@@ -43,6 +43,10 @@ public partial class CustomSlider : TextureRect
 
 	public override void _Process(double delta)
 	{
+		// Calculating the position the slider is in
+		// by taking half the slide area and removing the sliders current position
+		// to get the slide handles relative position on the slide area
+		// then dividing that by the slide area to get a range from -1 to 1
 		_sliderPosition = (_slideArea / 2 - Position.Y) / (_slideArea / 2);
 
 		float axisValue = 0f;
@@ -57,19 +61,19 @@ public partial class CustomSlider : TextureRect
 			axisValue = 0;
 		}
 
-		if (axisValue != 0)
+		if (axisValue != 0 && !isTouchActive)
 		{
 			isUsingStick = true;
 			isTouchActive = false;
-
 			float movement = controllerSpeed * (float)delta * axisValue;
 			Vector2 newPosition = Position;
 			newPosition.Y = Mathf.Clamp(Position.Y + movement, 0, _slideArea);
 			newPosition.X = _handleWidth;
 			Position = newPosition;
 		}
-		else if (isUsingStick)
+		else if (isUsingStick && axisValue == 0)
 		{
+			isUsingStick = false;
 			SliderPosition = 0;
 		}
 	}
@@ -79,15 +83,17 @@ public partial class CustomSlider : TextureRect
 		switch (@event)
 		{
 			case InputEventScreenTouch screenTouch:
-				if (GetGlobalRect().HasPoint(screenTouch.Position) && screenTouch.Pressed)
+				if (screenTouch.Pressed && GetGlobalRect().HasPoint(screenTouch.Position))
 				{
 					dragOffset = Position - screenTouch.Position;
 					touchIndex = screenTouch.Index;
 					isTouchActive = true;
+					isUsingStick = false;
 				}
-				else if (touchIndex == screenTouch.Index)
+				else if (touchIndex == screenTouch.Index && !screenTouch.Pressed)
 				{
 					touchIndex = -1;
+					isTouchActive = false;
 					SliderPosition = 0;
 				}
 				break;
@@ -98,6 +104,7 @@ public partial class CustomSlider : TextureRect
 					touchIndex = screenDrag.Index;
 					dragOffset = Position - screenDrag.Position;
 					isTouchActive = true;
+					isUsingStick = false;
 				}
 
 				if (screenDrag.Index != touchIndex)
