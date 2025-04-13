@@ -41,7 +41,7 @@ public partial class Level : Node2D
 		set
 		{
 			_score = value;
-			UpdateScoreBoard();
+			// UpdateScoreBoard();
 			UpdateProgressIndicators();
 		}
 	}
@@ -72,7 +72,7 @@ public partial class Level : Node2D
 		_fade.FadeIn();
 		_fade.FadedIn += Start;
 
-		UpdateScoreBoard();
+		// UpdateScoreBoard();
 		_oldScore = _saveSystem.LoadLevelData(_levelID.ToString());
 		GD.Print(_oldScore);
 	}
@@ -81,10 +81,10 @@ public partial class Level : Node2D
 	#endregion
 
 	#region UI
-	private void UpdateScoreBoard()
-	{
-		_scoreBroad.Text = $"{_score}";
-	}
+	// private void UpdateScoreBoard()
+	// {
+	// 	_scoreBroad.Text = $"{_score}";
+	// }
 
 	private void UpdateProgressIndicators()
 	{
