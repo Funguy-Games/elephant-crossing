@@ -17,8 +17,7 @@ public partial class CustomSlider : TextureRect
 	private float _handleWidth = 0;
 	private Vector2 dragOffset = Vector2.Zero;
 	private int touchIndex = -1;
-	private float controllerSpeed = 1000f; // Pixels per second
-	private float returnSpeed = 4f;       // How quickly it returns to center
+	private float controllerSpeed = 1000f;
 	private float deadZone = 0.2f;
 
 	private bool isTouchActive = false;
@@ -44,7 +43,6 @@ public partial class CustomSlider : TextureRect
 
 	public override void _Process(double delta)
 	{
-		// Calculate current normalized position
 		_sliderPosition = (_slideArea / 2 - Position.Y) / (_slideArea / 2);
 
 		float axisValue = 0f;
@@ -62,7 +60,7 @@ public partial class CustomSlider : TextureRect
 		if (axisValue != 0)
 		{
 			isUsingStick = true;
-			isTouchActive = false; // Release touch lock
+			isTouchActive = false;
 
 			float movement = controllerSpeed * (float)delta * axisValue;
 			Vector2 newPosition = Position;
