@@ -40,6 +40,11 @@ common/snap_controls_to_pixels=false
 
 pointing/emulate_touch_from_mouse=true
 
+[internationalization]
+
+locale/translation_remaps={}
+locale/translations=PackedStringArray("res://translation.en.translation", "res://translation.fi.translation")
+
 [rendering]
 
 renderer/rendering_method="mobile"

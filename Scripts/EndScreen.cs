@@ -1,22 +1,18 @@
 using Godot;
-using System;
-using System.Linq;
 
 namespace ElephantCrossing.UI;
 public partial class EndScreen : CanvasLayer
 {
 	[Export]
 	private TextureRect[] _stars;
-	[Export]
-	private Texture2D _filledStar;
 	private RichTextLabel _endText = null;
 	private int _maxStars = 3; // these could be gotten from level, for now we are assuming the value.
 	private string[] _endMessages =
 	{
-		"You Lost",
-		"Close one",
-		"Nice job",
-		"Perfect",
+		"END_TXT_LOST",
+		"END_TXT_1",
+		"END_TXT_2",
+		"END_TXT_3",
 	};
 
     public override void _Ready()
@@ -47,10 +43,16 @@ public partial class EndScreen : CanvasLayer
 			_endText = GetNode<RichTextLabel>("ColorRect/RichTextLabel");
 		}
 
-		int messageIndex = (int) (amount / (float) _maxStars * _endMessages.Count() - 1);
+		int messageIndex = 0;
+
+		if (amount >= 1.0f)
+		{
+			// Skipping the first message
+			messageIndex = (int) (amount / (float) _maxStars * _endMessages.Length - 2) + 1;
+		}
 		string text = _endMessages[messageIndex];
 
-		_endText.Text = $"[center]{text}";
+		_endText.Text = $"[center]{TranslationServer.Translate(text)}";
 
 	}
 
