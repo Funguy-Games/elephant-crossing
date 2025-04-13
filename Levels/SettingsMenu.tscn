@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://caua8vv1w7trr"]
+[gd_scene load_steps=18 format=3 uid="uid://caua8vv1w7trr"]
 
 [ext_resource type="Script" path="res://Levels/SettingsMenu.cs" id="1_6y4sj"]
 [ext_resource type="Texture2D" uid="uid://bhvw5cigbyuap" path="res://Art/UI/OptionsUI/ENG_flag.png" id="1_hlbfr"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://rrx3mkuoa8h3" path="res://Art/UI/OptionsUI/IMG_3097.png" id="6_no3n6"]
 [ext_resource type="Texture2D" uid="uid://8g7r1yh2w581" path="res://Art/UI/OptionsUI/umm_button.png" id="10_e8ibb"]
 [ext_resource type="Texture2D" uid="uid://bejqkk0o513rb" path="res://Art/UI/OptionsUI/umm_buttonPressed.png" id="11_1qayp"]
-[ext_resource type="AudioStream" uid="uid://buk530kojgbmw" path="res://Sounds/nature-soundstropicaljunglebirds-108380.mp3" id="13_kbufn"]
 [ext_resource type="Texture2D" uid="uid://cxfd37adfrqvp" path="res://Art/UI/OptionsUI/cereal_button.png" id="14_ifbon"]
 [ext_resource type="Texture2D" uid="uid://byjqorrm2hna1" path="res://Art/UI/OptionsUI/cereal_buttonPressed.png" id="15_rcbth"]
 [ext_resource type="Script" path="res://Levels/soundEffect.cs" id="16_8w3u8"]
@@ -109,11 +108,6 @@ offset_bottom = 886.0
 scale = Vector2(0.29, 0.29)
 texture_normal = ExtResource("10_e8ibb")
 texture_pressed = ExtResource("11_1qayp")
-
-[node name="Nature-soundstropicaljunglebirds-108380" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_kbufn")
-autoplay = true
-bus = &"Music"
 
 [node name="Cereal" type="TextureButton" parent="."]
 layout_mode = 0

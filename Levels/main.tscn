@@ -173,7 +173,6 @@ _inputType = 0
 _basketStates = Array[Texture2D]([ExtResource("13_r07do"), ExtResource("13_a4hvf"), ExtResource("14_o6ykp"), ExtResource("15_cfas4")])
 
 [node name="Basket3" parent="." instance=ExtResource("8_fvk7u")]
-visible = false
 position = Vector2(-294, 169)
 _displayTexture = ExtResource("7_yj7n6")
 _inputType = 2

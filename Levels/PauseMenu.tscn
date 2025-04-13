@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ft612rowctb" path="res://Art/UI/nappi_3.png" id="7_3w4ye"]
 [ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="7_bhrid"]
 [ext_resource type="Texture2D" uid="uid://dflitwpoj8acw" path="res://Art/UI/nappi_3pressed.png" id="7_ll212"]
-[ext_resource type="PackedScene" uid="uid://dn2tra41w7kx6" path="res://Levels/SettingsMenu.tscn" id="12_epovt"]
+[ext_resource type="PackedScene" uid="uid://caua8vv1w7trr" path="res://Levels/SettingsMenu.tscn" id="12_epovt"]
 
 [sub_resource type="Curve2D" id="Curve2D_hj7ll"]
 _data = {
@@ -20,6 +20,7 @@ _data = {
 point_count = 9
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("button1", "button2", "button3", "joki")]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
