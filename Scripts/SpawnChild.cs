@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
+namespace ElephantCrossing;
 public partial class SpawnChild : Node2D
 {
 	[Export] private Path2D path = null;
@@ -12,6 +13,7 @@ public partial class SpawnChild : Node2D
 	[Export] private int _crocodileDelay = 5;
 	[Export] private float _chanceIncrease = 0.5F;
 	[Export] private Trash[] _trashArray;
+	[Export] private float _riverSpeed = 100;
 
 	private float _crocoDileChance = 0;
 	[Export] private float _startChance = 0.3f;
@@ -60,7 +62,8 @@ public partial class SpawnChild : Node2D
 
 		if (scene != null)
 		{
-			PathFollow2D instance = scene.Instantiate<PathFollow2D>();
+			Icon instance = scene.Instantiate<Icon>();
+			instance.Speed = _riverSpeed;
 			path.AddChild(instance);
 		}
 	}
@@ -75,7 +78,8 @@ public partial class SpawnChild : Node2D
 			return false;
 		}
 
-		PathFollow2D instance = roar.Instantiate<PathFollow2D>();
+		Icon instance = roar.Instantiate<Icon>();
+		instance.Speed = _riverSpeed;
 		path.AddChild(instance);
 		_crocoDileChance = _startChance;
 		return true;

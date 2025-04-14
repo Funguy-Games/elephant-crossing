@@ -12,7 +12,7 @@ public enum RiverItem
 
 public partial class Icon : PathFollow2D
 {
-	[Export] private float speed = 100;
+	[Export] public float Speed = 100;
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame
 	[Export]
@@ -38,7 +38,7 @@ public partial class Icon : PathFollow2D
 			return;
 		}
 
-		Progress += (float)delta * speed;
+		Progress += (float)delta * Speed;
 		if (Type == RiverItem.None)
 		{
 			if (GlobalPosition.X < position.X)

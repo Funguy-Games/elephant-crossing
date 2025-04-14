@@ -36,9 +36,9 @@ LevelName = "3"
 
 [sub_resource type="Resource" id="Resource_txghy"]
 script = ExtResource("2_uaaac")
-LevelID = 0
-LevelPath = ""
-LevelName = ""
+LevelID = 4
+LevelPath = "res://Levels/Maps/Level4.tscn"
+LevelName = "4"
 
 [sub_resource type="Resource" id="Resource_1e5ke"]
 script = ExtResource("2_uaaac")
