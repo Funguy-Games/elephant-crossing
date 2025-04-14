@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cyvqfx4lh827i" path="res://Art/norsu/norsu_keho_sprite.png" id="5_mnna0"]
 [ext_resource type="Texture2D" uid="uid://6tgvu1de4lqn" path="res://Art/UI/leverbase.png" id="5_ngodr"]
 [ext_resource type="Texture2D" uid="uid://qp7tq7q2rcqb" path="res://Art/UI/control_background_L.png" id="6_am0jt"]
-[ext_resource type="Texture2D" uid="uid://bcp78ddyths50" path="res://Art/UI/lever.png" id="6_dgiis"]
 [ext_resource type="Texture2D" uid="uid://bvg50x864rq31" path="res://Art/UI/control_background.png" id="6_jarpj"]
 [ext_resource type="Texture2D" uid="uid://c7pxop2os6l10" path="res://Art/norsu/head.png" id="6_nd2km"]
 [ext_resource type="Script" path="res://Scripts/CustomSlider.cs" id="7_icqum"]
+[ext_resource type="Texture2D" uid="uid://dg2imr5o25iat" path="res://Art/UI/slider_handle.png" id="9_wniah"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iemfp"]
 radius = 65.98
@@ -126,7 +126,7 @@ offset_top = 20.0
 offset_right = 384.0
 offset_bottom = 269.0
 scale = Vector2(0.50566, 0.50566)
-texture = ExtResource("6_dgiis")
+texture = ExtResource("9_wniah")
 script = ExtResource("7_icqum")
 
 [node name="ColorRect2" type="NinePatchRect" parent="CanvasLayer/Control"]
@@ -179,7 +179,7 @@ offset_top = 20.0
 offset_right = 384.0
 offset_bottom = 269.0
 scale = Vector2(0.50566, 0.50566)
-texture = ExtResource("6_dgiis")
+texture = ExtResource("9_wniah")
 script = ExtResource("7_icqum")
 
 [connection signal="body_entered" from="TrunkHead/Area2D" to="." method="On2DBodyEntered"]

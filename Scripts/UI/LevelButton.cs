@@ -18,4 +18,16 @@ public partial class LevelButton : SceneButton
             _stars[i].Texture = _filledStar;
         }
     }
+
+    public override void _Input(InputEvent @event)
+    {
+        base._Input(@event);
+        switch (@event)
+		{
+			case InputEventScreenDrag screenDrag:
+
+                break;
+
+        }
+    }
 }

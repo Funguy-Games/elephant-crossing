@@ -35,7 +35,7 @@ public partial class Elephant : Node2D
 	private float _trunkSpeed = 4000;
 
 	//Min and max values are reversed due to the trunk expanding left
-	private float _trunkLengthMin = -300;
+	private float _trunkLengthMin = -200;
 	private float _trunkLengthMax = -1500;
 	private CustomSlider _rotationSlider = null;
 	private CustomSlider _trunkSlider = null;
@@ -50,6 +50,7 @@ public partial class Elephant : Node2D
 
 		// Automatically getting frame count
 		_frameCount = _elephantSprite.Hframes * _elephantSprite.Vframes;
+		_elephantMaterial.SetShaderParameter("isBlinking", false);
 	}
 
 	public override void _Process(double delta)

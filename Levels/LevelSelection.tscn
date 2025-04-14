@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dx5r1yvxkj5wb"]
+[gd_scene load_steps=20 format=3 uid="uid://dx5r1yvxkj5wb"]
 
 [ext_resource type="Script" path="res://Scripts/UI/LevelSelection.cs" id="1_0u1dj"]
 [ext_resource type="PackedScene" uid="uid://gde61r7f4aln" path="res://Levels/UI/LevelButton.tscn" id="1_np35b"]
@@ -7,8 +7,11 @@
 [ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="4_iw0js"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="4_msp5t"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="5_aqrmf"]
+[ext_resource type="Script" path="res://Scripts/UI/ScrollContainerFix.cs" id="5_jxarx"]
 [ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="5_v5s02"]
+[ext_resource type="Texture2D" uid="uid://b8ebftlxdfvuh" path="res://Art/UI/OptionsUI/Untitled_Artwork-1.png" id="6_i3a8v"]
 [ext_resource type="Script" path="res://Scripts/UI/SceneButton.cs" id="6_ks8la"]
+[ext_resource type="Texture2D" uid="uid://yxio05aj04km" path="res://Art/UI/OptionsUI/Untitled_Artwork-1Pressed.png" id="7_mfeyg"]
 
 [sub_resource type="Resource" id="Resource_g83wm"]
 script = ExtResource("2_uaaac")
@@ -89,6 +92,7 @@ offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 vertical_scroll_mode = 0
+script = ExtResource("5_jxarx")
 
 [node name="Container" type="HBoxContainer" parent="ColorRect/Container2"]
 layout_mode = 2
@@ -136,15 +140,20 @@ text = "LEVEL_SELECT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect" node_paths=PackedStringArray("_sceneManager")]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 562.0
-offset_right = 209.0
-offset_bottom = 667.0
-theme_override_fonts/font = ExtResource("4_iw0js")
-theme_override_font_sizes/font_size = 84
-text = "<-"
+[node name="Button" type="TextureButton" parent="ColorRect" node_paths=PackedStringArray("_sceneManager")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -177.0
+offset_right = 188.0
+offset_bottom = -25.0
+grow_vertical = 0
+texture_normal = ExtResource("6_i3a8v")
+texture_pressed = ExtResource("7_mfeyg")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("6_ks8la")
 _sceneName = "res://Levels/menu.tscn"
 _sceneManager = NodePath("../../SceneManager")
