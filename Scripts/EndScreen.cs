@@ -5,6 +5,8 @@ public partial class EndScreen : CanvasLayer
 {
 	[Export]
 	private TextureRect[] _stars;
+	[Export]
+	private SceneManager _sceneManager = null;
 	private RichTextLabel _endText = null;
 	private int _maxStars = 3; // these could be gotten from level, for now we are assuming the value.
 	private string[] _endMessages =
@@ -34,6 +36,11 @@ public partial class EndScreen : CanvasLayer
 		Visible = true;
 		FillStar(amount, -1);
 		SetEndText(amount);
+	}
+
+	public void GoNext()
+	{
+		_sceneManager.LoadMainMenu();
 	}
 
 	private void SetEndText(float amount)

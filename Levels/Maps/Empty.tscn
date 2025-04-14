@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cqxudykbyuk1v"]
+[gd_scene load_steps=22 format=3 uid="uid://uberjrawru5f"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_fd7fc"]
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_mtp07"]
@@ -14,12 +14,10 @@
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="12_o7tr1"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="13_067hr"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="14_3d84t"]
+[ext_resource type="PackedScene" uid="uid://dg7uo75bcnpy8" path="res://Levels/UI/EndScreen.tscn" id="14_pcda6"]
 [ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="15_m1b33"]
 [ext_resource type="Texture2D" uid="uid://dxj5bdv8rj4fr" path="res://Art/UI/pause_button.png" id="16_8xf22"]
 [ext_resource type="Texture2D" uid="uid://cekivrcio3umi" path="res://Art/UI/pause_buttonPressed.png" id="17_ep1px"]
-[ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="18_ciwn8"]
-[ext_resource type="Shader" path="res://Art/Shaders/star.gdshader" id="19_wpkff"]
-[ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="20_8g0re"]
 [ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="21_yh2mo"]
 
 [sub_resource type="Resource" id="Resource_0gd2l"]
@@ -32,56 +30,12 @@ script = ExtResource("7_wsjdp")
 trashType = ExtResource("9_8j66l")
 TrashAmount = 10
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk5gv"]
-shader = ExtResource("19_wpkff")
-shader_parameter/fillAmount = 1.0
-
-[sub_resource type="Gradient" id="Gradient_i01wk"]
-offsets = PackedFloat32Array(0, 0.244275, 0.78117, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_abyrl"]
-gradient = SubResource("Gradient_i01wk")
-
-[sub_resource type="Curve" id="Curve_uagjd"]
-_data = [Vector2(0, 0.032967), 0.0, 1.04903, 0, 0, Vector2(0.484018, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_vvak2"]
-curve = SubResource("Curve_uagjd")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hvm3u"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 0.76
-angle_min = -68.6
-angle_max = 41.8
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 133.33
-initial_velocity_max = 184.32
-gravity = Vector3(0, 98, 0)
-scale_min = 0.1
-scale_max = 0.2
-scale_curve = SubResource("CurveTexture_vvak2")
-color = Color(0.88847, 0.772134, 0.556324, 1)
-color_ramp = SubResource("GradientTexture1D_abyrl")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gu11c"]
-shader = ExtResource("19_wpkff")
-shader_parameter/fillAmount = null
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_utymu"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uf8jn"]
-shader = ExtResource("19_wpkff")
-shader_parameter/fillAmount = null
-
 [node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade", "_saveSystem")]
 position = Vector2(641, 360)
 script = ExtResource("1_fd7fc")
 _progressViewer = NodePath("ColorRect/GameProgress")
 _scoreBroad = NodePath("ColorRect/ScoreLabel")
-_endScreen = NodePath("CanvasLayer")
+_endScreen = NodePath("")
 _fade = NodePath("FadeCanvas")
 _saveSystem = NodePath("SaveSystem")
 _levelID = 1
@@ -122,11 +76,10 @@ visible = false
 [node name="Elephant" parent="." instance=ExtResource("4_tjgaa")]
 scale = Vector2(0.185, 0.185)
 
-[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("path")]
+[node name="TrashSpawn" type="Node2D" parent="."]
 position = Vector2(152, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("5_s5x7j")
-path = NodePath("")
 roar = ExtResource("6_snvbf")
 _trashArray = Array[Object]([SubResource("Resource_0gd2l"), SubResource("Resource_i1c6d")])
 
@@ -202,6 +155,10 @@ vertical_alignment = 1
 [node name="Node" type="Node" parent="."]
 script = ExtResource("13_067hr")
 
+[node name="EndScreen" parent="." node_paths=PackedStringArray("_sceneManager") instance=ExtResource("14_pcda6")]
+visible = false
+_sceneManager = NodePath("../Node")
+
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("14_3d84t")
@@ -234,125 +191,6 @@ texture_normal = ExtResource("16_8xf22")
 texture_pressed = ExtResource("17_ep1px")
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_stars")]
-visible = false
-script = ExtResource("18_ciwn8")
-_stars = [NodePath("ColorRect/StarContainer/Star"), NodePath("ColorRect/StarContainer/Star2"), NodePath("ColorRect/StarContainer/Star3")]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.909804)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -241.5
-offset_top = -167.0
-offset_right = 241.5
-offset_bottom = -37.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("12_o7tr1")
-theme_override_font_sizes/normal_font_size = 119
-bbcode_enabled = true
-text = "[center]You win"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Button" type="Button" parent="CanvasLayer/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.42
-anchor_top = 0.686
-anchor_right = 0.58
-anchor_bottom = 0.799
-offset_left = 0.399963
-offset_top = 0.0799561
-offset_right = 0.599915
-offset_bottom = -0.28009
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("12_o7tr1")
-theme_override_font_sizes/font_size = 48
-text = "Next"
-
-[node name="StarContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -662.5
-offset_top = -175.5
-offset_right = 662.5
-offset_bottom = 245.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.37, 0.37)
-pivot_offset = Vector2(658, 210)
-alignment = 1
-
-[node name="Star" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
-material = SubResource("ShaderMaterial_wk5gv")
-layout_mode = 2
-texture = ExtResource("20_8g0re")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star"]
-visible = false
-position = Vector2(221.514, 216.757)
-emitting = false
-amount = 29
-process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = ExtResource("20_8g0re")
-lifetime = 3.0
-one_shot = true
-explosiveness = 0.5
-collision_base_size = 0.5
-
-[node name="Star2" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
-material = SubResource("ShaderMaterial_gu11c")
-layout_mode = 2
-texture = ExtResource("20_8g0re")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star2"]
-visible = false
-position = Vector2(221.514, 216.757)
-emitting = false
-amount = 29
-process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = SubResource("CompressedTexture2D_utymu")
-lifetime = 3.0
-one_shot = true
-explosiveness = 0.5
-collision_base_size = 0.5
-
-[node name="Star3" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
-material = SubResource("ShaderMaterial_uf8jn")
-layout_mode = 2
-texture = ExtResource("20_8g0re")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star3"]
-visible = false
-position = Vector2(221.514, 216.757)
-emitting = false
-amount = 29
-process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = SubResource("CompressedTexture2D_utymu")
-lifetime = 3.0
-one_shot = true
-explosiveness = 0.5
-collision_base_size = 0.5
-
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("21_yh2mo")]
@@ -361,4 +199,3 @@ offset_left = 1.0
 offset_right = 1.0
 
 [connection signal="pressed" from="PauseButtonLayer/TextureButton" to="PauseMenuLayer/PauseMenu" method="OpenPauseMenu"]
-[connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="Node" method="LoadMainMenu"]

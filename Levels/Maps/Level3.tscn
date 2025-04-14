@@ -184,7 +184,8 @@ texture_normal = ExtResource("28_hrhuy")
 texture_pressed = ExtResource("29_pivgp")
 metadata/_edit_use_anchors_ = true
 
-[node name="EndScreen" parent="." instance=ExtResource("24_63x0q")]
+[node name="EndScreen" parent="." node_paths=PackedStringArray("_sceneManager") instance=ExtResource("24_63x0q")]
+_sceneManager = NodePath("../Node")
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 
