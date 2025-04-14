@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://12d6uxv8f43j"]
+[gd_scene load_steps=30 format=3 uid="uid://bmto2xvdhxyi1"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_s5sty"]
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_hxyhm"]
@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://sdi45l6k0kke" path="res://Art/map/RiverParts/joki_1.2.png" id="20_xri06"]
 [ext_resource type="PackedScene" uid="uid://btto7he2e26a2" path="res://Levels/Baskets/BottleBasket.tscn" id="21_21f8y"]
 [ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="21_jqanf"]
-[ext_resource type="PackedScene" uid="uid://vy24krgaihye" path="res://Levels/Baskets/TrashBasket.tscn" id="22_tvtdk"]
+[ext_resource type="PackedScene" path="res://Levels/Baskets/TrashBasket.tscn" id="22_tvtdk"]
 
 [sub_resource type="Resource" id="Resource_0gd2l"]
 script = ExtResource("7_edfn7")
@@ -226,6 +226,7 @@ vertical_alignment = 1
 script = ExtResource("13_qqdtx")
 
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
+layer = 10
 visible = false
 script = ExtResource("14_kmsfo")
 _fadeSpeed = 2.0

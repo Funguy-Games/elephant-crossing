@@ -265,7 +265,7 @@ script = ExtResource("15_06ttk")
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("16_sag2m")
-_fadeSpeed = 2.0
+_fadeSpeed = 10.0
 
 [node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
 anchors_preset = 15
