@@ -27,7 +27,7 @@ _turnSpeed = 1.5
 [node name="TrunkHead" type="Sprite2D" parent="."]
 z_index = 3
 use_parent_material = true
-position = Vector2(-540, 4)
+position = Vector2(-540, 0)
 rotation = -3.14159
 texture = ExtResource("2_754wv")
 
@@ -40,7 +40,7 @@ shape = SubResource("CircleShape2D_iemfp")
 z_index = 2
 texture_repeat = 3
 use_parent_material = true
-position = Vector2(-252, 4)
+position = Vector2(-252, 0)
 points = PackedVector2Array(0, 0, -266.15, 0)
 width = 86.0
 texture = ExtResource("2_hnwgo")
@@ -181,6 +181,5 @@ offset_bottom = 269.0
 scale = Vector2(0.50566, 0.50566)
 texture = ExtResource("9_wniah")
 script = ExtResource("7_icqum")
-ControlledBy = 1
 
 [connection signal="body_entered" from="TrunkHead/Area2D" to="." method="On2DBodyEntered"]
