@@ -50,7 +50,6 @@ shader = ExtResource("3_xa3m7")
 shader_parameter/fillAmount = null
 
 [node name="EndScreen" type="CanvasLayer" node_paths=PackedStringArray("_stars")]
-visible = false
 script = ExtResource("1_drlwy")
 _stars = [NodePath("ColorRect/StarContainer/Star"), NodePath("ColorRect/StarContainer/Star2"), NodePath("ColorRect/StarContainer/Star3")]
 
