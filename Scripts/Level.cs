@@ -100,7 +100,18 @@ public partial class Level : Node2D
 		{
 			GetNode<SpawnChild>("CrocodileSpawn").Start();
 		}
+
 		GetNode<SpawnChild>("TrashSpawn").Start();
+
+		if (HasNode("TrashSpawn2"))
+		{
+			GetNode<SpawnChild>("TrashSpawn2").Start();
+		}
+
+		if (HasNode("TrashSpawn3"))
+		{
+			GetNode<SpawnChild>("TrashSpawn3").Start();
+		}
 	}
 
 	private void End()

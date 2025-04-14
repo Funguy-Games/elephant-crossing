@@ -1,0 +1,13 @@
+[gd_scene load_steps=7 format=3 uid="uid://vy24krgaihye"]
+
+[ext_resource type="PackedScene" uid="uid://cicek2ijquvvo" path="res://Levels/basket.tscn" id="1_ejxtt"]
+[ext_resource type="Texture2D" uid="uid://dqm72ai2h65vp" path="res://Art/RiverItems/IMG_2946.png" id="2_lvtj2"]
+[ext_resource type="Texture2D" uid="uid://coy61xk6nmtc1" path="res://Art/Baskets/Basket.png" id="3_5yqoy"]
+[ext_resource type="Texture2D" uid="uid://erclelgj8jrd" path="res://Art/Baskets/Basket_plastic1.png" id="4_fhuk2"]
+[ext_resource type="Texture2D" uid="uid://gpvssi332l8j" path="res://Art/Baskets/Basket_plastic2.png" id="5_v3gdr"]
+[ext_resource type="Texture2D" uid="uid://y6nqmljhvwq" path="res://Art/Baskets/Basket_plastic3.png" id="6_105wp"]
+
+[node name="Basket" instance=ExtResource("1_ejxtt")]
+_displayTexture = ExtResource("2_lvtj2")
+_inputType = 0
+_basketStates = Array[Texture2D]([ExtResource("3_5yqoy"), ExtResource("4_fhuk2"), ExtResource("5_v3gdr"), ExtResource("6_105wp")])

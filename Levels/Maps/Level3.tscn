@@ -149,8 +149,6 @@ autostart = true
 
 [node name="ProgressIndicator" parent="." instance=ExtResource("23_2umim")]
 
-[node name="EndScreen" parent="." instance=ExtResource("24_63x0q")]
-
 [node name="Node" type="Node" parent="."]
 script = ExtResource("25_q2i6m")
 
@@ -172,15 +170,21 @@ color = Color(0, 0, 0, 1)
 [node name="PauseButtonLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureButton" type="TextureButton" parent="PauseButtonLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -300.0
-offset_bottom = 300.0
+anchors_preset = -1
+anchor_left = 0.763
+anchor_top = 0.025
+anchor_right = 0.988
+anchor_bottom = 0.298
+offset_left = 76.36
+offset_right = 88.36
+offset_bottom = 103.44
 grow_horizontal = 0
-scale = Vector2(0.55, 0.55)
+scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("28_hrhuy")
 texture_pressed = ExtResource("29_pivgp")
+metadata/_edit_use_anchors_ = true
+
+[node name="EndScreen" parent="." instance=ExtResource("24_63x0q")]
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 

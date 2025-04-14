@@ -1,0 +1,298 @@
+[gd_scene load_steps=30 format=3 uid="uid://12d6uxv8f43j"]
+
+[ext_resource type="Script" path="res://Scripts/Level.cs" id="1_s5sty"]
+[ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_hxyhm"]
+[ext_resource type="Texture2D" uid="uid://btmfrvmh7rpw2" path="res://Art/map/highlight.png" id="3_tjva7"]
+[ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="4_6s5op"]
+[ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="5_de6b0"]
+[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="6_s2lup"]
+[ext_resource type="Script" path="res://Scripts/Trash.cs" id="7_edfn7"]
+[ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="8_btm00"]
+[ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="9_my7ny"]
+[ext_resource type="Script" path="res://Scripts/UI/ProgressViewer.cs" id="10_6j42w"]
+[ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="11_ypxeh"]
+[ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="12_trdig"]
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="13_qqdtx"]
+[ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="14_kmsfo"]
+[ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="15_ln5ey"]
+[ext_resource type="Texture2D" uid="uid://dxj5bdv8rj4fr" path="res://Art/UI/pause_button.png" id="16_d4non"]
+[ext_resource type="Texture2D" uid="uid://cekivrcio3umi" path="res://Art/UI/pause_buttonPressed.png" id="17_efwqk"]
+[ext_resource type="PackedScene" uid="uid://dg7uo75bcnpy8" path="res://Levels/UI/EndScreen.tscn" id="19_7ljqn"]
+[ext_resource type="Texture2D" uid="uid://sdi45l6k0kke" path="res://Art/map/RiverParts/joki_1.2.png" id="20_xri06"]
+[ext_resource type="PackedScene" uid="uid://btto7he2e26a2" path="res://Levels/Baskets/BottleBasket.tscn" id="21_21f8y"]
+[ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="21_jqanf"]
+[ext_resource type="PackedScene" uid="uid://vy24krgaihye" path="res://Levels/Baskets/TrashBasket.tscn" id="22_tvtdk"]
+
+[sub_resource type="Resource" id="Resource_0gd2l"]
+script = ExtResource("7_edfn7")
+trashType = ExtResource("8_btm00")
+TrashAmount = 7
+
+[sub_resource type="Resource" id="Resource_i1c6d"]
+script = ExtResource("7_edfn7")
+trashType = ExtResource("9_my7ny")
+TrashAmount = 3
+
+[sub_resource type="Resource" id="Resource_gvyx7"]
+script = ExtResource("7_edfn7")
+trashType = ExtResource("8_btm00")
+TrashAmount = 6
+
+[sub_resource type="Resource" id="Resource_ydewi"]
+script = ExtResource("7_edfn7")
+trashType = ExtResource("9_my7ny")
+TrashAmount = 4
+
+[sub_resource type="Resource" id="Resource_t31y6"]
+script = ExtResource("7_edfn7")
+trashType = ExtResource("8_btm00")
+TrashAmount = 7
+
+[sub_resource type="Resource" id="Resource_qbr80"]
+script = ExtResource("7_edfn7")
+trashType = ExtResource("9_my7ny")
+TrashAmount = 3
+
+[sub_resource type="Curve2D" id="Curve2D_sb1bo"]
+_data = {
+"points": PackedVector2Array(-194.239, -170.989, 194.239, 170.989, -429.389, 19, -263.504, 209.908, 263.504, -209.908, 412, -24)
+}
+point_count = 2
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade", "_saveSystem")]
+position = Vector2(641, 360)
+script = ExtResource("1_s5sty")
+_progressViewer = NodePath("ColorRect/GameProgress")
+_scoreBroad = NodePath("ColorRect/ScoreLabel")
+_endScreen = NodePath("EndScreen")
+_fade = NodePath("FadeCanvas")
+_saveSystem = NodePath("SaveSystem")
+_levelID = 4
+_trashInPlay = 30
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="ArrayOfLehdistö_kra" type="Sprite2D" parent="Map"]
+position = Vector2(-3, 0)
+texture = ExtResource("2_hxyhm")
+
+[node name="Highlight" type="Sprite2D" parent="Map"]
+visible = false
+position = Vector2(-88, 2)
+rotation = -2.37365
+scale = Vector2(0.622173, 0.622173)
+texture = ExtResource("3_tjva7")
+
+[node name="Highlight" type="Sprite2D" parent="Map/Highlight"]
+modulate = Color(1, 1, 1, 0.415686)
+position = Vector2(-161.598, 10.8196)
+rotation = -2.37365
+scale = Vector2(0.622173, 0.622173)
+texture = ExtResource("3_tjva7")
+
+[node name="Highlight2" type="Sprite2D" parent="Map/Highlight"]
+modulate = Color(1, 1, 1, 0.415686)
+position = Vector2(48.3949, -102.594)
+rotation = -2.37365
+scale = Vector2(0.622173, 0.622173)
+texture = ExtResource("3_tjva7")
+
+[node name="River" type="Node2D" parent="Map"]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Elephant" parent="." instance=ExtResource("4_6s5op")]
+position = Vector2(-2, -14)
+scale = Vector2(0.185, 0.185)
+
+[node name="TrashSpawn3" type="Node2D" parent="." node_paths=PackedStringArray("path")]
+position = Vector2(608, -21.9732)
+scale = Vector2(1, 0.208685)
+script = ExtResource("5_de6b0")
+path = NodePath("../BottomPath")
+roar = ExtResource("6_s2lup")
+_minSpawnTime = 6.0
+_maxSpawnTime = 8.0
+_chanceIncrease = 0.1
+_trashArray = Array[Object]([SubResource("Resource_0gd2l"), SubResource("Resource_i1c6d")])
+_riverSpeed = 50.0
+_startChance = 0.1
+
+[node name="Timer" type="Timer" parent="TrashSpawn3"]
+wait_time = 0.195
+autostart = true
+
+[node name="TrashSpawn2" type="Node2D" parent="." node_paths=PackedStringArray("path")]
+position = Vector2(304, -15.083)
+scale = Vector2(1, 0.456821)
+script = ExtResource("5_de6b0")
+path = NodePath("../MiddlePath")
+roar = ExtResource("6_s2lup")
+_minSpawnTime = 6.0
+_maxSpawnTime = 10.0
+_chanceIncrease = 0.1
+_trashArray = Array[Object]([SubResource("Resource_gvyx7"), SubResource("Resource_ydewi")])
+_riverSpeed = 50.0
+_startChance = 0.1
+
+[node name="Timer" type="Timer" parent="TrashSpawn2"]
+wait_time = 0.195
+autostart = true
+
+[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("path")]
+position = Vector2(152, -9)
+scale = Vector2(1, 0.675885)
+script = ExtResource("5_de6b0")
+path = NodePath("../TopPath")
+roar = ExtResource("6_s2lup")
+_minSpawnTime = 6.0
+_maxSpawnTime = 12.0
+_chanceIncrease = 0.1
+_trashArray = Array[Object]([SubResource("Resource_t31y6"), SubResource("Resource_qbr80")])
+_riverSpeed = 50.0
+_startChance = 0.1
+
+[node name="Timer" type="Timer" parent="TrashSpawn"]
+wait_time = 0.195
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -214.0
+offset_top = -360.0
+offset_right = 254.0
+offset_bottom = -307.0
+color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[node name="GameProgress" type="Control" parent="ColorRect" node_paths=PackedStringArray("_hitBar", "_missBar")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_6j42w")
+_hitBar = NodePath("ProgressBar")
+_missBar = NodePath("FailiureBar")
+_starIndicatorScene = ExtResource("11_ypxeh")
+
+[node name="FailiureBar" type="ProgressBar" parent="ColorRect/GameProgress"]
+modulate = Color(0.996986, 0, 0.494143, 1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -13.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 60.0
+show_percentage = false
+
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect/GameProgress"]
+modulate = Color(0.266723, 0.819786, 0, 1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -13.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+show_percentage = false
+
+[node name="ScoreLabel" type="Label" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("12_trdig")
+theme_override_font_sizes/font_size = 35
+text = "200"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("13_qqdtx")
+
+[node name="FadeCanvas" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("14_kmsfo")
+_fadeSpeed = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SaveSystem" parent="." instance=ExtResource("15_ln5ey")]
+
+[node name="PauseButtonLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="PauseButtonLayer"]
+anchors_preset = -1
+anchor_left = 0.763
+anchor_top = 0.025
+anchor_right = 0.988
+anchor_bottom = 0.298
+offset_left = 76.36
+offset_right = 88.36
+offset_bottom = 103.44
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("16_d4non")
+texture_pressed = ExtResource("17_efwqk")
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenuLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("21_jqanf")]
+visible = false
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="EndScreen" parent="." instance=ExtResource("19_7ljqn")]
+
+[node name="Joki1_2" type="Sprite2D" parent="."]
+position = Vector2(-8, 1)
+scale = Vector2(1, 3.92391)
+texture = ExtResource("20_xri06")
+
+[node name="Basket" parent="." instance=ExtResource("21_21f8y")]
+position = Vector2(-121, -110)
+
+[node name="Basket2" parent="." instance=ExtResource("22_tvtdk")]
+position = Vector2(-15, -130)
+
+[node name="Basket3" parent="." instance=ExtResource("21_21f8y")]
+position = Vector2(87, -106)
+
+[node name="TopPath" type="Path2D" parent="."]
+position = Vector2(38.7792, -22)
+scale = Vector2(1.0837, 1)
+curve = SubResource("Curve2D_sb1bo")
+
+[node name="BottomPath" type="Path2D" parent="."]
+position = Vector2(61, 151)
+scale = Vector2(1.10885, 1)
+curve = SubResource("Curve2D_sb1bo")
+
+[node name="MiddlePath" type="Path2D" parent="."]
+position = Vector2(56, 65)
+scale = Vector2(1.05302, 1)
+curve = SubResource("Curve2D_sb1bo")
+
+[connection signal="pressed" from="PauseButtonLayer/TextureButton" to="PauseMenuLayer/PauseMenu" method="OpenPauseMenu"]

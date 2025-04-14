@@ -181,5 +181,6 @@ offset_bottom = 269.0
 scale = Vector2(0.50566, 0.50566)
 texture = ExtResource("9_wniah")
 script = ExtResource("7_icqum")
+ControlledBy = 1
 
 [connection signal="body_entered" from="TrunkHead/Area2D" to="." method="On2DBodyEntered"]
