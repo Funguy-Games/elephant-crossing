@@ -59,7 +59,13 @@ public partial class EndScreen : CanvasLayer
 		}
 		string text = _endMessages[messageIndex];
 
-		_endText.Text = $"[center]{TranslationServer.Translate(text)}";
+		if (amount >= _maxStars)
+		{
+			_endText.Text = $"[center][color=gold]{TranslationServer.Translate(text)}";
+		} else
+		{
+			_endText.Text = $"[center]{TranslationServer.Translate(text)}";
+		}
 
 	}
 
