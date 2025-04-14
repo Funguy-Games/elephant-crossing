@@ -243,6 +243,7 @@ vertical_alignment = 1
 script = ExtResource("30_8yyqc")
 
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
+layer = 10
 visible = false
 script = ExtResource("31_eq64b")
 _fadeSpeed = 2.0
