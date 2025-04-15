@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dg7uo75bcnpy8"]
+[gd_scene load_steps=15 format=3 uid="uid://dg7uo75bcnpy8"]
 
 [ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="1_drlwy"]
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="2_5swx1"]
+[ext_resource type="FontFile" uid="uid://b3xhe3653voer" path="res://Fonts/Super Lobster.ttf" id="2_f1gvn"]
 [ext_resource type="Shader" path="res://Art/Shaders/star.gdshader" id="3_xa3m7"]
 [ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="4_6ygv5"]
 
@@ -68,14 +69,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -241.5
-offset_top = -167.0
-offset_right = 241.5
-offset_bottom = -37.0
+offset_left = -251.0
+offset_top = -202.0
+offset_right = 253.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("2_5swx1")
-theme_override_font_sizes/normal_font_size = 119
+theme_override_fonts/normal_font = ExtResource("2_f1gvn")
+theme_override_font_sizes/normal_font_size = 154
 bbcode_enabled = true
 text = "[center]You win"
 fit_content = true

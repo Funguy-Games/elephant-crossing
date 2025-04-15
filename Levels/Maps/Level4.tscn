@@ -23,6 +23,12 @@
 [ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="21_jqanf"]
 [ext_resource type="PackedScene" path="res://Levels/Baskets/TrashBasket.tscn" id="22_tvtdk"]
 
+[sub_resource type="Curve2D" id="Curve2D_sb1bo"]
+_data = {
+"points": PackedVector2Array(-194.239, -170.989, 194.239, 170.989, -429.389, 19, -263.504, 209.908, 263.504, -209.908, 412, -24)
+}
+point_count = 2
+
 [sub_resource type="Resource" id="Resource_0gd2l"]
 script = ExtResource("7_edfn7")
 trashType = ExtResource("8_btm00")
@@ -52,12 +58,6 @@ TrashAmount = 7
 script = ExtResource("7_edfn7")
 trashType = ExtResource("9_my7ny")
 TrashAmount = 3
-
-[sub_resource type="Curve2D" id="Curve2D_sb1bo"]
-_data = {
-"points": PackedVector2Array(-194.239, -170.989, 194.239, 170.989, -429.389, 19, -263.504, 209.908, 263.504, -209.908, 412, -24)
-}
-point_count = 2
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade", "_saveSystem")]
 position = Vector2(641, 360)
@@ -98,13 +98,41 @@ scale = Vector2(0.622173, 0.622173)
 texture = ExtResource("3_tjva7")
 
 [node name="River" type="Node2D" parent="Map"]
-visible = false
+
+[node name="Joki1_2" type="Sprite2D" parent="Map/River"]
+position = Vector2(-8, 1)
+scale = Vector2(1, 3.92391)
+texture = ExtResource("20_xri06")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Basket" parent="." instance=ExtResource("21_21f8y")]
+position = Vector2(-121, -110)
+
+[node name="Basket2" parent="." instance=ExtResource("22_tvtdk")]
+position = Vector2(-15, -130)
+
+[node name="Basket3" parent="." instance=ExtResource("21_21f8y")]
+position = Vector2(87, -106)
 
 [node name="Elephant" parent="." instance=ExtResource("4_6s5op")]
 position = Vector2(-2, -14)
 scale = Vector2(0.185, 0.185)
+
+[node name="TopPath" type="Path2D" parent="."]
+position = Vector2(38.7792, -22)
+scale = Vector2(1.0837, 1)
+curve = SubResource("Curve2D_sb1bo")
+
+[node name="BottomPath" type="Path2D" parent="."]
+position = Vector2(61, 151)
+scale = Vector2(1.10885, 1)
+curve = SubResource("Curve2D_sb1bo")
+
+[node name="MiddlePath" type="Path2D" parent="."]
+position = Vector2(56, 65)
+scale = Vector2(1.05302, 1)
+curve = SubResource("Curve2D_sb1bo")
 
 [node name="TrashSpawn3" type="Node2D" parent="." node_paths=PackedStringArray("path")]
 position = Vector2(608, -21.9732)
@@ -266,35 +294,7 @@ offset_left = 1.0
 offset_right = 1.0
 
 [node name="EndScreen" parent="." node_paths=PackedStringArray("_sceneManager") instance=ExtResource("19_7ljqn")]
+visible = false
 _sceneManager = NodePath("../Node")
-
-[node name="Joki1_2" type="Sprite2D" parent="."]
-position = Vector2(-8, 1)
-scale = Vector2(1, 3.92391)
-texture = ExtResource("20_xri06")
-
-[node name="Basket" parent="." instance=ExtResource("21_21f8y")]
-position = Vector2(-121, -110)
-
-[node name="Basket2" parent="." instance=ExtResource("22_tvtdk")]
-position = Vector2(-15, -130)
-
-[node name="Basket3" parent="." instance=ExtResource("21_21f8y")]
-position = Vector2(87, -106)
-
-[node name="TopPath" type="Path2D" parent="."]
-position = Vector2(38.7792, -22)
-scale = Vector2(1.0837, 1)
-curve = SubResource("Curve2D_sb1bo")
-
-[node name="BottomPath" type="Path2D" parent="."]
-position = Vector2(61, 151)
-scale = Vector2(1.10885, 1)
-curve = SubResource("Curve2D_sb1bo")
-
-[node name="MiddlePath" type="Path2D" parent="."]
-position = Vector2(56, 65)
-scale = Vector2(1.05302, 1)
-curve = SubResource("Curve2D_sb1bo")
 
 [connection signal="pressed" from="PauseButtonLayer/TextureButton" to="PauseMenuLayer/PauseMenu" method="OpenPauseMenu"]

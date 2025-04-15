@@ -7,11 +7,14 @@ public partial class SettingsMenu : Control
 	public override void _Ready()
 	{
 		Visible = false;
-	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+		var locale = TranslationServer.GetLocale();
+		var buttonPath = $"Flags/{locale}";
+
+		if (HasNode(buttonPath))
+		{
+			GetNode<TextureButton>(buttonPath).ButtonPressed = true;
+		}
 	}
 
 	private void OpenSettingsMenu()
@@ -19,4 +22,11 @@ public partial class SettingsMenu : Control
 		Visible = !Visible;
 	}
 
+	private void SetLanguage(bool toggleOn, string languageCode)
+	{
+		if (toggleOn)
+		{
+			TranslationServer.SetLocale(languageCode);
+		}
+	}
 }

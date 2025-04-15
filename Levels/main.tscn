@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://8ikldjsi5s05"]
+[gd_scene load_steps=36 format=3 uid="uid://8ikldjsi5s05"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_rh0xu"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="1_sbqsv"]
@@ -22,14 +22,12 @@
 [ext_resource type="Texture2D" uid="uid://gpvssi332l8j" path="res://Art/Baskets/Basket_plastic2.png" id="14_o6ykp"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="15_06ttk"]
 [ext_resource type="Texture2D" uid="uid://y6nqmljhvwq" path="res://Art/Baskets/Basket_plastic3.png" id="15_cfas4"]
-[ext_resource type="Script" path="res://Scripts/EndScreen.cs" id="15_xyg8j"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="16_sag2m"]
-[ext_resource type="Shader" path="res://Art/Shaders/star.gdshader" id="18_d8oq5"]
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="21_mshf2"]
 [ext_resource type="Script" path="res://Scripts/UI/ProgressViewer.cs" id="23_gs7wm"]
 [ext_resource type="Texture2D" uid="uid://cu2wo7bvcbjho" path="res://Art/map/RiverParts/joki_0.2.png" id="23_gt28g"]
 [ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="24_iub1x"]
-[ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="27_vubvh"]
+[ext_resource type="PackedScene" uid="uid://dg7uo75bcnpy8" path="res://Levels/UI/EndScreen.tscn" id="31_oy1oo"]
 [ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="32_4r8lk"]
 [ext_resource type="Texture2D" uid="uid://dxj5bdv8rj4fr" path="res://Art/UI/pause_button.png" id="33_kdifq"]
 [ext_resource type="Texture2D" uid="uid://cekivrcio3umi" path="res://Art/UI/pause_buttonPressed.png" id="34_dh476"]
@@ -51,56 +49,12 @@ script = ExtResource("21_mshf2")
 trashType = ExtResource("10_ocf3v")
 TrashAmount = 10
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk5gv"]
-shader = ExtResource("18_d8oq5")
-shader_parameter/fillAmount = 1.0
-
-[sub_resource type="Gradient" id="Gradient_i01wk"]
-offsets = PackedFloat32Array(0, 0.244275, 0.78117, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_abyrl"]
-gradient = SubResource("Gradient_i01wk")
-
-[sub_resource type="Curve" id="Curve_uagjd"]
-_data = [Vector2(0, 0.032967), 0.0, 1.04903, 0, 0, Vector2(0.484018, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_vvak2"]
-curve = SubResource("Curve_uagjd")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hvm3u"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 0.76
-angle_min = -68.6
-angle_max = 41.8
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 133.33
-initial_velocity_max = 184.32
-gravity = Vector3(0, 98, 0)
-scale_min = 0.1
-scale_max = 0.2
-scale_curve = SubResource("CurveTexture_vvak2")
-color = Color(0.88847, 0.772134, 0.556324, 1)
-color_ramp = SubResource("GradientTexture1D_abyrl")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gu11c"]
-shader = ExtResource("18_d8oq5")
-shader_parameter/fillAmount = null
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_utymu"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uf8jn"]
-shader = ExtResource("18_d8oq5")
-shader_parameter/fillAmount = null
-
 [node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade", "_saveSystem")]
 position = Vector2(641, 360)
 script = ExtResource("1_rh0xu")
 _progressViewer = NodePath("ColorRect/GameProgress")
 _scoreBroad = NodePath("ColorRect/ScoreLabel")
-_endScreen = NodePath("CanvasLayer")
+_endScreen = NodePath("EndScreen")
 _fade = NodePath("FadeCanvas")
 _saveSystem = NodePath("SaveSystem")
 _levelID = 1
@@ -294,124 +248,9 @@ texture_normal = ExtResource("33_kdifq")
 texture_pressed = ExtResource("34_dh476")
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("_stars")]
+[node name="EndScreen" parent="." node_paths=PackedStringArray("_sceneManager") instance=ExtResource("31_oy1oo")]
 visible = false
-script = ExtResource("15_xyg8j")
-_stars = [NodePath("ColorRect/StarContainer/Star"), NodePath("ColorRect/StarContainer/Star2"), NodePath("ColorRect/StarContainer/Star3")]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.909804)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -241.5
-offset_top = -167.0
-offset_right = 241.5
-offset_bottom = -37.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("14_hnran")
-theme_override_font_sizes/normal_font_size = 119
-bbcode_enabled = true
-text = "[center]You win"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Button" type="Button" parent="CanvasLayer/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.42
-anchor_top = 0.686
-anchor_right = 0.58
-anchor_bottom = 0.799
-offset_left = 0.399963
-offset_top = 0.0799561
-offset_right = 0.599915
-offset_bottom = -0.28009
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("14_hnran")
-theme_override_font_sizes/font_size = 48
-text = "Next"
-
-[node name="StarContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -662.5
-offset_top = -175.5
-offset_right = 662.5
-offset_bottom = 245.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.37, 0.37)
-pivot_offset = Vector2(658, 210)
-alignment = 1
-
-[node name="Star" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
-material = SubResource("ShaderMaterial_wk5gv")
-layout_mode = 2
-texture = ExtResource("27_vubvh")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star"]
-visible = false
-position = Vector2(221.514, 216.757)
-emitting = false
-amount = 29
-process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = ExtResource("27_vubvh")
-lifetime = 3.0
-one_shot = true
-explosiveness = 0.5
-collision_base_size = 0.5
-
-[node name="Star2" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
-material = SubResource("ShaderMaterial_gu11c")
-layout_mode = 2
-texture = ExtResource("27_vubvh")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star2"]
-visible = false
-position = Vector2(221.514, 216.757)
-emitting = false
-amount = 29
-process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = SubResource("CompressedTexture2D_utymu")
-lifetime = 3.0
-one_shot = true
-explosiveness = 0.5
-collision_base_size = 0.5
-
-[node name="Star3" type="TextureRect" parent="CanvasLayer/ColorRect/StarContainer"]
-material = SubResource("ShaderMaterial_uf8jn")
-layout_mode = 2
-texture = ExtResource("27_vubvh")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/ColorRect/StarContainer/Star3"]
-visible = false
-position = Vector2(221.514, 216.757)
-emitting = false
-amount = 29
-process_material = SubResource("ParticleProcessMaterial_hvm3u")
-texture = SubResource("CompressedTexture2D_utymu")
-lifetime = 3.0
-one_shot = true
-explosiveness = 0.5
-collision_base_size = 0.5
+_sceneManager = NodePath("../Node")
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 
@@ -421,4 +260,3 @@ offset_left = 1.0
 offset_right = 1.0
 
 [connection signal="pressed" from="PauseButtonLayer/TextureButton" to="PauseMenuLayer/PauseMenu" method="OpenPauseMenu"]
-[connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="Node" method="LoadMainMenu"]
