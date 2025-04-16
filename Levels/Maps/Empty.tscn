@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://uberjrawru5f"]
+[gd_scene load_steps=22 format=3 uid="uid://xo8g5m6322m2"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_fd7fc"]
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_mtp07"]
@@ -30,12 +30,11 @@ script = ExtResource("7_wsjdp")
 trashType = ExtResource("9_8j66l")
 TrashAmount = 10
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade", "_saveSystem")]
+[node name="Main2" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_fade", "_saveSystem")]
 position = Vector2(641, 360)
 script = ExtResource("1_fd7fc")
 _progressViewer = NodePath("ColorRect/GameProgress")
 _scoreBroad = NodePath("ColorRect/ScoreLabel")
-_endScreen = NodePath("")
 _fade = NodePath("FadeCanvas")
 _saveSystem = NodePath("SaveSystem")
 _levelID = 1
