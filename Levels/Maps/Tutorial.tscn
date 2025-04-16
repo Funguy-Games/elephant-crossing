@@ -1,0 +1,208 @@
+[gd_scene load_steps=24 format=3 uid="uid://b3klvpbm1bsun"]
+
+[ext_resource type="Script" path="res://Scripts/Level.cs" id="1_mdkg2"]
+[ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_4oicy"]
+[ext_resource type="Texture2D" uid="uid://btmfrvmh7rpw2" path="res://Art/map/highlight.png" id="3_1ujk2"]
+[ext_resource type="Texture2D" uid="uid://ywkrwow6qj54" path="res://Art/map/RiverParts/suorajoki.png" id="4_6a3ll"]
+[ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="4_8mcdo"]
+[ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="5_nqnng"]
+[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="6_d11xf"]
+[ext_resource type="Script" path="res://Scripts/Trash.cs" id="7_wprqv"]
+[ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="8_em1ax"]
+[ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="9_1wrqj"]
+[ext_resource type="Script" path="res://Scripts/UI/ProgressViewer.cs" id="10_gmbux"]
+[ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="11_cb6l2"]
+[ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="12_kcpnn"]
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="13_mjth4"]
+[ext_resource type="PackedScene" uid="uid://dg7uo75bcnpy8" path="res://Levels/UI/EndScreen.tscn" id="14_srute"]
+[ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="15_k6ybk"]
+[ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="16_seq35"]
+[ext_resource type="Texture2D" uid="uid://dxj5bdv8rj4fr" path="res://Art/UI/pause_button.png" id="17_nn08q"]
+[ext_resource type="Texture2D" uid="uid://cekivrcio3umi" path="res://Art/UI/pause_buttonPressed.png" id="18_v6igu"]
+[ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="19_qjvp4"]
+[ext_resource type="PackedScene" uid="uid://btto7he2e26a2" path="res://Levels/Baskets/BottleBasket.tscn" id="21_oj0a2"]
+
+[sub_resource type="Resource" id="Resource_0gd2l"]
+script = ExtResource("7_wprqv")
+trashType = ExtResource("8_em1ax")
+TrashAmount = 20
+
+[sub_resource type="Resource" id="Resource_i1c6d"]
+script = ExtResource("7_wprqv")
+trashType = ExtResource("9_1wrqj")
+TrashAmount = 10
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_fade", "_saveSystem")]
+position = Vector2(641, 360)
+script = ExtResource("1_mdkg2")
+_progressViewer = NodePath("ColorRect/GameProgress")
+_scoreBroad = NodePath("ColorRect/ScoreLabel")
+_fade = NodePath("FadeCanvas")
+_saveSystem = NodePath("SaveSystem")
+_levelID = 1
+_trashInPlay = 30
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="ArrayOfLehdistö_kra" type="Sprite2D" parent="Map"]
+position = Vector2(-3, 0)
+texture = ExtResource("2_4oicy")
+
+[node name="Highlight" type="Sprite2D" parent="Map"]
+position = Vector2(-4.89008, -1.85168)
+rotation = -2.37365
+scale = Vector2(0.622173, 0.622173)
+texture = ExtResource("3_1ujk2")
+
+[node name="Highlight" type="Sprite2D" parent="Map/Highlight"]
+modulate = Color(1, 1, 1, 0.415686)
+position = Vector2(-161.598, 10.8196)
+rotation = -2.37365
+scale = Vector2(0.622173, 0.622173)
+texture = ExtResource("3_1ujk2")
+
+[node name="Highlight2" type="Sprite2D" parent="Map/Highlight"]
+modulate = Color(1, 1, 1, 0.415686)
+position = Vector2(48.3949, -102.594)
+rotation = -2.37365
+scale = Vector2(0.622173, 0.622173)
+texture = ExtResource("3_1ujk2")
+
+[node name="River" type="Node2D" parent="Map"]
+
+[node name="Suorajoki" type="Sprite2D" parent="Map/River"]
+position = Vector2(-38, 148)
+texture = ExtResource("4_6a3ll")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Elephant" parent="." instance=ExtResource("4_8mcdo")]
+position = Vector2(2.10992, -17.8517)
+scale = Vector2(0.185, 0.185)
+
+[node name="TrashSpawn" type="Node2D" parent="."]
+position = Vector2(152, -9)
+scale = Vector2(1, 0.675885)
+script = ExtResource("5_nqnng")
+roar = ExtResource("6_d11xf")
+_trashArray = Array[Object]([SubResource("Resource_0gd2l"), SubResource("Resource_i1c6d")])
+
+[node name="Timer" type="Timer" parent="TrashSpawn"]
+wait_time = 0.195
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -214.0
+offset_top = -360.0
+offset_right = 254.0
+offset_bottom = -307.0
+color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[node name="GameProgress" type="Control" parent="ColorRect" node_paths=PackedStringArray("_hitBar", "_missBar")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_gmbux")
+_hitBar = NodePath("ProgressBar")
+_missBar = NodePath("FailiureBar")
+_starIndicatorScene = ExtResource("11_cb6l2")
+
+[node name="FailiureBar" type="ProgressBar" parent="ColorRect/GameProgress"]
+modulate = Color(0.996986, 0, 0.494143, 1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -13.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 60.0
+show_percentage = false
+
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect/GameProgress"]
+modulate = Color(0.266723, 0.819786, 0, 1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -13.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+show_percentage = false
+
+[node name="ScoreLabel" type="Label" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("12_kcpnn")
+theme_override_font_sizes/font_size = 35
+text = "200"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("13_mjth4")
+
+[node name="EndScreen" parent="." node_paths=PackedStringArray("_sceneManager") instance=ExtResource("14_srute")]
+visible = false
+_sceneManager = NodePath("../Node")
+
+[node name="FadeCanvas" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("15_k6ybk")
+_fadeSpeed = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SaveSystem" parent="." instance=ExtResource("16_seq35")]
+
+[node name="PauseButtonLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="PauseButtonLayer"]
+anchors_preset = -1
+anchor_left = 0.763
+anchor_top = 0.025
+anchor_right = 0.988
+anchor_bottom = 0.298
+offset_left = 76.36
+offset_right = 88.36
+offset_bottom = 103.44
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("17_nn08q")
+texture_pressed = ExtResource("18_v6igu")
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenuLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("19_qjvp4")]
+visible = false
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="Basket" parent="." instance=ExtResource("21_oj0a2")]
+position = Vector2(-1, 237)
+
+[connection signal="pressed" from="PauseButtonLayer/TextureButton" to="PauseMenuLayer/PauseMenu" method="OpenPauseMenu"]
