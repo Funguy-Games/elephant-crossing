@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cl7vyt240k4io"]
+[gd_scene load_steps=16 format=3 uid="uid://cl7vyt240k4io"]
 
 [ext_resource type="Script" path="res://Levels/SettingsMenu.cs" id="1_edtgo"]
 [ext_resource type="Texture2D" uid="uid://bc0co8ty65vdn" path="res://Art/UI/OptionsUI/ENG_flagResized.png" id="2_ere00"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://chxf8yvw45g2j" path="res://Art/UI/OptionsUI/IMG_3094Resized.png" id="8_u2mnu"]
 [ext_resource type="Texture2D" uid="uid://b8ebftlxdfvuh" path="res://Art/UI/OptionsUI/Untitled_Artwork-1.png" id="11_sjnvf"]
 [ext_resource type="Texture2D" uid="uid://yxio05aj04km" path="res://Art/UI/OptionsUI/Untitled_Artwork-1Pressed.png" id="12_bxjnl"]
+[ext_resource type="PackedScene" uid="uid://dh1br6savp4ew" path="res://Levels/SaveSystem.tscn" id="14_ombyo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6446c"]
 texture = ExtResource("4_2153p")
@@ -20,7 +21,7 @@ expand_margin_left = 315.0
 expand_margin_top = 1210.0
 expand_margin_bottom = 1210.0
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("_saveSystem")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_edtgo")
+_saveSystem = NodePath("SaveSystem")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -90,6 +92,8 @@ layout_mode = 2
 texture = ExtResource("8_u2mnu")
 
 [node name="VolumeSlider" type="HSlider" parent="VBoxContainer/Volume"]
+process_priority = -1
+process_physics_priority = -1
 layout_mode = 1
 offset_left = 69.0
 offset_top = 27.0
@@ -109,6 +113,8 @@ layout_mode = 2
 texture = ExtResource("4_2ewg2")
 
 [node name="MusicSlider" type="HSlider" parent="VBoxContainer/Music"]
+process_priority = -1
+process_physics_priority = -1
 layout_mode = 1
 offset_left = 69.0
 offset_top = 27.0
@@ -136,6 +142,8 @@ grow_horizontal = 0
 texture_normal = ExtResource("11_sjnvf")
 texture_pressed = ExtResource("12_bxjnl")
 
+[node name="SaveSystem" parent="." instance=ExtResource("14_ombyo")]
+
 [connection signal="toggled" from="Flags/en" to="." method="SetLanguage" binds= ["en"]]
 [connection signal="toggled" from="Flags/fi" to="." method="SetLanguage" binds= ["fi"]]
-[connection signal="pressed" from="Exit" to="." method="OpenSettingsMenu"]
+[connection signal="pressed" from="Exit" to="." method="SaveSettingsAndClose"]

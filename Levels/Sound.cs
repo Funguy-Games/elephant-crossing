@@ -17,6 +17,12 @@ public partial class Sound : HSlider
 
 	private void OnValueChanged(double value)
 	{
-		AudioServer.SetBusVolumeDb(_busIndex, Mathf.LinearToDb((float)value));
+		float dbValue = Mathf.LinearToDb((float)value);
+
+		if(float.IsNegativeInfinity(dbValue))
+			dbValue = -80f;
+
+		AudioServer.SetBusVolumeDb(_busIndex, dbValue);
+		GD.Print(AudioServer.GetBusVolumeDb(_busIndex));
 	}
 }

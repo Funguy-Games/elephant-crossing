@@ -6,22 +6,22 @@ using Godot.Collections;
 namespace ElephantCrossing;
 public partial class SaveSystem : Node
 {
-    public void Save(int score, string levelID)
+	public void Save(int score, string levelID)
 	{
 		Dictionary saveData = new Dictionary();
-        if(Load(out Dictionary data))
-        {
-            saveData = data;
-        }
+		if (Load(out Dictionary data))
+		{
+			saveData = data;
+		}
 
-        if(saveData.ContainsKey(levelID))
-        {
-            saveData[levelID] = score;
-        }
-        else
-        {
-		    saveData.Add(levelID, score);
-        }
+		if (saveData.ContainsKey(levelID))
+		{
+			saveData[levelID] = score;
+		}
+		else
+		{
+			saveData.Add(levelID, score);
+		}
 
 		string json = Json.Stringify(saveData);
 
@@ -37,15 +37,67 @@ public partial class SaveSystem : Node
 		}
 	}
 
-    public int LoadLevelData(string levelID)
-    {
-        if(Load(out Dictionary data))
-        {
-            if(data.ContainsKey(levelID))
-                return (int) data[levelID];
-        }
-        return 0;
-    }
+	public void SaveSettings(string language, float sfxVolume, float musicVolume)
+	{
+		Dictionary saveData = new Dictionary();
+
+		if (Load(out Dictionary data))
+		{
+			saveData = data;
+		}
+
+		saveData[SaveKeys.Language] = language;
+		saveData[SaveKeys.SFXVolume] = sfxVolume;
+		saveData[SaveKeys.MusicVolume] = musicVolume;
+
+		string json = Json.Stringify(saveData);
+
+		string savePath = ProjectSettings.GlobalizePath(Config.SaveFolder);
+
+		if (SaveToFile(savePath, Config.SaveFile, json))
+		{
+			GD.Print("Settings saved");
+		}
+		else
+		{
+			GD.PrintErr("Saving settings failed");
+		}
+	}
+
+	public int LoadLevelData(string levelID)
+	{
+		if (Load(out Dictionary data))
+		{
+			if (data.ContainsKey(levelID))
+				return (int)data[levelID];
+		}
+		return 0;
+	}
+
+	public (string language, float sfxVolume, float musicVolume) LoadSettings()
+	{
+		string language = "en";
+		float sfxVolume = 1.0f;
+		float musicVolume = 1.0f;
+
+		if (Load(out Dictionary data))
+		{
+			if (data.ContainsKey(SaveKeys.Language))
+				language = data[SaveKeys.Language].ToString();
+
+			if (data.ContainsKey(SaveKeys.SFXVolume))
+				sfxVolume = (float)(double)data[SaveKeys.SFXVolume];
+
+			if (data.ContainsKey(SaveKeys.MusicVolume))
+				musicVolume = (float)(double)data[SaveKeys.MusicVolume];
+		}
+		else
+		{
+			GD.Print("Failed to load settings");
+		}
+
+		return (language, sfxVolume, musicVolume);
+	}
 
 	public bool Load(out Dictionary data)
 	{
@@ -57,12 +109,12 @@ public partial class SaveSystem : Node
 		if (loadError != Error.Ok)
 		{
 			GD.PrintErr($"Error loading the save: {loadError}");
-            data = null;
+			data = null;
 			return false;
 		}
 
 		Dictionary saveData = (Dictionary)jsonLoader.Data;
-        data = saveData;
+		data = saveData;
 		return true;
 	}
 

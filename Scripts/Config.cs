@@ -8,6 +8,13 @@ public static class Config
     public const string SaveFile = "save.json";
 }
 
+public static class SaveKeys
+{
+    public const string Language = "Language";
+    public const string SFXVolume = "SFXVolume";
+    public const string MusicVolume = "MusicVolume";
+}
+
 public enum LevelID
 {
     Tutorial,
