@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://bmto2xvdhxyi1"]
+[gd_scene load_steps=31 format=3 uid="uid://bmto2xvdhxyi1"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_s5sty"]
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_hxyhm"]
 [ext_resource type="Texture2D" uid="uid://btmfrvmh7rpw2" path="res://Art/map/highlight.png" id="3_tjva7"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="4_6s5op"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="5_de6b0"]
+[ext_resource type="Texture2D" uid="uid://cdj3onu8omug8" path="res://Art/map/RiverParts/jokipaksuu.png" id="5_q38bp"]
 [ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="6_s2lup"]
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="7_edfn7"]
 [ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="8_btm00"]
@@ -100,9 +101,14 @@ texture = ExtResource("3_tjva7")
 [node name="River" type="Node2D" parent="Map"]
 
 [node name="Joki1_2" type="Sprite2D" parent="Map/River"]
+visible = false
 position = Vector2(-8, 1)
 scale = Vector2(1, 3.92391)
 texture = ExtResource("20_xri06")
+
+[node name="Jokipaksuu" type="Sprite2D" parent="Map/River"]
+position = Vector2(14, 75)
+texture = ExtResource("5_q38bp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
