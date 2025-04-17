@@ -45,13 +45,13 @@ LevelName = "4"
 
 [sub_resource type="Resource" id="Resource_1e5ke"]
 script = ExtResource("2_uaaac")
-LevelID = 0
+LevelID = 5
 LevelPath = ""
 LevelName = ""
 
 [sub_resource type="Resource" id="Resource_v0g8a"]
 script = ExtResource("2_uaaac")
-LevelID = 0
+LevelID = 7
 LevelPath = ""
 LevelName = ""
 
