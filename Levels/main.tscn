@@ -136,12 +136,12 @@ position = Vector2(-4, -11)
 scale = Vector2(0.99287, 0.999999)
 curve = SubResource("Curve2D_sgxs6")
 
-[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("path")]
+[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("_path")]
 position = Vector2(152, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("9_b46sv")
-path = NodePath("../Path2D")
-roar = ExtResource("12_y25cj")
+_path = NodePath("../Path2D")
+_crocodile = ExtResource("12_y25cj")
 _trashArray = Array[Object]([SubResource("Resource_0gd2l"), SubResource("Resource_i1c6d")])
 
 [node name="Timer" type="Timer" parent="TrashSpawn"]

@@ -140,12 +140,12 @@ position = Vector2(56, 65)
 scale = Vector2(1.05302, 1)
 curve = SubResource("Curve2D_sb1bo")
 
-[node name="TrashSpawn3" type="Node2D" parent="." node_paths=PackedStringArray("path")]
+[node name="TrashSpawn3" type="Node2D" parent="." node_paths=PackedStringArray("_path")]
 position = Vector2(608, -21.9732)
 scale = Vector2(1, 0.208685)
 script = ExtResource("5_de6b0")
-path = NodePath("../BottomPath")
-roar = ExtResource("6_s2lup")
+_path = NodePath("../BottomPath")
+_crocodile = ExtResource("6_s2lup")
 _minSpawnTime = 6.0
 _maxSpawnTime = 8.0
 _chanceIncrease = 0.1
@@ -157,12 +157,12 @@ _startChance = 0.1
 wait_time = 0.195
 autostart = true
 
-[node name="TrashSpawn2" type="Node2D" parent="." node_paths=PackedStringArray("path")]
+[node name="TrashSpawn2" type="Node2D" parent="." node_paths=PackedStringArray("_path")]
 position = Vector2(304, -15.083)
 scale = Vector2(1, 0.456821)
 script = ExtResource("5_de6b0")
-path = NodePath("../MiddlePath")
-roar = ExtResource("6_s2lup")
+_path = NodePath("../MiddlePath")
+_crocodile = ExtResource("6_s2lup")
 _minSpawnTime = 6.0
 _maxSpawnTime = 10.0
 _chanceIncrease = 0.1
@@ -174,12 +174,12 @@ _startChance = 0.1
 wait_time = 0.195
 autostart = true
 
-[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("path")]
+[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("_path")]
 position = Vector2(152, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("5_de6b0")
-path = NodePath("../TopPath")
-roar = ExtResource("6_s2lup")
+_path = NodePath("../TopPath")
+_crocodile = ExtResource("6_s2lup")
 _minSpawnTime = 6.0
 _maxSpawnTime = 12.0
 _chanceIncrease = 0.1

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://copv2c6ss3mia" path="res://Art/UI/nappi_1.png" id="2_a5xvf"]
 [ext_resource type="Script" path="res://Levels/MenuProgress.cs" id="2_ihtnt"]
 [ext_resource type="Texture2D" uid="uid://gq4b5wf3b3o7" path="res://Art/UI/joki2.png" id="2_o84yv"]
-[ext_resource type="Script" path="res://Levels/Joki.cs" id="3_n4k7q"]
+[ext_resource type="Script" path="res://Levels/River.cs" id="3_n4k7q"]
 [ext_resource type="Texture2D" uid="uid://b8tgaxl0s2y1p" path="res://Art/UI/nappi_1pressed.png" id="4_wvj0h"]
 [ext_resource type="Texture2D" uid="uid://4ikbjc1jucmm" path="res://Art/UI/nappi_2.png" id="4_xtyar"]
 [ext_resource type="Texture2D" uid="uid://gjkihf2png0j" path="res://Art/UI/nappi_2pressed.png" id="6_lrbhj"]
@@ -19,7 +19,7 @@ _data = {
 }
 point_count = 9
 
-[node name="PauseMenu" type="Control" node_paths=PackedStringArray("button1", "button2", "button3", "joki")]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("_button1", "_button2", "_button3", "_river")]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 15
@@ -28,10 +28,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ip8se")
-button1 = NodePath("Joki/Path2D/Resume")
-button2 = NodePath("Joki/Path2D/Options")
-button3 = NodePath("Joki/Path2D/Exit")
-joki = NodePath("Joki")
+_button1 = NodePath("River/Path2D/Resume")
+_button2 = NodePath("River/Path2D/Options")
+_button3 = NodePath("River/Path2D/Exit")
+_river = NodePath("River")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -21
@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0392157, 0.0392157, 0.0392157, 0.717647)
 
-[node name="Joki" type="TextureRect" parent="."]
+[node name="River" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,22 +61,22 @@ pivot_offset = Vector2(340, 512)
 texture = ExtResource("2_o84yv")
 script = ExtResource("3_n4k7q")
 
-[node name="Path2D" type="Path2D" parent="Joki"]
+[node name="Path2D" type="Path2D" parent="River"]
 position = Vector2(333.5, 523.674)
 curve = SubResource("Curve2D_hj7ll")
 
-[node name="Resume" type="PathFollow2D" parent="Joki/Path2D" node_paths=PackedStringArray("button")]
+[node name="Resume" type="PathFollow2D" parent="River/Path2D" node_paths=PackedStringArray("_button")]
 position = Vector2(-47.3636, -239.927)
 rotation = 1.57392
 progress = 1104.01
 rotates = false
 loop = false
 script = ExtResource("2_ihtnt")
-_startingRatio = 0.131
-_stoppingPoint = 0.538
-button = NodePath("ResumeButton")
+StartingRatio = 0.131
+StoppingPoint = 0.538
+_button = NodePath("ResumeButton")
 
-[node name="ResumeButton" type="TextureButton" parent="Joki/Path2D/Resume"]
+[node name="ResumeButton" type="TextureButton" parent="River/Path2D/Resume"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -91,8 +91,9 @@ grow_vertical = 2
 rotation = -1.5708
 texture_normal = ExtResource("2_a5xvf")
 texture_pressed = ExtResource("4_wvj0h")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Joki/Path2D/Resume/ResumeButton"]
+[node name="Label" type="Label" parent="River/Path2D/Resume/ResumeButton"]
 layout_mode = 0
 offset_left = 54.4719
 offset_top = 34.6484
@@ -103,19 +104,20 @@ theme_override_fonts/font = ExtResource("7_bhrid")
 theme_override_font_sizes/font_size = 97
 text = "RESUME"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Options" type="PathFollow2D" parent="Joki/Path2D" node_paths=PackedStringArray("button")]
+[node name="Options" type="PathFollow2D" parent="River/Path2D" node_paths=PackedStringArray("_button")]
 position = Vector2(43.4792, 1.27661)
 rotation = 1.56872
 progress = 1401.19
 rotates = false
 loop = false
 script = ExtResource("2_ihtnt")
-_startingRatio = 0.234
-_stoppingPoint = 0.683
-button = NodePath("SettingsButton")
+StartingRatio = 0.234
+StoppingPoint = 0.683
+_button = NodePath("SettingsButton")
 
-[node name="SettingsButton" type="TextureButton" parent="Joki/Path2D/Options"]
+[node name="SettingsButton" type="TextureButton" parent="River/Path2D/Options"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -131,7 +133,7 @@ rotation = -1.5708
 texture_normal = ExtResource("4_xtyar")
 texture_pressed = ExtResource("6_lrbhj")
 
-[node name="Label" type="Label" parent="Joki/Path2D/Options/SettingsButton"]
+[node name="Label" type="Label" parent="River/Path2D/Options/SettingsButton"]
 layout_mode = 0
 offset_left = 42.9461
 offset_top = 19.1383
@@ -143,18 +145,18 @@ theme_override_font_sizes/font_size = 75
 text = "SETTINGS"
 horizontal_alignment = 1
 
-[node name="Exit" type="PathFollow2D" parent="Joki/Path2D" node_paths=PackedStringArray("button")]
+[node name="Exit" type="PathFollow2D" parent="River/Path2D" node_paths=PackedStringArray("_button")]
 position = Vector2(13.7873, 213.571)
 rotation = 1.5708
 progress = 1652.84
 rotates = false
 loop = false
 script = ExtResource("2_ihtnt")
-_startingRatio = 0.374
-_stoppingPoint = 0.806
-button = NodePath("ExitButton")
+StartingRatio = 0.374
+StoppingPoint = 0.806
+_button = NodePath("ExitButton")
 
-[node name="ExitButton" type="TextureButton" parent="Joki/Path2D/Exit"]
+[node name="ExitButton" type="TextureButton" parent="River/Path2D/Exit"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -170,7 +172,7 @@ rotation = -1.5708
 texture_normal = ExtResource("7_3w4ye")
 texture_pressed = ExtResource("7_ll212")
 
-[node name="Label" type="Label" parent="Joki/Path2D/Exit/ExitButton"]
+[node name="Label" type="Label" parent="River/Path2D/Exit/ExitButton"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 16.0
@@ -188,12 +190,12 @@ layer = 5
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("12_epovt")]
 visible = false
 
-[connection signal="pressed" from="Joki/Path2D/Resume/ResumeButton" to="." method="Resume"]
-[connection signal="pressed" from="Joki/Path2D/Resume/ResumeButton" to="Joki/Path2D/Resume" method="StarProgress"]
-[connection signal="pressed" from="Joki/Path2D/Resume/ResumeButton" to="Joki/Path2D/Options" method="StarProgress"]
-[connection signal="pressed" from="Joki/Path2D/Resume/ResumeButton" to="Joki/Path2D/Exit" method="StarProgress"]
-[connection signal="pressed" from="Joki/Path2D/Options/SettingsButton" to="CanvasLayer/SettingsMenu" method="OpenSettingsMenu"]
-[connection signal="pressed" from="Joki/Path2D/Exit/ExitButton" to="." method="Exit"]
-[connection signal="pressed" from="Joki/Path2D/Exit/ExitButton" to="Joki/Path2D/Resume" method="StarProgress"]
-[connection signal="pressed" from="Joki/Path2D/Exit/ExitButton" to="Joki/Path2D/Options" method="StarProgress"]
-[connection signal="pressed" from="Joki/Path2D/Exit/ExitButton" to="Joki/Path2D/Exit" method="StarProgress"]
+[connection signal="pressed" from="River/Path2D/Resume/ResumeButton" to="." method="Resume"]
+[connection signal="pressed" from="River/Path2D/Resume/ResumeButton" to="River/Path2D/Resume" method="StartProgress"]
+[connection signal="pressed" from="River/Path2D/Resume/ResumeButton" to="River/Path2D/Options" method="StartProgress"]
+[connection signal="pressed" from="River/Path2D/Resume/ResumeButton" to="River/Path2D/Exit" method="StartProgress"]
+[connection signal="pressed" from="River/Path2D/Options/SettingsButton" to="CanvasLayer/SettingsMenu" method="OpenSettingsMenu"]
+[connection signal="pressed" from="River/Path2D/Exit/ExitButton" to="." method="Exit"]
+[connection signal="pressed" from="River/Path2D/Exit/ExitButton" to="River/Path2D/Resume" method="StartProgress"]
+[connection signal="pressed" from="River/Path2D/Exit/ExitButton" to="River/Path2D/Options" method="StartProgress"]
+[connection signal="pressed" from="River/Path2D/Exit/ExitButton" to="River/Path2D/Exit" method="StartProgress"]

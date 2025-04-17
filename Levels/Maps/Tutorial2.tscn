@@ -120,12 +120,12 @@ scale = Vector2(0.185, 0.185)
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_swtig")
 
-[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("path")]
+[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("_path")]
 position = Vector2(152, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("6_3vck6")
-path = NodePath("../Path2D")
-roar = ExtResource("7_oacty")
+_path = NodePath("../Path2D")
+_crocodile = ExtResource("7_oacty")
 _minSpawnTime = 6.0
 _maxSpawnTime = 8.0
 _chanceIncrease = 0.1
@@ -247,17 +247,17 @@ visible = false
 offset_left = 1.0
 offset_right = 1.0
 
-[node name="Tutorial" type="CanvasLayer" parent="." node_paths=PackedStringArray("Buttons", "Tutorial1", "Tutorial2", "Tutorial3", "Tutorial4", "Tutorial5", "Tutorial6", "Tutorial7")]
+[node name="Tutorial" type="CanvasLayer" parent="." node_paths=PackedStringArray("_buttons", "_tutorial1", "_tutorial2", "_tutorial3", "_tutorial4", "_tutorial5", "_tutorial6", "_tutorial7")]
 visible = false
 script = ExtResource("23_awat6")
-Buttons = NodePath("../Buttons")
-Tutorial1 = NodePath("../ControlsTutorial")
-Tutorial2 = NodePath("../ControlSupTutorial")
-Tutorial3 = NodePath("../RiverTutorial")
-Tutorial4 = NodePath("../Trash tutorial")
-Tutorial5 = NodePath("../CrocodileTutorial")
-Tutorial6 = NodePath("../StarTutorial")
-Tutorial7 = NodePath("../EndingTutorial")
+_buttons = NodePath("../Buttons")
+_tutorial1 = NodePath("../ControlsTutorial")
+_tutorial2 = NodePath("../ControlSupTutorial")
+_tutorial3 = NodePath("../RiverTutorial")
+_tutorial4 = NodePath("../Trash tutorial")
+_tutorial5 = NodePath("../CrocodileTutorial")
+_tutorial6 = NodePath("../StarTutorial")
+_tutorial7 = NodePath("../EndingTutorial")
 
 [node name="TextureRect" type="TextureRect" parent="Tutorial"]
 anchors_preset = 15

@@ -27,15 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://qv5p1ceq7h27" path="res://Art/UI/star.png" id="18_g5cb7"]
 [ext_resource type="Texture2D" uid="uid://dwwdft8dvjqv5" path="res://Art/UI/OptionsUI/Untitled_Artwork-2Pressed.png" id="20_oenkm"]
 
-[node name="Node2D" type="CanvasLayer" node_paths=PackedStringArray("Buttons", "Tutorial1", "Tutorial2", "Tutorial3", "Tutorial4", "Tutorial5", "Tutorial6")]
+[node name="Node2D" type="CanvasLayer"]
 script = ExtResource("1_ijky6")
-Buttons = NodePath("Buttons")
-Tutorial1 = NodePath("ControlsTutorial")
-Tutorial2 = NodePath("RiverTutorial")
-Tutorial3 = NodePath("Trash tutorial")
-Tutorial4 = NodePath("CrocodileTutorial")
-Tutorial5 = NodePath("StarTutorial")
-Tutorial6 = NodePath("EndingTutorial")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1280.0

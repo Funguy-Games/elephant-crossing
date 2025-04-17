@@ -543,6 +543,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Contributions" type="Panel" parent="."]
+visible = false
 clip_children = 1
 z_index = 9
 clip_contents = true

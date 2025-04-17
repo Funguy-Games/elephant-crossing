@@ -3,61 +3,85 @@ using System;
 
 public partial class Tutorial : CanvasLayer
 {
-	[Export] CanvasLayer Buttons = null;
-	[Export] CanvasLayer Tutorial1 = null;
-	[Export] CanvasLayer Tutorial2 = null;
-	[Export] CanvasLayer Tutorial3 = null;
-	[Export] CanvasLayer Tutorial4 = null;
-	[Export] CanvasLayer Tutorial5 = null;
-	[Export] CanvasLayer Tutorial6 = null;
-	[Export] CanvasLayer Tutorial7 = null;
+	[Export] private CanvasLayer _buttons = null;
+	[Export] private CanvasLayer _tutorial1 = null;
+	[Export] private CanvasLayer _tutorial2 = null;
+	[Export] private CanvasLayer _tutorial3 = null;
+	[Export] private CanvasLayer _tutorial4 = null;
+	[Export] private CanvasLayer _tutorial5 = null;
+	[Export] private CanvasLayer _tutorial6 = null;
+	[Export] private CanvasLayer _tutorial7 = null;
 
-	private int currentIndex = 0;
-	private CanvasLayer[] tutorials;
+	private int _currentIndex = 0;
+	private CanvasLayer[] _tutorials;
 
+	/// <summary>
+	/// Initializes the tutorial system and pauses the game.
+	/// </summary>
 	public override void _Ready()
 	{
 		Visible = true;
-		Buttons.Visible = true;
+		_buttons.Visible = true;
 
 		Engine.TimeScale = 0;
 
-		tutorials = new CanvasLayer[] { Tutorial1, Tutorial2, Tutorial3, Tutorial4, Tutorial5, Tutorial6, Tutorial7 };
+		_tutorials = new CanvasLayer[]
+		{
+			_tutorial1,
+			_tutorial2,
+			_tutorial3,
+			_tutorial4,
+			_tutorial5,
+			_tutorial6,
+			_tutorial7
+		};
 
 		ShowCurrentTutorial();
 	}
 
+	/// <summary>
+	/// Displays the currently selected tutorial screen.
+	/// </summary>
 	private void ShowCurrentTutorial()
 	{
-		for (int i = 0; i < tutorials.Length; i++)
+		for (int i = 0; i < _tutorials.Length; i++)
 		{
-			tutorials[i].Visible = (i == currentIndex);
+			_tutorials[i].Visible = (i == _currentIndex);
 		}
 	}
 
+	/// <summary>
+	/// Moves forward to the next tutorial screen.
+	/// </summary>
 	private void GoForward()
 	{
-		if (currentIndex < tutorials.Length - 1)
+		if (_currentIndex < _tutorials.Length - 1)
 		{
-			currentIndex++;
+			_currentIndex++;
 			ShowCurrentTutorial();
 		}
 	}
 
+	/// <summary>
+	/// Moves back to the previous tutorial screen.
+	/// </summary>
 	private void GoBack()
 	{
-		if (currentIndex > 0)
+		if (_currentIndex > 0)
 		{
-			currentIndex--;
+			_currentIndex--;
 			ShowCurrentTutorial();
 		}
 	}
 
+	/// <summary>
+	/// Exits the tutorial and starts the game.
+	/// </summary>
 	private void ExitTutorial()
 	{
 		Engine.TimeScale = 1;
 		Visible = false;
-		tutorials[currentIndex].Visible = false;
-		Buttons.Visible = false;
+		_tutorials[_currentIndex].Visible = false;
+		_buttons.Visible = false;
 	}
 }
