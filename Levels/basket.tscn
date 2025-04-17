@@ -50,5 +50,4 @@ shortcut_keys_enabled = false
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qger1")
 volume_db = -2.73
-stream_paused = true
 bus = &"SFX"
