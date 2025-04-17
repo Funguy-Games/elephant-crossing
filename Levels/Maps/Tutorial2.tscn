@@ -53,22 +53,22 @@ point_count = 2
 [sub_resource type="Resource" id="Resource_0gd2l"]
 script = ExtResource("8_oqgms")
 trashType = ExtResource("9_5bmjd")
-TrashAmount = 20
+TrashAmount = 3
 
 [sub_resource type="Resource" id="Resource_i1c6d"]
 script = ExtResource("8_oqgms")
 trashType = ExtResource("10_m5nq5")
-TrashAmount = 10
+TrashAmount = 3
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_fade", "_saveSystem")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade", "_saveSystem")]
 position = Vector2(641, 360)
 script = ExtResource("1_fhknh")
 _progressViewer = NodePath("ColorRect/GameProgress")
 _scoreBroad = NodePath("ColorRect/ScoreLabel")
+_endScreen = NodePath("EndScreen")
 _fade = NodePath("FadeCanvas")
 _saveSystem = NodePath("SaveSystem")
-_levelID = 1
-_trashInPlay = 30
+_trashInPlay = 6
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -105,10 +105,12 @@ texture = ExtResource("4_kak8s")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Basket" parent="." instance=ExtResource("21_68xc1")]
-position = Vector2(60, 237)
+position = Vector2(60, 252.595)
+_neededPoints = 3
 
 [node name="Basket2" parent="." instance=ExtResource("6_byvfr")]
-position = Vector2(-60, 237)
+position = Vector2(-60, 252.595)
+_neededPoints = 3
 
 [node name="Elephant" parent="." instance=ExtResource("5_kwteq")]
 position = Vector2(2.10992, -17.8517)
