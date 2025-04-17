@@ -11,8 +11,9 @@ RESUME;Resume;Jatka
 NEXT;Next;Seuraava
 TUTORIAL_TEXT1_BOX1;The left lever controls the elephant's rotation.;Vasen vipu ohjaa elefantin pyörimistä.
 TUTORIAL_TEXT1_BOX2;The right lever controls the elephant's trunk lenght.;Oikea vipu ohjaa elefantin kärsän pituutta.
-TUTORIAL_TEXT2;Trash wil flow down the river. You will have to catch the trash before it leaves.;Roskaa virtaa alas jokea. Sinun täytyy napata roskat ennen kuin ne katoavat.
-TUTORIAL_TEXT3;\nCollect trash and put the trash in to the correct basket.;\nKerää roskat ja laita ne oikeaan roskakoriin.
-TUTORIAL_TEXT4;But be careful!\n\nIn the river there are evil crocodiles that will stun you.;Mutta ole varovainen!\n\nJoessa on ilkeitä krokotiileja, jotka lamauttavat sinut.
-TUTORIAL_TEXT5;You will earn stars based on how much trash you have collected, the max amount being three stars.;Saat tähtiä sen mukaan, kuinka paljon roskaa olet kerännyt – enintään kolme tähteä.
-TUTORIAL_TEXT6;Thats it!\n\nNow go out there and have some fun!\n\nThe button below will exit the tutorial;\nSiinä kaikki!\n\nMene ja pidä hauskaa!\n\nAlla oleva nappi lopettaa tutoriaalin.
+TUTORIAL_TEXT2;\nThe game also has controller support to control the left and right levers.;\nPeli tukee myös ohjainta vasemman ja oikean vivun ohjaamiseen.
+TUTORIAL_TEXT3;Trash wil flow down the river. You will have to catch the trash before it leaves.;Roskaa virtaa alas jokea. Sinun täytyy napata roskat ennen kuin ne katoavat.
+TUTORIAL_TEXT4;\nCollect trash and put the trash in to the correct basket.;\nKerää roskat ja laita ne oikeaan roskakoriin.
+TUTORIAL_TEXT5;But be careful!\n\nIn the river there are evil crocodiles that will stun you.;Mutta ole varovainen!\n\nJoessa on ilkeitä krokotiileja, jotka lamauttavat sinut.
+TUTORIAL_TEXT6;You will earn stars based on how much trash you have collected, the max amount being three stars.;Saat tähtiä sen mukaan, kuinka paljon roskaa olet kerännyt – enintään kolme tähteä.
+TUTORIAL_TEXT7;Thats it!\n\nNow go out there and have some fun!\n\nThe button below will exit the tutorial;\nSiinä kaikki!\n\nMene ja pidä hauskaa!\n\nAlla oleva nappi lopettaa tutoriaalin.

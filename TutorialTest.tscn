@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://g7an645wgnjp"]
+[gd_scene load_steps=27 format=3 uid="uid://g7an645wgnjp"]
 
 [ext_resource type="Script" path="res://Tutorial.cs" id="1_ijky6"]
 [ext_resource type="Texture2D" uid="uid://qp7tq7q2rcqb" path="res://Art/UI/control_background_L.png" id="1_uguio"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cgeclpxwoiqu1" path="res://Art/UI/puuta.png" id="6_ipgq0"]
 [ext_resource type="Texture2D" uid="uid://coy61xk6nmtc1" path="res://Art/Baskets/Basket.png" id="8_y5jc1"]
 [ext_resource type="Texture2D" uid="uid://ch1tuna0qnrw3" path="res://Art/RiverItems/IMG_2944Resize.png" id="9_hp7e2"]
+[ext_resource type="Texture2D" uid="uid://dr466o7fttgs4" path="res://Art/5970868.png" id="9_riun2"]
 [ext_resource type="Texture2D" uid="uid://bu6butcnn6qox" path="res://Art/RiverItems/IMG_2943.png" id="10_k3yib"]
 [ext_resource type="Texture2D" uid="uid://dmlbgbyfoe5o1" path="res://Art/IMG_2954.png" id="13_gcwcq"]
 [ext_resource type="Texture2D" uid="uid://ddvaoruyrkxon" path="res://Art/UI/OptionsUI/Untitled_Artwork-1right.png" id="15_2swnd"]
@@ -168,6 +169,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Aroow" type="TextureRect" parent="ControlsTutorial/TextureRect"]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 179.0
 offset_right = 997.0
@@ -210,6 +212,49 @@ offset_right = 384.0
 offset_bottom = 269.0
 scale = Vector2(0.50566, 0.50566)
 texture = ExtResource("3_0nx0y")
+
+[node name="ControlSupTutorial" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="ControlSupTutorial"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -149.0
+offset_right = 150.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(150, 150)
+texture = ExtResource("6_ipgq0")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="ControlSupTutorial/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_yrmn0")
+theme_override_font_sizes/font_size = 31
+text = "
+The game also has controller support to control the left and right lever."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="5970868" type="TextureRect" parent="ControlSupTutorial/TextureRect"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 188.667
+offset_right = 604.0
+offset_bottom = 700.667
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("9_riun2")
 
 [node name="RiverTutorial" type="CanvasLayer" parent="."]
 process_mode = 2
@@ -455,6 +500,7 @@ texture = ExtResource("18_g5cb7")
 
 [node name="EndingTutorial" type="CanvasLayer" parent="."]
 process_mode = 2
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="EndingTutorial"]
 anchors_preset = 8

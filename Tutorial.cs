@@ -10,6 +10,7 @@ public partial class Tutorial : CanvasLayer
 	[Export] CanvasLayer Tutorial4 = null;
 	[Export] CanvasLayer Tutorial5 = null;
 	[Export] CanvasLayer Tutorial6 = null;
+	[Export] CanvasLayer Tutorial7 = null;
 
 	private int currentIndex = 0;
 	private CanvasLayer[] tutorials;
@@ -21,9 +22,7 @@ public partial class Tutorial : CanvasLayer
 
 		Engine.TimeScale = 0;
 
-		AudioServer.SetBusMute(2, true);
-
-		tutorials = new CanvasLayer[] { Tutorial1, Tutorial2, Tutorial3, Tutorial4, Tutorial5, Tutorial6 };
+		tutorials = new CanvasLayer[] { Tutorial1, Tutorial2, Tutorial3, Tutorial4, Tutorial5, Tutorial6, Tutorial7 };
 
 		ShowCurrentTutorial();
 	}
@@ -60,6 +59,5 @@ public partial class Tutorial : CanvasLayer
 		Visible = false;
 		tutorials[currentIndex].Visible = false;
 		Buttons.Visible = false;
-		AudioServer.SetBusMute(2, false);
 	}
 }
