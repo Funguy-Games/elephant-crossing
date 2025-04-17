@@ -39,22 +39,17 @@ public partial class SaveSystem : Node
 
 	public void SaveSettings(string language, float sfxVolume, float musicVolume)
 	{
-		Dictionary saveData = new Dictionary();
-
-		if (Load(out Dictionary data))
+		Dictionary saveData = new Dictionary
 		{
-			saveData = data;
-		}
-
-		saveData[SaveKeys.Language] = language;
-		saveData[SaveKeys.SFXVolume] = sfxVolume;
-		saveData[SaveKeys.MusicVolume] = musicVolume;
+			[SaveKeys.Language] = language,
+			[SaveKeys.SFXVolume] = sfxVolume,
+			[SaveKeys.MusicVolume] = musicVolume
+		};
 
 		string json = Json.Stringify(saveData);
-
 		string savePath = ProjectSettings.GlobalizePath(Config.SaveFolder);
 
-		if (SaveToFile(savePath, Config.SaveFile, json))
+		if (SaveToFile(savePath, Config.SettingsFile, json))
 		{
 			GD.Print("Settings saved");
 		}
@@ -80,21 +75,33 @@ public partial class SaveSystem : Node
 		float sfxVolume = 1.0f;
 		float musicVolume = 1.0f;
 
-		if (Load(out Dictionary data))
-		{
-			if (data.ContainsKey(SaveKeys.Language))
-				language = data[SaveKeys.Language].ToString();
+		string savePath = ProjectSettings.GlobalizePath(Config.SaveFolder);
+		string loadedJson = LoadFromFile(savePath, Config.SettingsFile);
 
-			if (data.ContainsKey(SaveKeys.SFXVolume))
-				sfxVolume = (float)(double)data[SaveKeys.SFXVolume];
-
-			if (data.ContainsKey(SaveKeys.MusicVolume))
-				musicVolume = (float)(double)data[SaveKeys.MusicVolume];
-		}
-		else
+		if (string.IsNullOrEmpty(loadedJson))
 		{
 			GD.Print("Failed to load settings");
+			return (language, sfxVolume, musicVolume);
 		}
+
+		Json jsonLoader = new Json();
+		Error loadError = jsonLoader.Parse(loadedJson);
+		if (loadError != Error.Ok)
+		{
+			GD.PrintErr($"Error loading settings: {loadError}");
+			return (language, sfxVolume, musicVolume);
+		}
+
+		Dictionary data = (Dictionary)jsonLoader.Data;
+
+		if (data.ContainsKey(SaveKeys.Language))
+			language = data[SaveKeys.Language].ToString();
+
+		if (data.ContainsKey(SaveKeys.SFXVolume))
+			sfxVolume = (float)(double)data[SaveKeys.SFXVolume];
+
+		if (data.ContainsKey(SaveKeys.MusicVolume))
+			musicVolume = (float)(double)data[SaveKeys.MusicVolume];
 
 		return (language, sfxVolume, musicVolume);
 	}

@@ -6,6 +6,7 @@ public static class Config
 {
     public const string SaveFolder = "user://Save";
     public const string SaveFile = "save.json";
+    public const string SettingsFile = "settings.json";
 }
 
 public static class SaveKeys
