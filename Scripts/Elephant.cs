@@ -79,6 +79,7 @@ public partial class Elephant : Node2D
 		if (body.IsInGroup("Pickupable"))
 		{
 			PickupItem(body);
+			GetNode<AudioStreamPlayer2D>("PickupAudio").Play();
 		}
 		else if (body.IsInGroup("Basket"))
 		{

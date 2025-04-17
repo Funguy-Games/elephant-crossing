@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkq5sixfyrbon"]
+[gd_scene load_steps=14 format=3 uid="uid://bkq5sixfyrbon"]
 
 [ext_resource type="Material" uid="uid://bgxxuxh62wkem" path="res://Characters/elephant.tres" id="1_b7ftt"]
 [ext_resource type="Script" path="res://Scripts/Elephant.cs" id="1_rbr7a"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c7pxop2os6l10" path="res://Art/norsu/head.png" id="6_nd2km"]
 [ext_resource type="Script" path="res://Scripts/CustomSlider.cs" id="7_icqum"]
 [ext_resource type="Texture2D" uid="uid://dg2imr5o25iat" path="res://Art/UI/slider_handle.png" id="9_wniah"]
+[ext_resource type="AudioStream" uid="uid://bbcysdpatyfp4" path="res://Sounds/Pickup_Conga.wav" id="12_fvfpg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iemfp"]
 radius = 65.98
@@ -182,5 +183,10 @@ scale = Vector2(0.50566, 0.50566)
 texture = ExtResource("9_wniah")
 script = ExtResource("7_icqum")
 ControlledBy = 1
+
+[node name="PickupAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_fvfpg")
+volume_db = 16.475
+bus = &"SFX"
 
 [connection signal="body_entered" from="TrunkHead/Area2D" to="." method="On2DBodyEntered"]
