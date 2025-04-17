@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ywkrwow6qj54" path="res://Art/map/RiverParts/suorajoki.png" id="4_kak8s"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="5_kwteq"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="6_3vck6"]
-[ext_resource type="PackedScene" uid="uid://d3xu61s1bu8gg" path="res://Levels/Baskets/TrashBasket.tscn" id="6_byvfr"]
+[ext_resource type="PackedScene" uid="uid://vy24krgaihye" path="res://Levels/Baskets/TrashBasket.tscn" id="6_byvfr"]
 [ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="7_oacty"]
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="8_oqgms"]
 [ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="9_5bmjd"]
@@ -260,8 +260,11 @@ Tutorial6 = NodePath("../StarTutorial")
 Tutorial7 = NodePath("../EndingTutorial")
 
 [node name="TextureRect" type="TextureRect" parent="Tutorial"]
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_pn16s")
 
 [node name="ColorRect" type="ColorRect" parent="Tutorial"]

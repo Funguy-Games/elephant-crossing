@@ -214,6 +214,7 @@ scale = Vector2(0.50566, 0.50566)
 texture = ExtResource("3_0nx0y")
 
 [node name="ControlSupTutorial" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="ControlSupTutorial"]
 anchors_preset = 8
