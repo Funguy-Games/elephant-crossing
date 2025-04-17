@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byjqorrm2hna1"
-path="res://.godot/imported/cereal_buttonPressed.png-1697896f4c365e6bd2b20df88179d03a.ctex"
+uid="uid://3ha760ixkw8x"
+path="res://.godot/imported/norsu_kuvake_192.png-a25282e161c7ef2a949a1b41a0c4af56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/OptionsUI/cereal_buttonPressed.png"
-dest_files=["res://.godot/imported/cereal_buttonPressed.png-1697896f4c365e6bd2b20df88179d03a.ctex"]
+source_file="res://Art/norsu_kuvake_192.png"
+dest_files=["res://.godot/imported/norsu_kuvake_192.png-a25282e161c7ef2a949a1b41a0c4af56.ctex"]
 
 [params]
 

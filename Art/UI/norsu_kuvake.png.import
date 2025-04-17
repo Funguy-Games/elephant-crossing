@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5hwqolqfoox8"
-path="res://.godot/imported/Garbage-PNG-Background-Image.png-06eade0eff4c5c13ba1bc97c43b6608f.ctex"
+uid="uid://62cebi3jrshk"
+path="res://.godot/imported/norsu_kuvake.png-846bfcb033ce76342951fd77055f6d34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Garbage-PNG-Background-Image.png"
-dest_files=["res://.godot/imported/Garbage-PNG-Background-Image.png-06eade0eff4c5c13ba1bc97c43b6608f.ctex"]
+source_file="res://Art/UI/norsu_kuvake.png"
+dest_files=["res://.godot/imported/norsu_kuvake.png-846bfcb033ce76342951fd77055f6d34.ctex"]
 
 [params]
 

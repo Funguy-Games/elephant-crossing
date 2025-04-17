@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dx5r1yvxkj5wb"]
+[gd_scene load_steps=18 format=3 uid="uid://dx5r1yvxkj5wb"]
 
 [ext_resource type="Script" path="res://Scripts/UI/LevelSelection.cs" id="1_0u1dj"]
 [ext_resource type="PackedScene" uid="uid://gde61r7f4aln" path="res://Levels/UI/LevelButton.tscn" id="1_np35b"]
@@ -43,18 +43,6 @@ LevelID = 4
 LevelPath = "res://Levels/Maps/Level4.tscn"
 LevelName = "4"
 
-[sub_resource type="Resource" id="Resource_1e5ke"]
-script = ExtResource("2_uaaac")
-LevelID = 5
-LevelPath = ""
-LevelName = ""
-
-[sub_resource type="Resource" id="Resource_v0g8a"]
-script = ExtResource("2_uaaac")
-LevelID = 7
-LevelPath = ""
-LevelName = ""
-
 [node name="LevelSelection" type="Control" node_paths=PackedStringArray("_buttonContainer", "_sceneManager", "_saveSystem")]
 layout_mode = 3
 anchors_preset = 15
@@ -67,7 +55,7 @@ _buttonContainer = NodePath("ColorRect/Container2/Container")
 _sceneManager = NodePath("SceneManager")
 _levelButtonScene = ExtResource("1_np35b")
 _saveSystem = NodePath("SaveSystem")
-_levels = Array[Object]([SubResource("Resource_g83wm"), SubResource("Resource_16te8"), SubResource("Resource_hpqp7"), SubResource("Resource_gph4y"), SubResource("Resource_txghy"), SubResource("Resource_1e5ke"), SubResource("Resource_v0g8a"), SubResource("Resource_v0g8a")])
+_levels = Array[Object]([SubResource("Resource_g83wm"), SubResource("Resource_16te8"), SubResource("Resource_hpqp7"), SubResource("Resource_gph4y"), SubResource("Resource_txghy")])
 
 [node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
