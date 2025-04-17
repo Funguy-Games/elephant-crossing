@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bndd1e0xgahuo" path="res://Art/UI/button2.png" id="10_hwund"]
 [ext_resource type="Texture2D" uid="uid://c631twbr0xkwu" path="res://Art/UI/button2_pressed.png" id="11_kiep1"]
 [ext_resource type="Script" path="res://Scripts/FadeCanvas.cs" id="11_p6mua"]
-[ext_resource type="Texture2D" uid="uid://dwpknna1r1n8i" path="res://Art/UI/OptionsUI/IMG_3098.png" id="13_1f3e7"]
+[ext_resource type="Texture2D" uid="uid://dbljv4tlbgqrd" path="res://Art/UI/Buttons/logobutton.png" id="13_n57vo"]
 [ext_resource type="PackedScene" uid="uid://cl7vyt240k4io" path="res://Levels/SettingsMenu.tscn" id="14_5axgn"]
 [ext_resource type="Texture2D" uid="uid://cgeclpxwoiqu1" path="res://Art/UI/puuta.png" id="16_nxh8y"]
 [ext_resource type="Texture2D" uid="uid://8xgtcicuw6hx" path="res://Art/UI/OptionsUI/Untitled_Artwork-2.png" id="17_slkys"]
@@ -510,11 +510,11 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 23.0
-offset_top = -109.0
-offset_right = 109.0
+offset_top = -146.0
+offset_right = 146.0
 offset_bottom = -23.0
 grow_vertical = 0
-texture_normal = ExtResource("13_1f3e7")
+texture_normal = ExtResource("13_n57vo")
 ignore_texture_size = true
 stretch_mode = 0
 
