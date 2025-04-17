@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://byt8qivr4wfbe"]
+[gd_scene load_steps=30 format=3 uid="uid://byt8qivr4wfbe"]
 
 [ext_resource type="Texture2D" uid="uid://7ao45ipegaea" path="res://Art/UI/starting_screen.png" id="1_68cge"]
 [ext_resource type="Texture2D" uid="uid://chvnb3rxksxxh" path="res://Art/map/saniainen1.png" id="1_q61nk"]
@@ -18,7 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://cl7vyt240k4io" path="res://Levels/SettingsMenu.tscn" id="14_5axgn"]
 [ext_resource type="Texture2D" uid="uid://cgeclpxwoiqu1" path="res://Art/UI/puuta.png" id="16_nxh8y"]
 [ext_resource type="Texture2D" uid="uid://8xgtcicuw6hx" path="res://Art/UI/OptionsUI/Untitled_Artwork-2.png" id="17_slkys"]
+[ext_resource type="Texture2D" uid="uid://c5fmfb5ptr0pk" path="res://Art/TRE_LA24_AMKUAS____B3___RGB.jpg" id="18_cb3b3"]
 [ext_resource type="Texture2D" uid="uid://dwwdft8dvjqv5" path="res://Art/UI/OptionsUI/Untitled_Artwork-2Pressed.png" id="18_owodg"]
+[ext_resource type="Texture2D" uid="uid://co7bvqkur43pi" path="res://Art/HIAB_RGB_HORI_BLACK_AND_WHITE_POS_BIG.png" id="19_jb85m"]
+[ext_resource type="Texture2D" uid="uid://dxkp8qghiwhu6" path="res://Art/tiko_logo_fin.png" id="20_ocvtv"]
 
 [sub_resource type="Gradient" id="Gradient_eln8r"]
 colors = PackedColorArray(0, 0, 0, 0, 0.267345, 0.137018, 0.105689, 0.607843)
@@ -540,7 +543,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Contributions" type="Panel" parent="."]
-visible = false
 clip_children = 1
 z_index = 9
 clip_contents = true
@@ -660,6 +662,7 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Label" type="Label" parent="Contributions/Wood-BG/VBoxContainer/NameContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.99, 0.99, 0.99, 0.815686)
 theme_override_fonts/font = ExtResource("9_qfael")
@@ -667,6 +670,7 @@ theme_override_font_sizes/font_size = 30
 text = "TAMK"
 
 [node name="Label2" type="Label" parent="Contributions/Wood-BG/VBoxContainer/NameContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.99, 0.99, 0.99, 0.815686)
 theme_override_fonts/font = ExtResource("9_qfael")
@@ -674,15 +678,34 @@ theme_override_font_sizes/font_size = 30
 text = "HIAB"
 
 [node name="Label3" type="Label" parent="Contributions/Wood-BG/VBoxContainer/NameContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.99, 0.99, 0.99, 0.815686)
 theme_override_fonts/font = ExtResource("9_qfael")
 theme_override_font_sizes/font_size = 30
 text = "TIKO"
 
+[node name="TextureRect" type="TextureRect" parent="Contributions/Wood-BG/VBoxContainer/NameContainer"]
+custom_minimum_size = Vector2(53.71, 81.615)
+layout_mode = 2
+texture = ExtResource("18_cb3b3")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Contributions/Wood-BG/VBoxContainer/NameContainer"]
+custom_minimum_size = Vector2(53.71, 81.615)
+layout_mode = 2
+texture = ExtResource("19_jb85m")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Contributions/Wood-BG/VBoxContainer/NameContainer"]
+custom_minimum_size = Vector2(53.71, 81.615)
+layout_mode = 2
+texture = ExtResource("20_ocvtv")
+expand_mode = 3
+
 [node name="HSeparator" type="HSeparator" parent="Contributions/Wood-BG/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 25
 theme_override_styles/separator = SubResource("StyleBoxLine_8eyis")
 
 [node name="TextureButton" type="TextureButton" parent="Contributions/Wood-BG"]

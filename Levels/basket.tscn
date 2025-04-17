@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://coy61xk6nmtc1" path="res://Art/Baskets/Basket.png" id="2_2ilnd"]
 [ext_resource type="Texture2D" uid="uid://dqm72ai2h65vp" path="res://Art/RiverItems/IMG_2946.png" id="3_hl2e5"]
 [ext_resource type="FontFile" uid="uid://bufgwvjjeloqj" path="res://Fonts/Namaku.ttf" id="4_bhob3"]
-[ext_resource type="AudioStream" uid="uid://cvju3up4kb25" path="res://Sounds/zapsplat_nature_water_medium_small_stone_drop_splash_plop_into_deep_water_001_85073.mp3" id="5_a3wk4"]
+[ext_resource type="AudioStream" uid="uid://bb35f5pw7ckq7" path="res://Sounds/Drop_Conga.wav" id="5_qger1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paisd"]
 size = Vector2(63.7363, 50.1832)
@@ -48,5 +48,7 @@ autowrap_mode = 0
 shortcut_keys_enabled = false
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_a3wk4")
+stream = ExtResource("5_qger1")
+volume_db = -2.73
+stream_paused = true
 bus = &"SFX"
