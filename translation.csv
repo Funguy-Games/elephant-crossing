@@ -9,6 +9,9 @@ SETTINGS;Settings;Asetukset
 QUIT;Quit;Lopeta
 RESUME;Resume;Jatka
 NEXT;Next;Seuraava
+CREDITS_TEXT1;Art;Grafiikka
+CREDITS_TEXT2;Programming;Ohjelmointi
+CREDITS_TEXT3;In Collaboration With;Yhteistyössä
 TUTORIAL_TEXT1_BOX1;The left lever controls the elephant's rotation.;Vasen vipu ohjaa elefantin pyörimistä.
 TUTORIAL_TEXT1_BOX2;The right lever controls the elephant's trunk lenght.;Oikea vipu ohjaa elefantin kärsän pituutta.
 TUTORIAL_TEXT2;\nThe game also has controller support to control the left and right levers.;\nPeli tukee myös ohjainta vasemman ja oikean vivun ohjaamiseen.

@@ -601,7 +601,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_3f0ud")
 [node name="Label2" type="Label" parent="Contributions/Wood-BG/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_664j5")
-text = "Art"
+text = "CREDITS_TEXT1"
 horizontal_alignment = 1
 
 [node name="NameContainer3" type="HBoxContainer" parent="Contributions/Wood-BG/VBoxContainer"]
@@ -626,7 +626,7 @@ text = "Sonja Tuominen"
 [node name="Label3" type="Label" parent="Contributions/Wood-BG/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_664j5")
-text = "Programming"
+text = "CREDITS_TEXT2"
 horizontal_alignment = 1
 
 [node name="NameContainer2" type="HBoxContainer" parent="Contributions/Wood-BG/VBoxContainer"]
@@ -651,7 +651,7 @@ text = "Otto Leppänen"
 [node name="Label4" type="Label" parent="Contributions/Wood-BG/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_664j5")
-text = "In Collaboration WIth"
+text = "CREDITS_TEXT3"
 horizontal_alignment = 1
 
 [node name="NameContainer" type="HBoxContainer" parent="Contributions/Wood-BG/VBoxContainer"]
