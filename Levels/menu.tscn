@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://byt8qivr4wfbe"]
+[gd_scene load_steps=27 format=3 uid="uid://byt8qivr4wfbe"]
 
 [ext_resource type="Texture2D" uid="uid://7ao45ipegaea" path="res://Art/UI/starting_screen.png" id="1_68cge"]
 [ext_resource type="Texture2D" uid="uid://chvnb3rxksxxh" path="res://Art/map/saniainen1.png" id="1_q61nk"]
@@ -49,6 +49,10 @@ Label/constants/shadow_offset_x = 4
 Label/constants/shadow_offset_y = 4
 Label/constants/shadow_outline_size = 4
 Label/font_sizes/font_size = 55
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3f0ud"]
+color = Color(0.92, 0.42412, 0.3128, 0.572549)
+thickness = 2
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_8eyis"]
 color = Color(0.89, 0.682333, 0.534, 0.694118)
@@ -536,6 +540,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Contributions" type="Panel" parent="."]
+visible = false
 clip_children = 1
 z_index = 9
 clip_contents = true
@@ -577,6 +582,21 @@ theme_override_colors/font_outline_color = Color(0.923933, 0.423662, 0.316926, 1
 theme_override_font_sizes/font_size = 66
 text = "Funguy Games"
 horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Contributions/Wood-BG/VBoxContainer/Label"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -186.0
+offset_top = -5.0
+offset_right = 186.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_3f0ud")
 
 [node name="Label2" type="Label" parent="Contributions/Wood-BG/VBoxContainer"]
 layout_mode = 2
