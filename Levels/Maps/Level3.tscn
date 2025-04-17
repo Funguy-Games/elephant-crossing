@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="20_rlbhv"]
 [ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="21_w8jd1"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="22_jf2l5"]
-[ext_resource type="PackedScene" uid="uid://mtovpk07i0jl" path="res://Levels/UI/ProgressIndicator.tscn" id="23_2umim"]
+[ext_resource type="PackedScene" path="res://Levels/UI/ProgressIndicator.tscn" id="23_2umim"]
 [ext_resource type="PackedScene" uid="uid://dg7uo75bcnpy8" path="res://Levels/UI/EndScreen.tscn" id="24_63x0q"]
 [ext_resource type="PackedScene" uid="uid://btto7he2e26a2" path="res://Levels/Baskets/BottleBasket.tscn" id="24_i3ntt"]
 [ext_resource type="Texture2D" uid="uid://gjqdifxiiwfw" path="res://Art/map/RiverParts/joki_2.2.png" id="25_jnv7n"]
