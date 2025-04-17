@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8o8ia5xvr1n1"]
 
-[ext_resource type="AudioStream" uid="uid://se4sx5wn5omh" path="res://Sounds/nature-soundstropicaljunglebirdswithbongos.mp3" id="1_waxd1"]
+[ext_resource type="AudioStream" uid="uid://begxuwwo58v3j" path="res://Sounds/nature-soundstropicaljunglebirdswithbongos-5db.mp3" id="1_0g1wh"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 process_mode = 3
-stream = ExtResource("1_waxd1")
+stream = ExtResource("1_0g1wh")
 autoplay = true
 bus = &"Music"
