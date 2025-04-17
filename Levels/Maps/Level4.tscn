@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://sdi45l6k0kke" path="res://Art/map/RiverParts/joki_1.2.png" id="20_xri06"]
 [ext_resource type="PackedScene" uid="uid://btto7he2e26a2" path="res://Levels/Baskets/BottleBasket.tscn" id="21_21f8y"]
 [ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="21_jqanf"]
-[ext_resource type="PackedScene" uid="uid://vy24krgaihye" path="res://Levels/Baskets/TrashBasket.tscn" id="22_tvtdk"]
+[ext_resource type="PackedScene" path="res://Levels/Baskets/TrashBasket.tscn" id="22_tvtdk"]
 
 [sub_resource type="Curve2D" id="Curve2D_sb1bo"]
 _data = {
