@@ -60,11 +60,11 @@ public partial class Level : Node2D
 			_progressViewer.SetMax(_trashInPlay);
 			_progressViewer.Reset();
 
-			float pointsForStar = _trashInPlay / 3;
+			float pointsForStar = (float) _trashInPlay / 3;
 
-			_progressViewer.SetStarIndicator((int)pointsForStar);
-			_progressViewer.SetStarIndicator((int)pointsForStar * 2);
-			_progressViewer.SetStarIndicator((int)pointsForStar * 3);
+			_progressViewer.SetStarIndicator((int) MathF.Ceiling(pointsForStar));
+			_progressViewer.SetStarIndicator((int) MathF.Ceiling(pointsForStar * 2));
+			_progressViewer.SetStarIndicator((int) MathF.Ceiling(pointsForStar * 3));
 		}
 
 		_trashInTotal = _trashInPlay;
@@ -100,7 +100,9 @@ public partial class Level : Node2D
 		{
 			GetNode<SpawnChild>("CrocodileSpawn").Start();
 		}
-
+		//??? this is a weird solution
+		//TODO: Find a different solution for starting the game
+		//one possibility is using Groups
 		GetNode<SpawnChild>("TrashSpawn").Start();
 
 		if (HasNode("TrashSpawn2"))

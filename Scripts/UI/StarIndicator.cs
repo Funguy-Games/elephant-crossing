@@ -7,6 +7,7 @@ public partial class StarIndicator : Control
     [Export] private Texture2D _activeStar = null;
     [Export] private Texture2D _deactiveStar = null;
     private Tween _tween;
+    private bool _isActive = false;
 
     public override void _Ready()
     {
@@ -18,8 +19,12 @@ public partial class StarIndicator : Control
     /// </summary>
     public void Activate()
     {
+        if(_isActive)
+            return;
+
         _starSprite.Texture = _activeStar;
         Animate();
+        _isActive = true;
     }
 
     private void Animate()

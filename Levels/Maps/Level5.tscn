@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dtpni2sexxh0t"]
+[gd_scene load_steps=26 format=3 uid="uid://dtpni2sexxh0t"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_g4f71"]
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_f7luc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="5_ejwq5"]
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="6_grxur"]
 [ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="7_vvrw0"]
+[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="7_y7ubv"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="8_7favw"]
 [ext_resource type="Script" path="res://Scripts/UI/ProgressViewer.cs" id="9_4q17j"]
 [ext_resource type="PackedScene" uid="uid://cijfxykeihtcg" path="res://Levels/UI/StarIndicator.tscn" id="10_xgjvk"]
@@ -22,15 +23,21 @@
 [ext_resource type="PackedScene" uid="uid://btto7he2e26a2" path="res://Levels/Baskets/BottleBasket.tscn" id="20_ydiq3"]
 [ext_resource type="PackedScene" uid="uid://vy24krgaihye" path="res://Levels/Baskets/TrashBasket.tscn" id="21_su8w7"]
 
-[sub_resource type="Resource" id="Resource_0gd2l"]
-script = ExtResource("6_grxur")
-trashType = ExtResource("7_vvrw0")
-TrashAmount = 20
-
 [sub_resource type="Resource" id="Resource_i1c6d"]
 script = ExtResource("6_grxur")
 trashType = ExtResource("8_7favw")
 TrashAmount = 10
+
+[sub_resource type="Resource" id="Resource_0gd2l"]
+script = ExtResource("6_grxur")
+trashType = ExtResource("7_vvrw0")
+TrashAmount = 10
+
+[sub_resource type="Curve2D" id="Curve2D_w4otp"]
+_data = {
+"points": PackedVector2Array(-212.081, 79.4284, 212.081, -79.4284, -443, -151, -98.619, -1.50474, 98.619, 1.50474, 10, -95, -187.649, 9.18623, 187.649, -9.18623, 396, -215)
+}
+point_count = 3
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("_progressViewer", "_scoreBroad", "_endScreen", "_fade", "_saveSystem")]
 position = Vector2(641, 360)
@@ -85,23 +92,31 @@ texture = ExtResource("4_yxj7y")
 position = Vector2(0, 37)
 scale = Vector2(0.185, 0.185)
 
-[node name="TopSpawn" type="Node2D" parent="."]
+[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("_path")]
 position = Vector2(152, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("5_ejwq5")
-_trashArray = Array[Object]([SubResource("Resource_0gd2l"), SubResource("Resource_i1c6d")])
+_path = NodePath("../Top Path")
+_crocodile = ExtResource("7_y7ubv")
+_chanceIncrease = 0.1
+_trashArray = Array[Object]([SubResource("Resource_i1c6d")])
+_startChance = 0.25
 
-[node name="Timer" type="Timer" parent="TopSpawn"]
+[node name="Timer" type="Timer" parent="TrashSpawn"]
 wait_time = 0.195
 autostart = true
 
-[node name="BottomSpawn" type="Node2D" parent="."]
+[node name="TrashSpawn2" type="Node2D" parent="." node_paths=PackedStringArray("_path")]
 position = Vector2(152, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("5_ejwq5")
-_trashArray = Array[Object]([SubResource("Resource_0gd2l"), SubResource("Resource_i1c6d")])
+_path = NodePath("../Bot Path")
+_crocodile = ExtResource("7_y7ubv")
+_chanceIncrease = 0.1
+_trashArray = Array[Object]([SubResource("Resource_0gd2l")])
+_startChance = 0.25
 
-[node name="Timer" type="Timer" parent="BottomSpawn"]
+[node name="Timer" type="Timer" parent="TrashSpawn2"]
 wait_time = 0.195
 autostart = true
 
@@ -221,5 +236,12 @@ position = Vector2(5, -219)
 
 [node name="Basket2" parent="." instance=ExtResource("21_su8w7")]
 position = Vector2(7, 280)
+
+[node name="Top Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_w4otp")
+
+[node name="Bot Path" type="Path2D" parent="."]
+position = Vector2(0, 288)
+curve = SubResource("Curve2D_w4otp")
 
 [connection signal="pressed" from="PauseButtonLayer/TextureButton" to="PauseMenuLayer/PauseMenu" method="OpenPauseMenu"]
