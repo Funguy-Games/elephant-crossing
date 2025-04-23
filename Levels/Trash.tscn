@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bbcirnsxs1ug5" path="res://Art/RiverItems/IMG_3066.png" id="2_wy6jh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6n2jk"]
-size = Vector2(50, 24)
+size = Vector2(70, 23)
 
 [node name="Trash" type="PathFollow2D"]
 rotates = false
@@ -15,11 +15,11 @@ _trashState = ExtResource("2_mhps4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(0.13, 0.1025)
+scale = Vector2(0.18, 0.141)
 texture = ExtResource("2_wy6jh")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Pickupable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 1)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_6n2jk")

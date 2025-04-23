@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bmto2xvdhxyi1"]
+[gd_scene load_steps=30 format=3 uid="uid://bmto2xvdhxyi1"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_s5sty"]
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_hxyhm"]
@@ -19,10 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://dxj5bdv8rj4fr" path="res://Art/UI/pause_button.png" id="16_d4non"]
 [ext_resource type="Texture2D" uid="uid://cekivrcio3umi" path="res://Art/UI/pause_buttonPressed.png" id="17_efwqk"]
 [ext_resource type="PackedScene" uid="uid://dg7uo75bcnpy8" path="res://Levels/UI/EndScreen.tscn" id="19_7ljqn"]
-[ext_resource type="Texture2D" uid="uid://sdi45l6k0kke" path="res://Art/map/RiverParts/joki_1.2.png" id="20_xri06"]
 [ext_resource type="PackedScene" uid="uid://btto7he2e26a2" path="res://Levels/Baskets/BottleBasket.tscn" id="21_21f8y"]
 [ext_resource type="PackedScene" uid="uid://bd1tx1h8cigpb" path="res://Levels/PauseMenu.tscn" id="21_jqanf"]
-[ext_resource type="PackedScene" path="res://Levels/Baskets/TrashBasket.tscn" id="22_tvtdk"]
+[ext_resource type="PackedScene" uid="uid://vy24krgaihye" path="res://Levels/Baskets/TrashBasket.tscn" id="22_tvtdk"]
 
 [sub_resource type="Curve2D" id="Curve2D_sb1bo"]
 _data = {
@@ -99,12 +98,6 @@ scale = Vector2(0.622173, 0.622173)
 texture = ExtResource("3_tjva7")
 
 [node name="River" type="Node2D" parent="Map"]
-
-[node name="Joki1_2" type="Sprite2D" parent="Map/River"]
-visible = false
-position = Vector2(-8, 1)
-scale = Vector2(1, 3.92391)
-texture = ExtResource("20_xri06")
 
 [node name="Jokipaksuu" type="Sprite2D" parent="Map/River"]
 position = Vector2(14, 75)
