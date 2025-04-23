@@ -188,11 +188,8 @@ vertical_alignment = 1
 [node name="Node" type="Node" parent="."]
 script = ExtResource("12_kps4w")
 
-[node name="EndScreen" parent="." node_paths=PackedStringArray("_sceneManager") instance=ExtResource("13_rp3dm")]
-visible = false
-_sceneManager = NodePath("../Node")
-
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
+layer = 10
 visible = false
 script = ExtResource("14_34g0v")
 _fadeSpeed = 2.0
@@ -223,6 +220,9 @@ scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("16_3djc7")
 texture_pressed = ExtResource("17_1i6o5")
 metadata/_edit_use_anchors_ = true
+
+[node name="EndScreen" parent="." node_paths=PackedStringArray("_sceneManager") instance=ExtResource("13_rp3dm")]
+_sceneManager = NodePath("../Node")
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 

@@ -55,7 +55,7 @@ public partial class EndScreen : CanvasLayer
 		if (amount >= 1.0f)
 		{
 			// Skipping the first message
-			messageIndex = (int) (amount / (float) _maxStars * _endMessages.Length - 2) + 1;
+			messageIndex = (int) (amount / (float) _maxStars * (_endMessages.Length - 2)) + 1;
 		}
 		string text = _endMessages[messageIndex];
 
