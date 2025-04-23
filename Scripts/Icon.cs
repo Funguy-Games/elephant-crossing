@@ -14,22 +14,31 @@ public partial class Icon : PathFollow2D
 {
 	[Export] public float Speed = 100;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame
+
+	/// <summary>
+	/// The type of river item this icon represents.
+	/// </summary>
 	[Export]
-	public RiverItem Type
-	{
-		get; private set;
-	}
+	public RiverItem Type { get; private set; }
 
 	public bool isMoving = true;
+
 	private Sprite2D _trashSprite = null;
 	[Export] private Texture2D _trashState = null;
-	private Vector2 position = Vector2.Zero;
+	private Vector2 _position = Vector2.Zero;
 
+	/// <summary>
+	/// Called when the node is added to the scene.
+	/// </summary>
 	public override void _Ready()
 	{
 		_trashSprite = GetNode<Sprite2D>("Sprite2D");
 	}
+
+	/// <summary>
+	/// Updates the position and behavior of the icon each frame.
+	/// </summary>
+	/// <param name="delta">Time elapsed since the previous frame.</param>
 	public override void _Process(double delta)
 	{
 		if (!isMoving)
@@ -39,9 +48,11 @@ public partial class Icon : PathFollow2D
 		}
 
 		Progress += (float)delta * Speed;
+
 		if (Type == RiverItem.None)
 		{
-			if (GlobalPosition.X < position.X)
+			// Flip based on movement direction
+			if (GlobalPosition.X < _position.X)
 			{
 				GetNode<Sprite2D>("Sprite2D").FlipV = true;
 			}
@@ -49,13 +60,13 @@ public partial class Icon : PathFollow2D
 			{
 				GetNode<Sprite2D>("Sprite2D").FlipV = false;
 			}
-			position = GlobalPosition;
+			_position = GlobalPosition;
 		}
+		
 		if (ProgressRatio == 1)
 		{
 			if (Type != RiverItem.None)
 			{
-				// Level.Current.Score -= 1;
 				Level.Current.TrashInPlay -= 1;
 			}
 

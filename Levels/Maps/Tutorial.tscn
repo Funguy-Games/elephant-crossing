@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b3klvpbm1bsun"]
+[gd_scene load_steps=23 format=3 uid="uid://b3klvpbm1bsun"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_mdkg2"]
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_4oicy"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://ywkrwow6qj54" path="res://Art/map/RiverParts/suorajoki.png" id="4_6a3ll"]
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="4_8mcdo"]
 [ext_resource type="Script" path="res://Scripts/SpawnChild.cs" id="5_nqnng"]
-[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="6_d11xf"]
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="7_wprqv"]
 [ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="8_em1ax"]
 [ext_resource type="PackedScene" uid="uid://cv3706qvydyt1" path="res://Levels/Trash.tscn" id="9_1wrqj"]
@@ -84,7 +83,6 @@ scale = Vector2(0.185, 0.185)
 position = Vector2(152, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("5_nqnng")
-roar = ExtResource("6_d11xf")
 _trashArray = Array[Object]([SubResource("Resource_0gd2l"), SubResource("Resource_i1c6d")])
 
 [node name="Timer" type="Timer" parent="TrashSpawn"]

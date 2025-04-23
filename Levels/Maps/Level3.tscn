@@ -132,12 +132,12 @@ _neededPoints = 5
 position = Vector2(82, 63)
 _neededPoints = 5
 
-[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("path")]
+[node name="TrashSpawn" type="Node2D" parent="." node_paths=PackedStringArray("_path")]
 position = Vector2(152, -9)
 scale = Vector2(1, 0.675885)
 script = ExtResource("18_ba8sw")
-path = NodePath("../Path2D")
-roar = ExtResource("19_15fh4")
+_path = NodePath("../Path2D")
+_crocodile = ExtResource("19_15fh4")
 _maxSpawnTime = 2.0
 _chanceIncrease = 0.25
 _trashArray = Array[Object]([SubResource("Resource_fdkcj"), SubResource("Resource_62g2x")])

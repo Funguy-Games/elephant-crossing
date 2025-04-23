@@ -70,7 +70,10 @@ public partial class Elephant : Node2D
 			RotateElephantBody();
 
 			if (_carryable != null)
+			{
 				_carryable.GlobalPosition = _trunkHead.GlobalPosition;
+				_carryable.GlobalRotationDegrees = _trunkHead.GlobalRotationDegrees + 90;
+			}
 		}
 	}
 
@@ -79,7 +82,6 @@ public partial class Elephant : Node2D
 		if (body.IsInGroup("Pickupable"))
 		{
 			PickupItem(body);
-			GetNode<AudioStreamPlayer2D>("PickupAudio").Play();
 		}
 		else if (body.IsInGroup("Basket"))
 		{
@@ -174,6 +176,7 @@ public partial class Elephant : Node2D
 	{
 		if (_carryable == null)
 		{
+			GetNode<AudioStreamPlayer2D>("PickupAudio").Play();
 			_carryable = item.GetParent<Icon>();
 			_carryable.isMoving = false;
 		}

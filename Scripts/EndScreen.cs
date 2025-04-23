@@ -40,7 +40,7 @@ public partial class EndScreen : CanvasLayer
 
 	public void GoNext()
 	{
-		_sceneManager.LoadMainMenu();
+		_sceneManager.LoadLevelSelector();
 	}
 
 	private void SetEndText(float amount)

@@ -15,7 +15,7 @@ Type = 2
 _trashState = ExtResource("2_p86ty")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.193, 0.2)
+scale = Vector2(0.138, 0.143)
 texture = ExtResource("2_bmdcp")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Pickupable"]]

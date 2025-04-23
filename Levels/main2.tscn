@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dcykdiacynblq"]
+[gd_scene load_steps=31 format=3 uid="uid://dcykdiacynblq"]
 
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="1_ejxtn"]
 [ext_resource type="Texture2D" uid="uid://x43tobbfeatw" path="res://Art/map/Array of lehdistö.kra.png" id="2_pjx2c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkq5sixfyrbon" path="res://Characters/elephant.tscn" id="7_2abx3"]
 [ext_resource type="Script" path="res://Scripts/Trash.cs" id="9_tf03o"]
 [ext_resource type="PackedScene" uid="uid://bvkwhaiwidrcf" path="res://Levels/Bottle.tscn" id="10_lrv35"]
+[ext_resource type="PackedScene" uid="uid://calekdr00m04y" path="res://Levels/Krokotiili.tscn" id="14_cu8ed"]
 [ext_resource type="Texture2D" uid="uid://sdi45l6k0kke" path="res://Art/map/RiverParts/joki_1.2.png" id="20_vok7f"]
 [ext_resource type="Texture2D" uid="uid://gjqdifxiiwfw" path="res://Art/map/RiverParts/joki_2.2.png" id="21_jdc2p"]
 [ext_resource type="Script" path="res://Scripts/UI/ProgressViewer.cs" id="23_em0tc"]
@@ -114,14 +115,16 @@ curve = SubResource("Curve2D_p3ftw")
 [node name="RoarPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_b0j0j")
 
-[node name="CrocodileSpawn" parent="." node_paths=PackedStringArray("path") instance=ExtResource("7_1fs6q")]
-path = NodePath("../RoarPath")
+[node name="CrocodileSpawn" parent="." node_paths=PackedStringArray("_path") instance=ExtResource("7_1fs6q")]
+_path = NodePath("../RoarPath")
+_crocodile = ExtResource("14_cu8ed")
 _minSpawnTime = 2.0
 _trashArray = Array[Object]([SubResource("Resource_28tyq")])
 _startChance = 1.0
 
-[node name="TrashSpawn" parent="." node_paths=PackedStringArray("path") instance=ExtResource("7_1fs6q")]
-path = NodePath("../TrashPath")
+[node name="TrashSpawn" parent="." node_paths=PackedStringArray("_path") instance=ExtResource("7_1fs6q")]
+_path = NodePath("../TrashPath")
+_crocodile = ExtResource("14_cu8ed")
 _minSpawnTime = 4.0
 _maxSpawnTime = 6.0
 _chanceIncrease = 0.0
